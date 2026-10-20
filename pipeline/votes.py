@@ -31,19 +31,25 @@ def count(options, all_comments):
     return collections.Counter(by_user.values())
 
 
-def main(ep_id):
-    mem = json.load(open(MEM))
-    ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
+def fetch(ep):
+    """Commentaires de toutes les plateformes d'un épisode (une plateforme en panne ne bloque pas)."""
     allc = []
     for platform, post in ep.get("posts", {}).items():
         try:
             cs = comments(platform, post)
-        except Exception as e:  # une plateforme en panne ne bloque pas le vote
+        except Exception as e:
             print(f"[{platform}] commentaires indisponibles : {e}")
             continue
         for c in cs:
             c["platform"] = platform
         allc += cs
+    return allc
+
+
+def main(ep_id):
+    mem = json.load(open(MEM))
+    ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
+    allc = fetch(ep)
     res = count(ep["vote"], allc)
     total = sum(res.values())
     winner = res.most_common(1)[0][0] if res else None

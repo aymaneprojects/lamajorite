@@ -10,6 +10,17 @@ Publication : **21h00 heure de Paris**, 7j/7, TikTok + Instagram + YouTube. Lire
 ## Passage 1 — 19h05 : produire et programmer l'épisode du jour
 0. **Installer** si besoin : `./setup.sh` (dépendances + images Drive). Vérifier `python3 pipeline/upload_post.py me`.
    Clé absente ou refusée → ne pas publier, préparer quand même la vidéo, l'envoyer au propriétaire, carte « Bloqué » dans KANBAN.
+0b. **Règle des 20 commentaires** (dernier épisode publié `PX`) : `python3 pipeline/relance.py PX`.
+   - `continuer` (≥ 20 commentaires du public, nos réponses exclues) → suite normale (étape 1).
+   - `attendre` (post de moins de 22 h) → suite normale si un épisode doit sortir, sinon rien.
+   - `relancer` (< 20 commentaires après 22 h) → **pas de nouvel épisode aujourd'hui** :
+     `python3 pipeline/relance.py PX --executer` (archive la tentative dans MEMOIRE, supprime YouTube par l'API,
+     nouvelle accroche de légende). TikTok et Instagram n'ont pas d'API de suppression : envoyer au propriétaire
+     `out/PX_a_supprimer.txt` (liens à supprimer avant 21h00) + carte KANBAN « À supprimer ». Si `out/PX.mp4` n'existe
+     plus, le refabriquer (`./make_episode.sh PX images`) et refaire le contrôle qualité (qa.py + directeur-qa).
+     Puis `engage.py PX`, et republier à 21h00 (étape 8 avec `out/PX_meta.json`), puis passer à l'étape 9.
+   - `alerte` (3 relances sans 20 commentaires) → ne pas republier ; proposer au propriétaire 3 nouvelles accroches
+     et une nouvelle miniature, carte KANBAN « Accroche à revoir », et attendre son choix.
 1. **Vote d'hier** (dernier épisode publié `PX`) : `python3 pipeline/votes.py PX` → nombre de commentaires, votes par option,
    gagnant, pseudos (« Personnes d'intérêt »), extraits. Puis `python3 pipeline/engage.py PX` (réponses aux nouveaux commentaires).
 2. **Scénario** — déléguer à l'agent **`scenariste`** (`.claude/agents/scenariste.md`, outil Agent) : lui donner Y, le gagnant,
