@@ -4,7 +4,7 @@ Usage : python3 align.py P1 ../audio/P1.mp3 ../audio/P1_words.json [dossier_imag
 """
 import difflib, json, os, re, shutil, subprocess, sys, unicodedata
 from story_data import EPISODES
-from montage_specs import SPECS, CAPTION_FIXES
+from montage_specs import SPECS, CAPTION_FIXES, CAPTION_PAIR_FIXES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PAUSE = 0.45
@@ -121,7 +121,15 @@ def main(ep_id, audio, words_path, img_dir=None):
                                 os.path.join(out_dir, "img", stem + ".png")], check=True)
     have = {os.path.splitext(f)[0] for f in os.listdir(os.path.join(out_dir, "img"))}
 
-    caps = [{"w": CAPTION_FIXES.get(w["w"].lower(), w["w"]), "t0": w["t0"], "t1": w["t1"]} for w in words]
+    caps = []
+    for w in words:
+        prev = caps[-1] if caps else None
+        pair = (norm(prev["w"]), norm(w["w"])) if prev else None
+        if pair in CAPTION_PAIR_FIXES:
+            punct = re.sub(r"[\w']", "", w["w"])
+            caps[-1] = {"w": CAPTION_PAIR_FIXES[pair] + punct, "t0": prev["t0"], "t1": w["t1"]}
+        else:
+            caps.append({"w": CAPTION_FIXES.get(w["w"].lower(), w["w"]), "t0": w["t0"], "t1": w["t1"]})
     timeline = {"episode": ep_id, "title": ep["title"], "fps": 30, "duration": round(dur + TAIL, 3),
                 "voice": f"{ep_id}/voice.mp3", "music": "sfx/bed.mp3", "words": caps, "beats": beats,
                 "available": sorted(have)}

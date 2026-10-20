@@ -22,4 +22,5 @@ export type Timeline = {
   words: Word[];
   beats: Beat[];
   available: string[];
+  layers?: string[];
 };

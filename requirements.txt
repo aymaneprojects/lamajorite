@@ -4,3 +4,7 @@ numpy
 faster-whisper
 edge-tts
 gdown
+rembg
+onnxruntime
+opencv-python-headless
+pillow

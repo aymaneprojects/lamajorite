@@ -1,8 +1,12 @@
 render/node_modules/
 out/*.mp4
 render/public/P*/img/
+render/public/P*/layers/
 render/public/P*/voice.mp3
 __pycache__/
 images/*
 !images/.gitkeep
 drive_dl/
+render/public/brand/
+out/*.zip
+out/branding/*.png

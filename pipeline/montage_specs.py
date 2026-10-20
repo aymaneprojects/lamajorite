@@ -28,6 +28,9 @@ SPECS = {
 }
 
 # Corrections des mots mal transcrits par Whisper (affichage des sous-titres)
+# paires de mots mal découpées par Whisper
+CAPTION_PAIR_FIXES = {("track", "fin"): "Tracfin", ("traque", "fin"): "Tracfin"}
+
 CAPTION_FIXES = {
     "traquefins": "Tracfin", "traquefin": "Tracfin", "échauffeur": "chauffeur", "serré,": "serrés,",
 }
