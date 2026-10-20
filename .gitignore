@@ -11,3 +11,4 @@ render/public/brand/
 out/*.zip
 out/branding/*.png
 out/*_cover.png
+out/*.mp3
