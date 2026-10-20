@@ -33,7 +33,7 @@ def main(ep_id, result=None):
     if result:
         lines.append(result + ".")
     lines.append(f"Tu choisis quoi ? Commente {a} ou {b}. La majorité écrit la partie {n + 1}.")
-    lines.append(f"Abonne-toi pour ne pas rater la partie {n + 1}, demain 19h.")
+    lines.append(f"Abonne-toi pour ne pas rater la partie {n + 1}, demain 21h.")
     lines.append("#ChaqueBilletLaisseUneTrace #lamajorite #serie #histoire")
     credit = music_credit(ep_id)
     if credit:
@@ -42,13 +42,13 @@ def main(ep_id, result=None):
     meta = {
         "external_id": f"9m8-{ep_id}",
         "caption": caption,
-        "first_comment": f"🗳️ VOTE : {a} ou {b} ? Un seul mot. La majorité écrit la Partie {n + 1} demain 19h.",
+        "first_comment": f"🗳️ VOTE : {a} ou {b} ? Un seul mot. La majorité écrit la Partie {n + 1} demain 21h.",
         "youtube_title": f"9,8 MILLIONS · Partie {n} — {title} (c'est toi qui décides) #shorts",
         "youtube_description": f"Une histoire. Tu votes en commentaire. La majorité écrit la suite.\nVote : {a} ou {b}.\n"
-                               f"Nouvel épisode chaque jour à 19h. Fiction. Images et voix générées par IA.\n{credit or ''}\n#shorts #ChaqueBilletLaisseUneTrace",
+                               f"Nouvel épisode chaque jour à 21h. Fiction. Images et voix générées par IA.\n{credit or ''}\n#shorts #ChaqueBilletLaisseUneTrace",
         "tags": TAGS,
         "cover": f"out/{ep_id}_cover.png",  # relatif à la racine du dépôt
-        "schedule_paris": "19:00",
+        "schedule_paris": "21:00",
     }
     out = os.path.join(ROOT, "out", f"{ep_id}_meta.json")
     json.dump(meta, open(out, "w"), ensure_ascii=False, indent=1)

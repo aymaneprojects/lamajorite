@@ -7,6 +7,7 @@ Profil : UPLOAD_POST_USER (défaut « lamajorite »).
   python3 upload_post.py publish out/P1.mp4 meta.json [--private]
   python3 upload_post.py status <request_id>
   python3 upload_post.py comments <platform> <post_id|post_url>
+  python3 upload_post.py record PX <request_id|job_id>   → range les id/URL des posts dans MEMOIRE.json
 """
 import json, os, sys, uuid
 import requests
@@ -83,6 +84,37 @@ def status(request_id):
     return r.json()
 
 
+def status_job(job_id):
+    r = requests.get(f"{BASE}/uploadposts/status", headers=H(), params={"job_id": job_id}, timeout=30)
+    return r.json()
+
+
+def record(ep_id, ident):
+    """Lit le statut de la publication et range les id/URL des posts dans MEMOIRE.json (pour les votes et les réponses)."""
+    import datetime
+    st = status(ident)
+    if not st.get("results") and not st.get("platforms"):
+        st = status_job(ident)
+    results = st.get("results") or {}
+    if isinstance(results, list):
+        results = {r.get("platform"): r for r in results}
+    mem_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MEMOIRE.json")
+    mem = json.load(open(mem_path))
+    ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
+    posts, urls = ep.setdefault("posts", {}), ep.setdefault("urls", {})
+    for platform, r in results.items():
+        pid = r.get("post_id") or r.get("publish_id") or r.get("container_id")
+        if pid:
+            posts[platform] = str(pid)
+        if r.get("url"):
+            urls[platform] = r["url"]
+    ep["request_id"] = ident
+    if posts and not ep.get("publie_le"):
+        ep["publie_le"] = datetime.datetime.now().isoformat(timespec="minutes")
+    json.dump(mem, open(mem_path, "w"), ensure_ascii=False, indent=1)
+    return {"posts": posts, "urls": urls, "brut": st}
+
+
 def comments(platform, post, limit=100):
     """Tous les commentaires d'un post (pagination incluse)."""
     params = {"user": user(), "platform": platform, "limit": limit}
@@ -106,5 +138,7 @@ if __name__ == "__main__":
         print(json.dumps(publish(sys.argv[2], json.load(open(sys.argv[3])), "--private" in sys.argv), indent=1, ensure_ascii=False))
     elif cmd == "status":
         print(json.dumps(status(sys.argv[2]), indent=1, ensure_ascii=False))
+    elif cmd == "record":
+        print(json.dumps(record(sys.argv[2], sys.argv[3]), indent=1, ensure_ascii=False))
     elif cmd == "comments":
         print(json.dumps(comments(sys.argv[2], sys.argv[3]), indent=1, ensure_ascii=False))

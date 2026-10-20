@@ -3,12 +3,12 @@
   "nom": "La Majorité",
   "tiktok": "@lamajorite.serie",
   "upload_post_user": "lamajorite",
-  "heure_publication": "19:00 Europe/Paris, 7j/7",
+  "heure_publication": "21:00 Europe/Paris, 7j/7",
   "rythme": "1 épisode/jour",
   "saison": "9,8 MILLIONS",
   "repo": "https://github.com/aymaneprojects/lamajorite",
   "hashtag_serie": "#ChaqueBilletLaisseUneTrace",
-  "voix": "ElevenLabs « Paul K – French Ad / Trailer Voice » (ELEVENLABS_VOICE_ID) ; Benjamin en archive"
+  "voix": "ElevenLabs « Nicolas Petit » (voix de la série) ; Paul K et Benjamin en archive"
  },
  "etat_histoire": {
   "hud": {
@@ -22,17 +22,18 @@
  "episodes": [
   {
    "id": "P1",
-   "statut": "pret_a_publier — 20/10 non publié (clés absentes de l'environnement)",
+   "statut": "valide_pret_a_publier",
    "vote": [
     "GARDER",
     "POLICE"
    ],
-   "voix": "Paul K (fournie)",
+   "voix": "Nicolas Petit",
    "posts": {},
    "publie_le": null,
    "result": null,
-   "duree_s": 111,
-   "cover": "out/P1_cover.png"
+   "duree_s": 81.7,
+   "cover": "out/P1_cover.png",
+   "publication_prevue": "2026-10-20 21:00 Paris"
   },
   {
    "id": "P2",
@@ -101,11 +102,8 @@
  ],
  "maj": "2026-10-20",
  "automatisations": {
-  "routine_quotidienne": {
-   "id": "trig_01V2Yo1vLcdPripEHsqgmcKr",
-   "quand": "tous les jours 17h05 Paris, dans la session principale (accès dépôt + outils installés), publication programmée 19h00",
-   "suit": "RUNBOOK.md"
-  },
-  "bilan_hebdo": "le dimanche, dans la routine (pipeline/report.py)"
+  "production": "19h05 Paris — vote d'hier, réponses, écriture, voix, montage, contrôle, publication programmée 21h00",
+  "apres_publication": "23h35 Paris — enregistrement des posts, réponses aux premiers commentaires",
+  "bilan_hebdo": "dimanche, passage de 19h05"
  }
 }
