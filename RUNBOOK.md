@@ -23,6 +23,7 @@ But : un épisode publié à **19h00 heure de Paris** sur TikTok, Instagram et Y
 - Remplacer tous les `[CROCHETS]` (vues, top commentaire) par les vraies valeurs (en lettres dans la voix).
 
 ## 3. Fabriquer
+`git pull --rebase origin main` juste avant (le propriétaire a pu pousser des réglages pendant la session).
 `./make_episode.sh PY images` → voix (ElevenLabs, voix de la série ; secours edge-tts si crédits épuisés), calage, détourage 2.5D,
 montage, miniature `out/PY_cover.png`, méta `out/PY_meta.json`.
 Puis `python3 pipeline/pubkit.py PY "NN % d'entre vous ont dit MOT"` pour la légende avec le résultat.
