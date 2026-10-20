@@ -21,6 +21,7 @@ def main(ep_id):
         "youtube_description": f"Une histoire. Tu votes en commentaire. La majorité écrit la suite.\nVote : {a} ou {b}.\n"
                                f"Fiction. Images et voix générées par IA.\n#shorts #histoire #serie",
         "tags": TAGS,
+        "cover": os.path.join(ROOT, "out", f"{ep_id}_cover.png"),
     }
     out = os.path.join(ROOT, "out", f"{ep_id}_meta.json")
     json.dump(meta, open(out, "w"), ensure_ascii=False, indent=1)

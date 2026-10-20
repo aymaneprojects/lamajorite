@@ -54,9 +54,14 @@ def publish(video, meta, private=False):
             ("async_upload", "true")]
     data += [("platform[]", p) for p in meta.get("platforms", PLATFORMS)]
     data += [("tags[]", t) for t in meta.get("tags", [])]
-    with open(video, "rb") as f:
-        r = requests.post(f"{BASE}/upload", headers={**H(), "Idempotency-Key": meta["external_id"]},
-                          data=data, files={"video": (os.path.basename(video), f, "video/mp4")}, timeout=600)
+    files = {"video": (os.path.basename(video), open(video, "rb"), "video/mp4")}
+    cover = meta.get("cover")
+    if cover and os.path.exists(cover):
+        # même miniature partout : TikTok, Instagram (couverture du Reel), YouTube (chaîne vérifiée requise)
+        for field in ("tiktok_cover_image", "cover_image", "thumbnail"):
+            files[field] = (os.path.basename(cover), open(cover, "rb"), "image/png")
+    r = requests.post(f"{BASE}/upload", headers={**H(), "Idempotency-Key": meta["external_id"]},
+                      data=data, files=files, timeout=600)
     return r.status_code, r.json()
 
 

@@ -10,3 +10,4 @@ drive_dl/
 render/public/brand/
 out/*.zip
 out/branding/*.png
+out/*_cover.png
