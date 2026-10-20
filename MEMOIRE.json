@@ -22,7 +22,7 @@
  "episodes": [
   {
    "id": "P1",
-   "statut": "valide_pret_a_publier",
+   "statut": "envoye_proprietaire_publication_manuelle",
    "vote": [
     "GARDER",
     "POLICE"
@@ -33,7 +33,9 @@
    "result": null,
    "duree_s": 81.7,
    "cover": "out/P1_cover.png",
-   "publication_prevue": "2026-10-20 21:00 Paris"
+   "publication_prevue": "2026-10-20 21:00 Paris",
+   "job_id": null,
+   "note": "20/10 19h45 : clé Upload-Post absente → pas de publication auto ; P1 refabriquée (81,7 s, QA OK) et envoyée au propriétaire pour publication manuelle à 21h00. Après publication, renseigner posts (id/URL) pour le comptage des votes."
   },
   {
    "id": "P2",
@@ -105,5 +107,6 @@
   "production": "19h05 Paris — vote d'hier, réponses, écriture, voix, montage, contrôle, publication programmée 21h00",
   "apres_publication": "23h35 Paris — enregistrement des posts, réponses aux premiers commentaires",
   "bilan_hebdo": "dimanche, passage de 19h05"
- }
+ },
+ "setup_connu": "setup.sh : musiques Scott Buckley refusées (HTTP 406) sans en-têtes navigateur → téléchargées à la main avec User-Agent/Referer navigateur"
 }
