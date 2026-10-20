@@ -56,6 +56,8 @@ def publish(video, meta, private=False):
     data += [("tags[]", t) for t in meta.get("tags", [])]
     files = {"video": (os.path.basename(video), open(video, "rb"), "video/mp4")}
     cover = meta.get("cover")
+    if cover and not os.path.isabs(cover):
+        cover = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), cover)
     if cover and os.path.exists(cover):
         # même miniature partout : TikTok, Instagram (couverture du Reel), YouTube (chaîne vérifiée requise)
         for field in ("tiktok_cover_image", "cover_image", "thumbnail"):
