@@ -1,0 +1,237 @@
+===== day2 (92s)
+[  0.0] You just stole 10 million dollars.
+[  2.3] Almost 2 million people watched you do it.
+[  4.6] And 61% of them said, hide it.
+[  6.9] Problem is, cash is one of the hardest things on earth
+[  9.7] to hide, and somebody is already watching.
+[ 12.3] Suspicion, 35%.
+[ 14.2] Option one, bury it.
+[ 15.9] Paper money in the ground soaks up water,
+[ 18.0] grows mold, and rots.
+[ 19.6] And to swap rotten cash at the treasury,
+[ 21.6] you have to explain how it got that way.
+[ 23.4] Option two, a storage unit.
+[ 25.1] Most want your ID, your real name,
+[ 27.3] on a lease next to bags of cash.
+[ 29.4] Every mistake moves the needle.
+[ 31.2] Option three, a safe deposit box.
+[ 33.3] The bank can't see inside,
+[ 34.7] but every visit is logged and filmed.
+[ 37.1] Rule two, never keep it all in one place.
+[ 39.6] So you split it three ways.
+[ 41.4] Bag one, vacuum sealed and buried.
+[ 43.7] Bag two, the storage unit, paid a year up front in cash.
+[ 47.2] And bag three, the only hiding place
+[ 49.1] with no paper trail is a person, your cousin Dre.
+[ 52.7] No ID, no records, no cameras.
+[ 55.3] He's never had more than $400 in his account,
+[ 57.8] and he didn't ask a single question.
+[ 59.7] That should worry you.
+[ 61.4] Spend voters, the car would have been worse.
+[ 63.6] Any business that takes over 10,000 in cash
+[ 66.0] has 15 days to report it.
+[ 67.6] Meanwhile, the analyst ran your name.
+[ 69.7] Up came a storage lease, 12 months, paid in cash.
+[ 73.0] Suspicion just jumped to 52%.
+[ 75.3] 312 AM, your phone lights up, it's Dre.
+[ 78.9] I saw what's in the bag, I need 50K.
+[ 81.0] Do you pay him or move the bag tonight?
+[ 82.9] Every choice you make can get you caught
+[ 84.7] or set you free.
+[ 85.9] Comment, pay or move.
+[ 87.4] Part three follows what you pick.
+===== day3 (103s)
+[  0.0] You stole 10 million dollars.
+[  2.0] Your cousin found out, so you paid him 50 grand to keep quiet.
+[  5.2] He did.
+[  6.1] His new chain didn't.
+[  7.4] Over a million of you watched part two.
+[  9.5] 59% said pay him.
+[ 11.5] And your top comment said, pay the man and take the bag back.
+[ 14.9] So you did both.
+[ 15.7] Tonight, you find out what your cousin is really worth.
+[ 18.6] Suspicion, 58%.
+[ 20.7] Dre had 50 grand and 48 hours.
+[ 23.5] A gold chain, new rims, bottle service, all cash.
+[ 27.4] Here's the thing about cash.
+[ 28.8] Any business that takes more than 10,000 of it
+[ 31.1] has to report the buyer by name.
+[ 33.3] Dre's name went in twice.
+[ 35.1] Meanwhile, the analysts noticed.
+[ 37.0] A guy who never had more than $400 in his account
+[ 39.9] just spent 50,000 in two days.
+[ 42.6] So he looked at Dre's family,
+[ 44.4] and one name was already on his board, yours.
+[ 47.1] The storage lease gave him a unit number.
+[ 49.0] He's had a camera on it since Tuesday.
+[ 51.0] Suspicion, 72.
+[ 52.8] Then you made your own mistake.
+[ 54.6] You took bag three back from Dre,
+[ 56.6] and to save a trip,
+[ 57.7] you buried it with bag one.
+[ 59.2] Rule two, never keep it all in one place.
+[ 62.0] You broke it.
+[ 62.9] $6.5 million, one hole.
+[ 66.0] One of you said it best.
+[ 67.2] That 50K is an inch, he'll take a mile.
+[ 70.0] Dre followed you.
+[ 71.0] Three cars back, the whole drive.
+[ 73.4] 2 a.m., you're patting down the dirt, headlights.
+[ 76.2] Dre looks at the hole.
+[ 77.4] 50 was the inch, cause I want half.
+[ 79.6] Half, or I start talking.
+[ 81.5] What you can't see is the road behind him.
+[ 84.0] Dre followed you, and someone followed Dre.
+[ 86.7] So, do you split it with him,
+[ 88.4] or refuse, and find out if he's bluffing?
+[ 90.7] Comment, split, or refuse.
+[ 92.6] The majority writes part four.
+[ 94.6] There's a third way out.
+[ 95.7] It's cold, it's cruel,
+[ 97.6] and it's been in your pocket this whole episode.
+===== day4 (97s)
+[  0.0] You stole $10 million.
+[  2.2] Your cousin wants half, or he talks.
+[  5.0] 88% of you said no.
+[  7.2] So he went for the bags.
+[  9.1] You swung, hard.
+[ 11.2] He came back harder.
+[ 12.7] Two cousins fighting in a hole on $6.5 million.
+[ 17.2] You ripped off the chain your money paid for.
+[ 19.8] He got up, barely, and drove off bleeding.
+[ 23.0] Then a second car pulled out behind him, lights off.
+[ 26.0] And for one second, you saw the plate.
+[ 28.6] Same car that was parked outside Dre's place.
+[ 31.0] The night you took bag three.
+[ 32.6] Someone's been watching Dre for days,
+[ 34.9] and now they're following him, bleeding, alone.
+[ 38.3] You called him.
+[ 39.7] Nothing.
+[ 40.5] You called again.
+[ 41.7] So you did the only thing left.
+[ 43.6] You took two bags and left.
+[ 45.7] Bag two stays in unit 214, too far.
+[ 48.9] $6.5 million.
+[ 51.4] Your little hatchback is on its knees.
+[ 53.9] 540 AM, your phone lights up.
+[ 56.6] Dre, he's alive.
+[ 58.2] And the police are at his door.
+[ 59.8] Morning, Dre.
+[ 60.7] Nice eyebrow.
+[ 61.7] Where's your chain?
+[ 62.8] His chain is on your passenger seat.
+[ 65.1] Now Dre has to choose.
+[ 66.8] Talk or lie.
+[ 68.2] That's his vote, and it's on his own account.
+[ 70.7] And here's what Dre doesn't know.
+[ 72.4] Police are allowed to lie to him.
+[ 74.5] They can say you already confessed.
+[ 76.2] The Supreme Court allowed exactly that
+[ 78.4] in a case about two cousins.
+[ 80.1] So what do you think Dre does?
+[ 82.4] If you think he talks, run right now.
+[ 85.2] If you think he lies, stay.
+[ 87.2] Go home, act normal.
+[ 89.0] Comment, run, or stay.
+[ 90.9] Your vote plus Dre's writes part five.
+===== day5 (108s)
+[  0.0] You stole 10 million dollars.
+[  2.2] The police are one knock away.
+[  4.4] So tonight, you're paying a stranger to make you disappear.
+[  7.4] Your name, your home, your whole life, gone in two hours.
+[ 11.8] She has one rule.
+[ 13.3] Nobody you love gets to know.
+[ 15.5] Every night, the comments decide what you do.
+[ 18.0] You hid the money.
+[ 19.0] Your cousin, Dre, found it and wanted half.
+[ 21.2] You said no with a shovel.
+[ 23.0] This morning, police knocked on his door
+[ 25.4] and 71% of you said, run.
+[ 28.2] So you drove 6 and 1 half million in the trunk.
+[ 31.0] Dre's broken chain on the seat.
+[ 33.0] At a motel off the highway, a clerk who never asks names
+[ 36.4] writes you a number for people who need to not exist.
+[ 39.7] She shows up in a plain white van.
+[ 42.1] Two hours, lights stay on, no phone, no goodbyes.
+[ 46.6] And my fee, $1 million cash up front.
+[ 51.4] And this is a real job.
+[ 53.1] In Japan, they're called night movers.
+[ 55.2] They pack up a whole life before sunrise
+[ 57.7] and thousands of people vanish that way every year.
+[ 60.8] Here's what you don't know.
+[ 62.2] On Dre's own page, 98% of you told him to lie.
+[ 66.0] He did.
+[ 66.8] At noon, they let him go.
+[ 68.3] Dre sits in his car, one working door
+[ 70.9] and a roof full of stars.
+[ 72.6] Lifestyle customs in Queens did that roof.
+[ 74.8] The week you paid him, his one dream.
+[ 77.4] Across the street, a car from the woods is still parked.
+[ 80.6] His text, they let me go.
+[ 82.2] Call me.
+[ 83.0] But police don't just let people go.
+[ 85.6] Either he lied or he made a deal.
+[ 87.8] The fixer asks one thing.
+[ 90.2] Who else knows?
+[ 91.9] Your cousin.
+[ 93.4] Then he comes tonight.
+[ 94.9] Or he never hears from you again.
+[ 97.8] Send this to the cousin you take with you.
+[100.1] Comment, bring or cut.
+[102.0] The majority writes part six.
+===== day6 (147s)
+[  0.0] You stole 10 million dollars.
+[  2.2] In two hours, you stop existing.
+[  4.7] New town, new name.
+[  6.5] And you're the one who picks it.
+[  8.2] Last night, 74% of you said leave your cousin behind.
+[ 12.2] The one who lied to the police for you.
+[ 14.3] Every night, the comments decide what you do.
+[ 17.3] Tonight, she takes you home.
+[ 19.3] One last time.
+[ 21.7] Lights stay on.
+[ 23.0] TV stays on.
+[ 24.4] Your phone goes in the microwave.
+[ 26.6] Nobody you love gets a goodbye.
+[ 29.2] Last thing.
+[ 30.4] Who are you now?
+[ 32.9] Comment a name.
+[ 34.1] The most liked one is who you are for the rest of the season.
+[ 37.7] 158 on the clock.
+[ 39.4] Then he shows up.
+[ 42.4] Cuzz, open up.
+[ 43.8] It's me.
+[ 49.4] What you don't know,
+[ 50.8] the feds gave him a wire for when you call.
+[ 53.6] 76% told him to burn it.
+[ 56.0] He did.
+[ 56.8] He came to tell you.
+[ 58.3] No goodbyes.
+[ 60.6] He lied for you.
+[ 61.9] He burned it for you and you left him standing at your door.
+[ 67.9] Back at your building, a car pulls up behind him.
+[ 71.0] The car from the woods, the feds.
+[ 73.7] They let him go as bait and he burned their wire.
+[ 76.7] Now they're done waiting.
+[ 78.6] So Dre runs.
+[ 83.0] And the man hunting you walks into your empty apartment.
+[ 86.3] On his board, one name in the middle, Dre.
+[ 91.9] Unit four status.
+[ 95.8] He's gone.
+[ 96.9] No, I didn't call it in.
+[ 98.9] I told him 30 days.
+[101.8] Remember this badge.
+[104.4] Men who vanish get hunted.
+[106.8] Men with someone to blame get forgotten.
+[110.0] His chain bought with your money in his name.
+[113.7] Bag two is still in storage unit 214.
+[116.8] The feds have a camera on that door.
+[118.9] Leave his chain inside next to the money.
+[121.4] When they open it, they find stolen cash and Dre's chain.
+[125.1] And Dre does your 20 years.
+[127.6] One chain and you're free forever.
+[132.1] He'd never do it to you.
+[133.8] But this isn't his choice.
+[135.6] It's yours.
+[136.8] Your freedom or his comment frame or spare.
+[140.4] The majority writes part seven.

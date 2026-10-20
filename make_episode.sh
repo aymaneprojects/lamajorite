@@ -7,10 +7,12 @@ cd "$(dirname "$0")"
 python3 pipeline/voice.py "$EP"
 (cd pipeline && python3 align.py "$EP" "../audio/$EP.mp3" "../audio/${EP}_words.json" "../$IMG")
 BROWSER=$(ls -d /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell 2>/dev/null | head -1 || true)
-(cd render && npx remotion render src/index.ts Episode "../out/$EP.mp4" --props="{\"episode\":\"$EP\"}" \
+(cd render && npx remotion render src/index.ts Episode "../out/${EP}_video.mp4" --props="{\"episode\":\"$EP\"}" \
    ${BROWSER:+--browser-executable=$BROWSER} --concurrency=4 --log=error)
-# volume normalisé pour les réseaux (-14 LUFS)
-ffmpeg -y -v error -i "out/$EP.mp4" -c:v libx264 -crf 20 -preset medium -pix_fmt yuv420p -movflags +faststart -af loudnorm=I=-14:TP=-1.5:LRA=11 -ar 44100 -b:a 192k "out/${EP}_n.mp4" && mv "out/${EP}_n.mp4" "out/$EP.mp4"
+# image compressée + mixage studio (voix > musique > effets), normalisé à -14 LUFS
+ffmpeg -y -v error -i "out/${EP}_video.mp4" -c:v libx264 -crf 20 -preset medium -pix_fmt yuv420p -c:a copy "out/${EP}_v.mp4"
+python3 pipeline/mix.py "$EP" "out/${EP}_v.mp4" "out/$EP.mp4" && rm -f "out/${EP}_video.mp4" "out/${EP}_v.mp4"
+python3 pipeline/qa.py "$EP" > /dev/null && echo "contrôle qualité : out/${EP}_qa.md"
 # miniature : image X_cover_PX + « PARTIE X » + titre de l'épisode
 mkdir -p render/public/brand
 COVER_SRC=$(ls "$IMG/X_cover_$EP".* 2>/dev/null | head -1 || true)

@@ -9,11 +9,11 @@ export const C = {
 };
 
 export const fontsCss = `
-@font-face{font-family:Jakarta;font-weight:200 800;src:url(${staticFile('fonts/PlusJakartaSans-VF.ttf')})}
+@font-face{font-family:InterTight;font-weight:100 900;src:url(${staticFile('fonts/InterTight-VF.ttf')})}
 @font-face{font-family:JBMono;font-weight:100 800;src:url(${staticFile('fonts/JetBrainsMono-VF.ttf')})}
 `;
 
-export const SANS = 'Jakarta, sans-serif';
+export const SANS = 'InterTight, sans-serif';
 export const MONO = 'JBMono, monospace';
 
 // "texte *accent*" -> segments, l'accent en rose

@@ -1,0 +1,320 @@
+{
+ "id": "P1",
+ "title": "Partie 1 — Le box 117",
+ "vote": [
+  "GARDER",
+  "POLICE"
+ ],
+ "hud": "CASH 9 840 000 € · EN BANQUE 0 € · SOUPÇON 0 → 25 %",
+ "beats": [
+  [
+   "img",
+   "P1_01",
+   "Tu viens de trouver neuf millions huit cent quarante mille euros.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_07",
+   "Quatre sacs de sport.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_05",
+   "Au fond d'un box. À Marseille.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_10",
+   "Et le plus dur ? Ça commence maintenant.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_03",
+   "Mardi, ton grand-oncle Marcel est mort.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_04",
+   "Il t'a laissé une seule chose. Une clé. Box 117.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_13",
+   "Marcel était chauffeur de taxi. Trente ans.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Jamais plus de deux mille euros par mois.",
+   ""
+  ],
+  [
+   "img",
+   "P1_15",
+   "Cet argent n'est pas à lui.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_12",
+   "Soupçon : zéro. Pour l'instant.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Problème numéro un. Tu ne peux pas le dépenser.",
+   ""
+  ],
+  [
+   "card",
+   "Voilà le truc avec le liquide. En France, pas plus de mille euros en espèces chez un commerçant.",
+   ""
+  ],
+  [
+   "img",
+   "P1_21",
+   "Pas de voiture. Pas d'appart. Rien.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Problème numéro deux. Tu ne peux pas le déposer.",
+   ""
+  ],
+  [
+   "card",
+   "Plus de dix mille euros sur ton compte en un mois… et ta banque prévient Trak-fine. Automatiquement.",
+   ""
+  ],
+  [
+   "img",
+   "P1_22",
+   "Soupçon : douze pour cent.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Problème numéro trois. Quelqu'un sait.",
+   ""
+  ],
+  [
+   "img",
+   "P1_26",
+   "Quatre heures douze. Ton téléphone vibre. Numéro inconnu.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_27",
+   "« Box 117. Tu as fini de compter ? »",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_28",
+   "Soupçon : vingt-cinq pour cent.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_16",
+   "Toi, tu livres des burgers. Mille six cents euros par mois.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Ces sacs, c'est cinq cents ans de ton salaire.",
+   ""
+  ],
+  [
+   "img",
+   "P1_30",
+   "Alors… tu gardes l'argent, et tu joues ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_31",
+   "Ou tu appelles la police, et tu rends tout ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_29",
+   "Chaque choix peut te faire tomber. Ou te rendre libre. Commente : garder, ou police. La majorité écrit la partie deux.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_03",
+   "Et Marcel… n'est peut-être pas mort de vieillesse.",
+   "",
+   ""
+  ]
+ ],
+ "specs": {
+  "beats": {
+   "0": {
+    "overlay": {
+     "type": "hook",
+     "lines": [
+      "9 840 000 €",
+      "PERSONNE NE *SAIT*."
+     ]
+    }
+   },
+   "2": {
+    "overlay": {
+     "type": "tag",
+     "text": "BOX 117 · *MARSEILLE*"
+    }
+   },
+   "4": {
+    "overlay": {
+     "type": "tag",
+     "text": "GRAND-ONCLE *MARCEL*"
+    }
+   },
+   "7": {
+    "card": {
+     "type": "stat",
+     "kicker": "MARCEL · CHAUFFEUR DE TAXI",
+     "lines": [
+      "Le plus qu'il ait gagné",
+      "2 000 € / mois",
+      "pendant 30 ans"
+     ]
+    }
+   },
+   "9": {
+    "hud": {
+     "cash": 9840000,
+     "bank": 0,
+     "susp": 0
+    }
+   },
+   "10": {
+    "card": {
+     "type": "rule",
+     "kicker": "PROBLÈME 1",
+     "text": "Tu ne peux pas le dépenser."
+    }
+   },
+   "11": {
+    "card": {
+     "type": "fact",
+     "kicker": "VOILÀ LE TRUC AVEC LE LIQUIDE",
+     "lines": [
+      "En France, un paiement en espèces",
+      "1 000 €",
+      "maximum chez un commerçant"
+     ],
+     "stamp": "PAS PLUS"
+    }
+   },
+   "12": {
+    "overlay": {
+     "type": "tag",
+     "text": "*REFUSÉ*"
+    }
+   },
+   "13": {
+    "card": {
+     "type": "rule",
+     "kicker": "PROBLÈME 2",
+     "text": "Tu ne peux pas le déposer."
+    }
+   },
+   "14": {
+    "card": {
+     "type": "fact",
+     "kicker": "CE QUE TU NE SAIS PAS",
+     "lines": [
+      "Plus de 10 000 € déposés en un mois",
+      "↓",
+      "ta banque prévient Tracfin"
+     ],
+     "stamp": "AUTOMATIQUE"
+    }
+   },
+   "15": {
+    "hud": {
+     "susp": 12
+    },
+    "overlay": {
+     "type": "tag",
+     "text": "TRACFIN · *BERCY*"
+    }
+   },
+   "16": {
+    "card": {
+     "type": "rule",
+     "kicker": "PROBLÈME 3",
+     "text": "Quelqu'un sait."
+    }
+   },
+   "18": {
+    "card": {
+     "type": "sms",
+     "from": "NUMÉRO INCONNU · 04:12",
+     "msgs": [
+      "Box 117.",
+      "Tu as fini de compter ?"
+     ]
+    }
+   },
+   "19": {
+    "hud": {
+     "susp": 25
+    }
+   },
+   "21": {
+    "card": {
+     "type": "stat",
+     "kicker": "TOI · LIVREUR · 1 600 € / MOIS",
+     "lines": [
+      "Ces sacs, c'est",
+      "500 ANS",
+      "de ton salaire"
+     ]
+    }
+   },
+   "24": {
+    "card": {
+     "type": "vote",
+     "left": {
+      "word": "GARDER"
+     },
+     "right": {
+      "word": "POLICE"
+     },
+     "at": 3.8
+    }
+   }
+  }
+ }
+}
