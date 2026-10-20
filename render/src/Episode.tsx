@@ -10,6 +10,9 @@ import {Grain} from './Fx';
 
 type Sfx = {at: number; src: string; vol: number};
 
+// la voix doit toujours dominer : bruitages nettement en dessous (retour du propriétaire, 20/10)
+const SFX_GAIN = 0.35;
+
 // Bruitages placés automatiquement d'après le contenu des beats
 const sfxFor = (beats: Beat[]): Sfx[] => {
   const out: Sfx[] = [];
@@ -53,10 +56,10 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
       <HudBar beats={tl.beats} episode={tl.episode} />
       <Captions words={tl.words} beats={tl.beats} />
       <Audio src={staticFile(tl.voice)} />
-      <Audio src={staticFile(tl.music)} volume={0.16} />
+      <Audio src={staticFile(tl.music)} volume={0.08} />
       {sfxFor(tl.beats).map((s, i) => (
         <Sequence key={`sfx${i}`} from={f(s.at)} durationInFrames={f(3.2)} name={`sfx-${s.src}`}>
-          <Audio src={staticFile(`sfx/${s.src}.wav`)} volume={s.vol} />
+          <Audio src={staticFile(`sfx/${s.src}.wav`)} volume={s.vol * SFX_GAIN} />
         </Sequence>
       ))}
     </AbsoluteFill>
