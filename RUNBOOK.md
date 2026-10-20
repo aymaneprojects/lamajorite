@@ -1,4 +1,4 @@
-# Routine quotidienne — exécutée chaque jour à ~17h40 (Paris) par une session planifiée
+# Routine quotidienne — exécutée chaque jour à 17h05 (Paris) par une session planifiée
 
 But : un épisode publié à **19h00 heure de Paris** sur TikTok, Instagram et YouTube, tous les jours, sans exception.
 

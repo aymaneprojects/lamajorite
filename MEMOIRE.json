@@ -101,7 +101,11 @@
  ],
  "maj": "2026-10-20",
  "automatisations": {
-  "routine_quotidienne": "à créer : ~17h40 Paris, nouvelle session, suit RUNBOOK.md",
-  "bilan_hebdo": "dimanche, dans la routine"
+  "routine_quotidienne": {
+   "id": "trig_01KFMJbuaxX28PBCxQhxF8Dv",
+   "quand": "tous les jours 17h05 Paris, nouvelle session, publication programmée 19h00",
+   "suit": "RUNBOOK.md"
+  },
+  "bilan_hebdo": "le dimanche, dans la routine (pipeline/report.py)"
  }
 }
