@@ -24,7 +24,7 @@ def key():
 
 
 def user():
-    return os.environ.get("UPLOAD_POST_USER") or os.environ.get("UPLOADPOST_USER") or "lamajorite"
+    return os.environ.get("UPLOAD_POST_USER") or os.environ.get("UPLOADPOST_USER") or "affaires-classees"  # profil Upload-Post des comptes @lamajorite.serie
 
 
 def H():
@@ -103,11 +103,11 @@ def record(ep_id, ident):
     ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
     posts, urls = ep.setdefault("posts", {}), ep.setdefault("urls", {})
     for platform, r in results.items():
-        pid = r.get("post_id") or r.get("publish_id") or r.get("container_id")
+        pid = r.get("platform_post_id") or r.get("post_id") or r.get("publish_id") or r.get("container_id")
         if pid:
             posts[platform] = str(pid)
-        if r.get("url"):
-            urls[platform] = r["url"]
+        if r.get("post_url") or r.get("url"):
+            urls[platform] = r.get("post_url") or r["url"]
     ep["request_id"] = ident
     if posts and not ep.get("publie_le"):
         ep["publie_le"] = datetime.datetime.now().isoformat(timespec="minutes")

@@ -2,13 +2,18 @@
  "chaine": {
   "nom": "La Majorité",
   "tiktok": "@lamajorite.serie",
-  "upload_post_user": "lamajorite",
+  "upload_post_user": "affaires-classees",
   "heure_publication": "21:00 Europe/Paris, 7j/7",
   "rythme": "1 épisode/jour",
   "saison": "9,8 MILLIONS",
   "repo": "https://github.com/aymaneprojects/lamajorite",
   "hashtag_serie": "#ChaqueBilletLaisseUneTrace",
-  "voix": "ElevenLabs « Nicolas Petit » (voix de la série) ; Paul K et Benjamin en archive"
+  "voix": "ElevenLabs « Nicolas Petit » (voix de la série) ; Paul K et Benjamin en archive",
+  "comptes": {
+   "tiktok": "@lamajorite.serie",
+   "instagram": "lamajorite.seriee",
+   "youtube": "@lamajoriteserie"
+  }
  },
  "etat_histoire": {
   "hud": {
@@ -17,25 +22,36 @@
    "susp": 31
   },
   "cousin": "Rayan",
-  "fil": "P1 écrite : le box 117, SMS d'un inconnu. Vote GARDER/POLICE."
+  "fil": "P1 publiée le 20/10 : le box 117, SMS d'un inconnu. Vote GARDER/POLICE en cours."
  },
  "episodes": [
   {
    "id": "P1",
-   "statut": "envoye_proprietaire_publication_manuelle",
+   "statut": "publie",
    "vote": [
     "GARDER",
     "POLICE"
    ],
    "voix": "Nicolas Petit",
-   "posts": {},
-   "publie_le": null,
+   "posts": {
+    "youtube": "6s3FwNUDcsY",
+    "instagram": "18130217056829263",
+    "tiktok": "7698833455286734113"
+   },
+   "publie_le": "2026-10-20T21:25+02:00",
    "result": null,
    "duree_s": 81.7,
    "cover": "out/P1_cover.png",
    "publication_prevue": "2026-10-20 21:00 Paris",
-   "job_id": null,
-   "note": "20/10 19h45 : clé Upload-Post absente → pas de publication auto ; P1 refabriquée (81,7 s, QA OK) et envoyée au propriétaire pour publication manuelle à 21h00. Après publication, renseigner posts (id/URL) pour le comptage des votes."
+   "job_id": "f165182845f941f5b5ab585fb8cb8b0a",
+   "note": "20/10 21h25 Paris : publiée automatiquement via Upload-Post (profil affaires-classees), 3/3 plateformes OK, label IA, 1er commentaire de vote posté. ~25 min de retard sur 21h00 (installation + rendu + contrôle).",
+   "urls": {
+    "youtube": "https://www.youtube.com/watch?v=6s3FwNUDcsY",
+    "instagram": "https://www.instagram.com/reel/DeulFU0jq1V/",
+    "tiktok": "https://www.tiktok.com/@lamajorite.serie/video/7698833455286734113"
+   },
+   "request_id": "9m8-P1-7e1658",
+   "verdict_qualite": "directeur-qa : publier=true (son, synchro, voix identiques à la P1 validée)"
   },
   {
    "id": "P2",
@@ -100,7 +116,7 @@
  },
  "a_faire_proprietaire": [
   "Images du mois (pack 9M8)",
-  "Clés: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, OPENROUTER_API_KEY, UPLOAD_POST_USER"
+  "Clés: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID (UPLOAD_POST_API_KEY et OPENROUTER_API_KEY présentes le 20/10 21h)"
  ],
  "maj": "2026-10-20",
  "automatisations": {

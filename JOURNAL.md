@@ -20,3 +20,14 @@
   voix de la série, motion, niveaux → `out/PX_qa.json`. `upload_post.py publish` refuse sans contrôle OK + feu vert du directeur.
 - Test : le directeur qualité a validé la P1 (synchro vérifiée image par image). Test négatif : 4 défauts plantés, 4 détectés.
 - Voix : plus de voix robot en public ; sans ElevenLabs, le texte voix part au propriétaire (dossier Drive `voix/`).
+
+## 20/10 — 21h25 · Partie 1 publiée
+- Clé Upload-Post enfin présente. Pas de profil « lamajorite » : les comptes @lamajorite.serie (TikTok), lamajorite.seriee (Instagram), @lamajoriteserie (YouTube) sont sur le profil **affaires-classees** → défaut de `upload_post.py` et MEMOIRE mis à jour.
+- setup.sh : musiques encore en HTTP 406 → téléchargées avec en-têtes navigateur ; images Drive 180/180 (P1_10 retéléchargée à part).
+- P1 refabriquée à l'identique (81,7 s, QA OK, mêmes niveaux que la référence) ; directeur qualité : publier = true.
+- Publication immédiate (21h25, prête après 21h00) : request 9m8-P1-7e1658, job f165182845f941f5b5ab585fb8cb8b0a, 3/3 OK.
+  - TikTok : https://www.tiktok.com/@lamajorite.serie/video/7698833455286734113 (1er commentaire posté)
+  - Instagram : https://www.instagram.com/reel/DeulFU0jq1V/
+  - YouTube : https://www.youtube.com/watch?v=6s3FwNUDcsY
+- `upload_post.py record` corrigé (champs `platform_post_id`/`post_url` de l'API) → posts enregistrés dans MEMOIRE pour le vote.
+- À vérifier (directeur qualité, non bloquant) : sources officielles des seuils « 1 000 € en espèces » et « 10 000 €/mois → Tracfin » à noter dans docs/.
