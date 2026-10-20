@@ -6,8 +6,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def rd(p):
-    w = wave.open(p)
-    return np.frombuffer(w.readframes(w.getnframes()), np.int16).astype(np.float32) / 32768
+    # rééchantillonné à 48 kHz quel que soit le fichier (certaines pistes sortent en 192 kHz)
+    import subprocess
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", p, "-ac", "1", "-ar", "48000", "-f", "s16le", "-"], capture_output=True).stdout
+    return np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
 
 
 def db(x):
@@ -27,6 +29,10 @@ def report(ep):
     r = {"voix": db(v[mask]), "musique_sous_voix": db(m[mask]), "musique_silences": db(m[~mask]), "effets": db(fx) if len(fx) else -99}
     r["ecart_musique"] = r["voix"] - r["musique_sous_voix"]
     r["ecart_effets"] = r["voix"] - r["effets"]
+    # écho : niveau 50–250 ms après la fin des mots (pauses > 0,35 s), par rapport à la parole
+    words = json.load(open(os.path.join(ROOT, "render", "public", ep, "timeline.json")))["words"]
+    tails = [v[int(w["t1"] * sr) + 2400:int(w["t1"] * sr) + 12000] for w, nx in zip(words, words[1:]) if nx["t0"] - w["t1"] > 0.35]
+    r["traine_voix"] = r["voix"] - db(np.concatenate(tails)) if tails else 0
     return {k: round(float(x), 1) for k, x in r.items()}
 
 

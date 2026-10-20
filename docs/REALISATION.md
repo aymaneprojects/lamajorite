@@ -76,3 +76,18 @@ Règle du propriétaire : **même police, et rien de plus que Saveo.**
 | Carte règle | fond sombre, surtitre rose « PROBLÈME / RÈGLE X », phrase blanche ~64 px à 34 % de la hauteur |
 | SMS | en-tête mono + bulles grises une par une, sans sous-titres pendant le SMS |
 | Vote | sur la dernière image : « COMMENTE UN MOT » mono puis bouton crème, puis bouton rose, à la place des sous-titres |
+
+## 8. Règles ajoutées le 20/10 (retours du propriétaire)
+- **Le texte ne devance jamais la voix.** Chaque élément affiché (lignes de carte, gros chiffre, tampon, boutons du vote)
+  apparaît **au mot où le narrateur le prononce** : champs `mots`, `stamp_mot`, `at_word` et `left/right.mot` dans
+  `episodes/PX.json`, calculés par `align.py` à partir de la transcription. Ne pas tout donner d'un coup : c'est le suspense.
+- **Écho des voix ElevenLabs** : leurs voix sortent avec une traîne de réverbération (la fin des mots ne retombe que de ~16 dB).
+  `mix.py` applique un gain fixe (jamais de normalisation dynamique sur la voix) et un expandeur qui coupe la traîne
+  (≈ 20 dB après traitement, mesuré par `stems_report.py` → `traine_voix`). Pour aller plus loin : choisir une voix « sèche »
+  dans ElevenLabs (sans effet « trailer » ni salle).
+- **Motion design** (`specs.motion = "plus"`, par défaut ; `"saveo"` = copie sobre) : 5 mouvements de caméra doux, mise au point
+  à l'entrée de chaque plan, grain de film léger, accroche qui monte ligne par ligne, étiquettes qui se déroulent,
+  mot prononcé qui « tape », cartes qui se déroulent du haut, lignes qui montent derrière un masque, gros chiffre qui défile,
+  tampon qui s'écrase, HUD qui glisse et dont les chiffres défilent, boutons et bulles qui rebondissent.
+  Jamais de détourage de personnage (rendu jugé mal coupé).
+- **Voix de la série** : Nicolas Petit (plus grave, débit 2,8 mots/s proche de Saveo), Paul K en alternative.

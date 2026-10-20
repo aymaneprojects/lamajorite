@@ -1,6 +1,7 @@
 import {useCurrentFrame, useVideoConfig} from 'remotion';
 import type {Beat, Word} from './types';
 import {SANS} from './theme';
+import {plus, reveal} from './motion';
 
 type Chunk = {words: Word[]; t0: number; t1: number};
 
@@ -61,11 +62,25 @@ export const Captions: React.FC<{words: Word[]; beats: Beat[]}> = ({words, beats
         textShadow: '0 2px 10px rgba(0,0,0,0.75)',
       }}
     >
-      {c.words.map((w, i) => (
-        <span key={i} style={{color: t >= w.t0 ? 'white' : 'rgba(255,255,255,0.5)'}}>
-          {w.w}{' '}
-        </span>
-      ))}
+      {c.words.map((w, i) => {
+        const on = t >= w.t0;
+        const k = plus() ? reveal(frame, Math.round(w.t0 * fps), 5) : 1;
+        const chunkIn = plus() ? reveal(frame, Math.round(c.t0 * fps) - 1, 4) : 1;
+        return (
+          <span
+            key={i}
+            style={{
+              display: 'inline-block',
+              marginRight: '0.25em',
+              color: on ? 'white' : 'rgba(255,255,255,0.5)',
+              transform: `translateY(${(1 - chunkIn) * 14}px) scale(${on ? 1 + (1 - k) * 0.12 : 1})`,
+              opacity: chunkIn,
+            }}
+          >
+            {w.w}
+          </span>
+        );
+      })}
     </div>
   );
 };

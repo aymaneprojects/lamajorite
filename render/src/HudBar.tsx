@@ -1,8 +1,9 @@
 import {useCurrentFrame, useVideoConfig} from 'remotion';
 import type {Beat, Hud} from './types';
 import {C, MONO, SANS} from './theme';
+import {plus, reveal} from './motion';
 
-const fmt = (n: number) => Math.round(n).toLocaleString('fr-FR').replace(/ | /g, ' ') + ' €';
+const fmt = (n: number) => String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + ' €';
 
 // HUD mesuré sur Saveo (720 px → ×1,5) : 3 blocs sombres arrondis, étiquette mono grise, valeur blanche, soupçon rose.
 // Au changement : contour rose sur le bloc, et pastille rouge sous le cash quand il baisse.
@@ -32,13 +33,20 @@ export const HudBar: React.FC<{beats: Beat[]; episode: string}> = ({beats}) => {
     </div>
   );
   const dCash = (cur.hud.cash ?? 0) - (prev?.cash ?? cur.hud.cash ?? 0);
+  const firstHud = beats.find((b) => b.hud)!;
+  const enter = plus() ? reveal(frame, Math.round(firstHud.start * fps), 10) : 1;
+  const roll = (k: keyof Hud) => {
+    const to = cur.hud![k] ?? 0;
+    const from = prev?.[k] ?? to;
+    return plus() ? from + (to - from) * reveal(frame, Math.round(changeBeat.start * fps), 14) : to;
+  };
   void idx;
   return (
-    <div style={{position: 'absolute', top: 234, left: 60, right: 60}}>
+    <div style={{position: 'absolute', top: 234, left: 60, right: 60, opacity: enter, transform: `translateY(${(1 - enter) * -40}px)`}}>
       <div style={{display: 'flex', gap: 12}}>
-        {box('CASH', fmt(cur.hud.cash ?? 0), 1.25, flash('cash'))}
-        {box('EN BANQUE', fmt(cur.hud.bank ?? 0), 1, flash('bank'))}
-        {box('SOUPÇON', `${cur.hud.susp ?? 0} %`, 0.95, flash('susp'), true)}
+        {box('CASH', fmt(roll('cash')), 1.25, flash('cash'))}
+        {box('EN BANQUE', fmt(roll('bank')), 1, flash('bank'))}
+        {box('SOUPÇON', `${Math.round(roll('susp'))} %`, 0.95, flash('susp'), true)}
       </div>
       <div style={{display: 'flex', gap: 12, marginTop: 12}}>
         {dCash < 0 && since < 3 && (

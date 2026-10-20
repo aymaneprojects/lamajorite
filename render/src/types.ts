@@ -24,4 +24,5 @@ export type Timeline = {
   beats: Beat[];
   available: string[];
   layers?: string[];
+  motion?: 'saveo' | 'plus';
 };

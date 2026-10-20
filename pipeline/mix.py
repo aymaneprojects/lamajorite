@@ -11,7 +11,7 @@ et la musique de la série (catalogue). Niveaux visés avant la normalisation fi
 import json, os, re, subprocess, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VOICE_LUFS, MUSIC_LUFS, SFX_LUFS = -16, -17, -34
+VOICE_LUFS, MUSIC_LUFS, SFX_LUFS = -16, -19, -34
 
 
 MUSIC_EQ = "acompressor=threshold=-26dB:ratio=3:attack=300:release=2000:makeup=1"
@@ -35,16 +35,21 @@ def main(ep_id, video, out):
     debut = cat["pistes"].get(os.path.splitext(os.path.basename(music))[0], {}).get("debut", 0)
     # gains mesurés (statiques) : la normalisation automatique écrasait les musiques calmes
     music_gain = MUSIC_LUFS - loudness(music, start=debut, length=dur, pre=MUSIC_EQ)
+    voice_gain = VOICE_LUFS - loudness(voice)
     sfx_lufs = loudness(video)
     sfx_gain = (SFX_LUFS - sfx_lufs) if sfx_lufs and sfx_lufs > -70 else 0
     fc = (
-        f"[1:a]aresample=48000,loudnorm=I={VOICE_LUFS}:TP=-2:LRA=7,apad,atrim=0:{dur},asplit=2[v][key];"
+        # voix : gain fixe (pas de normalisation dynamique qui remonte les fins de mots),
+        # puis expandeur qui coupe la traîne de réverbération des voix ElevenLabs (effet « écho »)
+        f"[1:a]aresample=48000,highpass=f=70,volume={voice_gain:.1f}dB,"
+        f"agate=threshold=0.1:ratio=6:range=0.06:attack=3:release=70:knee=3,"
+        f"apad,atrim=0:{dur},aresample=48000,asplit=2[v][key];"
         f"[2:a]aresample=48000,atrim={debut}:{debut + dur},asetpts=PTS-STARTPTS,"
         # égalise les montées et creux du morceau pour qu'il reste à niveau constant sous la voix
         f"{MUSIC_EQ},afade=t=in:d=2,afade=t=out:st={dur - 3}:d=3,"
         f"volume={music_gain:.1f}dB[m];"
         # la musique s'efface d'environ 5 dB quand la voix parle, en douceur (pas d'à-coups mot par mot)
-        f"[m][key]sidechaincompress=threshold=0.06:ratio=2:attack=250:release=1200:knee=8[md];"
+        f"[m][key]sidechaincompress=threshold=0.06:ratio=2:attack=250:release=1200:knee=8,aresample=48000[md];"
         f"[0:a]aresample=48000,volume={sfx_gain:.1f}dB[s];"
         f"[v]asplit=2[v1][v2];[md]asplit=2[m1][m2];[s]asplit=2[s1][s2];"
         f"[v1][m1][s1]amix=inputs=3:normalize=0:duration=first,alimiter=limit=0.89,"

@@ -109,6 +109,39 @@ def main(ep_id, audio, words_path, img_dir=None):
         card = s.get("card")
         if card and card["type"] == "sms":
             img = last_img
+        # éléments affichés au moment où le narrateur prononce le mot correspondant (ne rien dévoiler avant)
+        def word_time(target, after):
+            t = norm(target)
+            hit = next((w for w in words if w["t0"] >= after - 0.05 and (norm(w["w"]) == t or norm(w["w"]).startswith(t))), None)
+            return round(hit["t0"] - starts[i], 2) if hit else None
+        if card and card.get("stamp_mot"):
+            card["stamp_at"] = word_time(card["stamp_mot"], starts[i])
+        if card and card.get("mots"):
+            card["temps"], cursor = [], starts[i]
+            for m in card["mots"]:
+                tt = word_time(m, cursor) if m else None
+                card["temps"].append(tt)
+                if tt is not None:
+                    cursor = starts[i] + tt
+        if card and card["type"] == "vote":
+            for k in ("at_word", "left", "right"):
+                pass
+            cursor = starts[i]
+            for key, side in (("at", None), ("left", "left"), ("right", "right")):
+                target = card.get("at_word") if side is None else card[side].get("mot")
+                if target:
+                    tt = word_time(target, cursor)
+                    if tt is not None:
+                        if side is None:
+                            card["at"] = tt
+                        else:
+                            card[side]["at"] = tt
+                        cursor = starts[i] + tt
+        if card and card["type"] == "vote" and False:
+            target = norm(card["at_word"])
+            hit = next((w for w in words if norm(w["w"]) == target and w["t0"] >= starts[i]), None)
+            if hit:
+                card["at"] = round(hit["t0"] - starts[i] - 0.1, 2)
         if card and card["type"] == "vote":
             for side in ("left", "right"):
                 if card[side].get("img"):
@@ -140,7 +173,7 @@ def main(ep_id, audio, words_path, img_dir=None):
         else:
             caps.append({"w": CAPTION_FIXES.get(w["w"].lower(), w["w"]), "t0": w["t0"], "t1": w["t1"]})
     timeline = {"episode": ep_id, "title": ep["title"], "fps": 30, "duration": round(dur + TAIL, 3),
-                "voice": f"{ep_id}/voice.mp3", "music": music_track(spec.get("musique"))[0], "musicGain": music_track(spec.get("musique"))[1], "words": caps, "beats": beats,
+                "voice": f"{ep_id}/voice.mp3", "motion": spec.get("motion", "plus"), "music": music_track(spec.get("musique"))[0], "musicGain": music_track(spec.get("musique"))[1], "words": caps, "beats": beats,
                 "available": sorted(have)}
     json.dump(timeline, open(os.path.join(out_dir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     missing = [b["image"].split("/")[-1][:-4] for b in beats if b["image"] and b["image"].split("/")[-1][:-4] not in have]
