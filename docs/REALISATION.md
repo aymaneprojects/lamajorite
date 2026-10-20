@@ -60,3 +60,19 @@ avec mon rapport. **Rien ne passe sur `main` (ce que publie la routine) sans le 
 | **Formule de rappel de la mécanique** | « Every night, the comments decide what you do. » | « Chaque soir, les commentaires décident de ce que tu fais. » |
 | **Fin = enjeu + vote + boucle ouverte APRÈS le vote** | « Every choice you make can get you caught or set you free. Comment, pay or move. » puis « There's a third way out. It's cold, it's cruel… » | ajouter une dernière phrase-mystère après « La majorité écrit la partie X. » |
 | **Durée** | 92–108 s (147 s pour le 6) ; ~2,6 mots/s | 85–100 s |
+
+## 7. Charte visuelle mesurée sur Saveo (frame par frame, 720 px → ×1,5 pour notre 1080×1920)
+Règle du propriétaire : **même police, et rien de plus que Saveo.**
+| Élément | Mesure / règle |
+|---|---|
+| Police | Inter Tight 800 (approche serrée) ; étiquettes JetBrains Mono 600 en capitales espacées |
+| Accroche | fixe, capitales, ~88 px, blanc + 1 mot rose, ombre douce, sans fond, vers 19–25 % de la hauteur |
+| Sous-titres | ~50 px, blanc gras, mots à venir gris 50 %, 2–3 mots, sans animation ni couleur, à 76 % de la hauteur |
+| Étiquette de plan | pastille sombre arrondie, ~39 px, blanc + mot rose, à 63 % de la hauteur, apparition sèche |
+| HUD | 3 blocs sombres (largeurs 1,25 / 1 / 0,95), haut à 12 % de la hauteur, étiquette mono 18 px, valeur 40 px, SOUPÇON rose ; contour rose ~1,5 s au changement ; pastille rouge « −X € » si le cash baisse ; masqué sur les cartes plein écran |
+| Plans | zoom lent 1,00 → 1,06, fondu enchaîné 6 images (0,2 s) ; rien d'autre (pas de fouet, flash, secousse, particules, grain) |
+| Carte fait | fond crème uni, surtitre mono gris, contenu à partir de 17 % de la hauteur, 3 lignes (la 2e en grand ~112 px) qui apparaissent à 5 images d'écart, tampon rose penché |
+| Carte stat | même chose sur fond sombre |
+| Carte règle | fond sombre, surtitre rose « PROBLÈME / RÈGLE X », phrase blanche ~64 px à 34 % de la hauteur |
+| SMS | en-tête mono + bulles grises une par une, sans sous-titres pendant le SMS |
+| Vote | sur la dernière image : « COMMENTE UN MOT » mono puis bouton crème, puis bouton rose, à la place des sous-titres |

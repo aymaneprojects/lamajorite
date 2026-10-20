@@ -111,7 +111,8 @@ def main(ep_id, audio, words_path, img_dir=None):
             img = last_img
         if card and card["type"] == "vote":
             for side in ("left", "right"):
-                card[side]["src"] = f"{ep_id}/img/{card[side]['img']}.png"
+                if card[side].get("img"):
+                    card[side]["src"] = f"{ep_id}/img/{card[side]['img']}.png"
         beats.append({
             "i": i, "start": max(0.0, starts[i]), "end": ends[i], "kind": "img" if img else "card",
             "id": b[1] if b[0] == "img" else f"card{i}", "image": f"{ep_id}/img/{img}.png" if img else None,
