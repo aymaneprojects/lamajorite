@@ -1,0 +1,11 @@
+9,8 MILLIONS — Pack de production (Parties 1 à 5)
+
+PROMPTS_IMAGES_9M8.md : les 180 prompts d'images (8 références + 140 scènes + 32 bonus), à générer dans l'ordre.
+prompts_images.csv    : les mêmes prompts en tableur, pratique pour la génération en lot.
+SCRIPTS_VOIX_OFF.md   : les 5 scripts voix off avec les réglages ElevenLabs.
+voix_P1.txt à voix_P5.txt : chaque script seul, à coller directement dans ElevenLabs.
+
+À me renvoyer :
+  - les images, nommées exactement comme leur ID (P1_01.png, C01_toi.png…)
+  - les voix : P1.mp3 … P5.mp3 (un fichier par partie)
+Ensuite je m'occupe du montage : HUD, sous-titres mot à mot, cartes, SMS, vote, musique.

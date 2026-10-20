@@ -1,0 +1,94 @@
+{
+ "chaine": {
+  "nom": "La Majorité",
+  "tiktok": "@lamajorite.serie",
+  "upload_post_user": "lamajorite",
+  "heure_publication": "19:00 Europe/Paris",
+  "rythme": "1 épisode/jour",
+  "saison": "9,8 MILLIONS",
+  "repo": "https://github.com/aymaneprojects/lamajorite"
+ },
+ "etat_histoire": {
+  "hud": {
+   "cash": 9840000,
+   "bank": 0,
+   "susp": 31
+  },
+  "cousin": "Rayan",
+  "fil": "P1 écrite : le box 117, SMS d'un inconnu. Vote GARDER/POLICE."
+ },
+ "episodes": [
+  {
+   "id": "P1",
+   "statut": "voix_ok_images_attendues",
+   "vote": [
+    "GARDER",
+    "POLICE"
+   ],
+   "voix": "elevenlabs (Benjamin, fournie)",
+   "posts": {},
+   "publie_le": null,
+   "result": null
+  },
+  {
+   "id": "P2",
+   "statut": "script_ok",
+   "vote": [
+    "PAYER",
+    "REFUSER"
+   ],
+   "suppose": "P1=GARDER"
+  },
+  {
+   "id": "P3",
+   "statut": "script_ok",
+   "vote": [
+    "PARTAGER",
+    "REFUSER"
+   ],
+   "suppose": "P2=PAYER"
+  },
+  {
+   "id": "P4",
+   "statut": "script_ok",
+   "vote": [
+    "FUIR",
+    "RESTER"
+   ],
+   "suppose": "P3=REFUSER"
+  },
+  {
+   "id": "P5",
+   "statut": "script_ok",
+   "vote": [
+    "L'EMMENER",
+    "COUPER"
+   ],
+   "suppose": "P4=FUIR + Rayan MENTIR"
+  }
+ ],
+ "images": {
+  "drive_folder": "1yL0YrWBo4h2scNWURoW5bmxDIULyeXin",
+  "sous_dossiers": [
+   "0-references",
+   "P1",
+   "P2",
+   "P3",
+   "P4",
+   "P5",
+   "bonus",
+   "prompts"
+  ],
+  "recues": "≈180 (d'après le propriétaire)",
+  "acces": "à partager en lecture par lien pour les sessions automatiques"
+ },
+ "credits": {
+  "elevenlabs": "inconnu",
+  "secours_voix": "edge-tts fr-FR-HenriNeural"
+ },
+ "a_faire_proprietaire": [
+  "Images du mois (pack 9M8)",
+  "Clés: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, OPENROUTER_API_KEY, UPLOAD_POST_USER"
+ ],
+ "maj": "2026-10-20"
+}

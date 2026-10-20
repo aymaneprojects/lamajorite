@@ -1,0 +1,8 @@
+render/node_modules/
+out/*.mp4
+render/public/P*/img/
+render/public/P*/voice.mp3
+__pycache__/
+images/*
+!images/.gitkeep
+drive_dl/

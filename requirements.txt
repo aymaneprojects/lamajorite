@@ -1,0 +1,6 @@
+requests
+pyyaml
+numpy
+faster-whisper
+edge-tts
+gdown

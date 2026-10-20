@@ -1,0 +1,20 @@
+{
+  "name": "9m8-render",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts Episode"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.537",
+    "@remotion/google-fonts": "4.0.537",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.537"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "typescript": "5.6.3"
+  }
+}
