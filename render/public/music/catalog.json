@@ -45,7 +45,9 @@
    "auteur": "Scott Buckley",
    "site": "scottbuckley.com.au",
    "licence": "CC BY 4.0",
-   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/05/Echoes.mp3"
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/05/Echoes.mp3",
+   "gain": 1.9
   }
- }
+ },
+ "_gain": "gain : multiplicateur de volume propre à la piste (pistes douces > 1), pour garder ≈ 7 dB sous la voix"
 }

@@ -19,6 +19,7 @@ export type Timeline = {
   duration: number;
   voice: string;
   music: string;
+  musicGain?: number;
   words: Word[];
   beats: Beat[];
   available: string[];

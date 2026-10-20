@@ -16,10 +16,12 @@ def norm(w):
     return re.sub(r"[^a-z0-9]", "", "".join(c for c in w if unicodedata.category(c) != "Mn"))
 
 
-def music_file(key=None):
+def music_track(key=None):
+    """(fichier, gain) de la piste choisie, ou de la piste par défaut du catalogue."""
     cat = json.load(open(os.path.join(ROOT, "render", "public", "music", "catalog.json")))
     key = key or cat["par_defaut"]
-    return cat["pistes"][key].get("fichier") or f"music/{key}.mp3"
+    piste = cat["pistes"][key]
+    return piste.get("fichier") or f"music/{key}.mp3", piste.get("gain", 1.0)
 
 
 def beat_text(b):
@@ -137,7 +139,7 @@ def main(ep_id, audio, words_path, img_dir=None):
         else:
             caps.append({"w": CAPTION_FIXES.get(w["w"].lower(), w["w"]), "t0": w["t0"], "t1": w["t1"]})
     timeline = {"episode": ep_id, "title": ep["title"], "fps": 30, "duration": round(dur + TAIL, 3),
-                "voice": f"{ep_id}/voice.mp3", "music": music_file(spec.get("musique")), "words": caps, "beats": beats,
+                "voice": f"{ep_id}/voice.mp3", "music": music_track(spec.get("musique"))[0], "musicGain": music_track(spec.get("musique"))[1], "words": caps, "beats": beats,
                 "available": sorted(have)}
     json.dump(timeline, open(os.path.join(out_dir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     missing = [b["image"].split("/")[-1][:-4] for b in beats if b["image"] and b["image"].split("/")[-1][:-4] not in have]

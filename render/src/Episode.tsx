@@ -66,7 +66,7 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
         volume={(fr) => {
           const t = fr / fps;
           const talking = tl.words.some((w) => t >= w.t0 - 0.15 && t <= w.t1 + 0.25);
-          return talking ? MUSIC_UNDER_VOICE : MUSIC_ALONE;
+          return Math.min(1, (talking ? MUSIC_UNDER_VOICE : MUSIC_ALONE) * (tl.musicGain ?? 1));
         }}
       />
       {sfxFor(tl.beats).map((s, i) => (

@@ -5,6 +5,7 @@
  "duration": 110.96,
  "voice": "P1/voice.mp3",
  "music": "music/sb_echoes.mp3",
+ "musicGain": 1.9,
  "words": [
   {
    "w": "Tu",
