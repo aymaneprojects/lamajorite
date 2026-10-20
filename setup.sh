@@ -4,7 +4,7 @@ set -euo pipefail
 cd "$(dirname "$0")"
 pip install -q -r requirements.txt 2>/dev/null
 (cd render && npm ci --no-audit --no-fund --silent)
-# Musiques libres (Kevin MacLeod, CC BY 4.0) listées dans render/public/music/catalog.json
+# Musiques libres (CC BY 4.0) listées dans render/public/music/catalog.json
 python3 - <<'PY'
 import json, os, urllib.request
 cat = json.load(open("render/public/music/catalog.json"))

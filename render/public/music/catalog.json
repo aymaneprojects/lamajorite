@@ -1,13 +1,51 @@
 {
- "_licence": "Kevin MacLeod (incompetech.com) — Creative Commons BY 4.0 : crédit obligatoire dans la description",
+ "_licence": "Pistes CC BY 4.0 : crédit obligatoire dans la description (sinon réclamation YouTube possible)",
  "par_defaut": "suspense_synth",
  "pistes": {
-  "suspense_synth": {"fichier": "sfx/suspense.mp3", "credit": null},
-  "investigations": {"titre": "Investigations", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3"},
-  "hitman": {"titre": "Hitman", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hitman.mp3"},
-  "spy_glass": {"titre": "Spy Glass", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Spy%20Glass.mp3"},
-  "crypto": {"titre": "Crypto", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crypto.mp3"},
-  "night_vigil": {"titre": "Night Vigil", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20Vigil.mp3"},
-  "darkest_child": {"titre": "Darkest Child", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Darkest%20Child.mp3"}
+  "suspense_synth": {
+   "fichier": "sfx/suspense.mp3"
+  },
+  "sb_eyes_in_the_void": {
+   "titre": "Eyes In The Void",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2025/06/EyesInTheVoid.mp3"
+  },
+  "sb_signal_to_noise": {
+   "titre": "Signal to Noise",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/04/sb_signaltonoise_nomelody.mp3"
+  },
+  "sb_decoherence": {
+   "titre": "Decoherence",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2022/03/sb_decoherence.mp3"
+  },
+  "sb_sentinel": {
+   "titre": "Sentinel",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/04/Sentinel.mp3"
+  },
+  "sb_katabasis": {
+   "titre": "Katabasis I",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2026/09/Katabasis_I.mp3"
+  },
+  "sb_echoes": {
+   "titre": "Echoes",
+   "auteur": "Scott Buckley",
+   "site": "scottbuckley.com.au",
+   "licence": "CC BY 4.0",
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/05/Echoes.mp3"
+  }
  }
 }

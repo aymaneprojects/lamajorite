@@ -7,7 +7,7 @@ TAGS = ["ChaqueBilletLaisseUneTrace", "lamajorite", "serie", "histoire", "tudeci
 
 
 def music_credit(ep_id):
-    """Crédit exigé par la licence CC BY 4.0 des musiques de Kevin MacLeod."""
+    """Crédit exigé par la licence (CC BY 4.0) de la musique de l'épisode."""
     tl_path = os.path.join(ROOT, "render", "public", ep_id, "timeline.json")
     if not os.path.exists(tl_path):
         return None
@@ -17,7 +17,7 @@ def music_credit(ep_id):
     piste = cat["pistes"].get(key, {})
     if not piste.get("titre"):
         return None
-    return f"Musique : « {piste['titre']} » Kevin MacLeod (incompetech.com), licence CC BY 4.0."
+    return f"Musique : « {piste['titre']} » {piste['auteur']} ({piste['site']}), licence {piste['licence']}."
 
 
 def main(ep_id, result=None):
