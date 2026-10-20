@@ -24,6 +24,35 @@ def music_track(key=None):
     return piste.get("fichier") or f"music/{key}.mp3", piste.get("gain", 1.0)
 
 
+def refine_onsets(words, audio_path):
+    """Whisper place le début des mots ~0,3 s trop tard. On recale chaque mot qui suit un silence sur le vrai début du son
+    (montée d'énergie), et les autres du décalage médian mesuré. Résultat : le texte s'affiche pile quand la voix le dit."""
+    import numpy as np
+    sr, hop = 16000, 80
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", audio_path, "-ac", "1", "-ar", str(sr), "-f", "s16le", "-"],
+                         capture_output=True).stdout
+    x = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+    env = np.array([np.sqrt(np.mean(x[i:i + 160] ** 2)) for i in range(0, len(x) - 160, hop)])
+    edb = 20 * np.log10(env + 1e-6)
+    th = np.percentile(edb, 10) + 20
+    shifts = {}
+    for i, w in enumerate(words):
+        prev_end = words[i - 1]["t1"] if i else -1
+        if w["t0"] - prev_end < 0.25:
+            continue
+        lo = max(int(max(prev_end, w["t0"] - 0.6) * sr / hop), 0)
+        hi = int((w["t0"] + 0.1) * sr / hop)
+        seg = edb[lo:hi]
+        if len(seg) and (seg > th).any():
+            shifts[i] = (lo + int(np.argmax(seg > th))) * hop / sr - w["t0"]
+    med = float(np.median(list(shifts.values()))) if shifts else 0.0
+    for i, w in enumerate(words):
+        d = shifts.get(i, med)
+        w["t0"] = round(max(0.0, w["t0"] + d), 3)
+        w["t1"] = round(max(w["t0"] + 0.05, w["t1"] + med), 3)
+    return med
+
+
 def beat_text(b):
     return b[2] if b[0] == "img" else b[1]
 
@@ -32,6 +61,7 @@ def main(ep_id, audio, words_path, img_dir=None):
     ep = next(e for e in EPISODES if e["id"] == ep_id)
     spec = SPECS.get(ep_id, {"beats": {}})
     words = json.load(open(words_path))
+    recal = refine_onsets(words, audio)
     out_dir = os.path.join(ROOT, "render", "public", ep_id)
     os.makedirs(os.path.join(out_dir, "img"), exist_ok=True)
 
@@ -177,7 +207,7 @@ def main(ep_id, audio, words_path, img_dir=None):
                 "available": sorted(have)}
     json.dump(timeline, open(os.path.join(out_dir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     missing = [b["image"].split("/")[-1][:-4] for b in beats if b["image"] and b["image"].split("/")[-1][:-4] not in have]
-    print(f"{ep_id}: {len(beats)} beats, {dur:.1f}s voix (+{len(cuts)} pause), images manquantes: {len(missing)}")
+    print(f"{ep_id}: {len(beats)} beats, {dur:.1f}s voix (+{len(cuts)} pause), recalage des mots {recal * 1000:.0f} ms, images manquantes: {len(missing)}")
     for b in beats:
         print(f"  {b['start']:6.2f}-{b['end']:6.2f} {b['id']:8s} {beat_text(ep['beats'][b['i']])[:60]}")
 
