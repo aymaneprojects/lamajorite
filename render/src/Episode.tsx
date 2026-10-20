@@ -56,7 +56,15 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
       <HudBar beats={tl.beats} episode={tl.episode} />
       <Captions words={tl.words} beats={tl.beats} />
       <Audio src={staticFile(tl.voice)} />
-      <Audio src={staticFile(tl.music)} volume={0.08} />
+      {/* musique de suspense qui baisse automatiquement quand la voix parle */}
+      <Audio
+        src={staticFile('sfx/suspense.mp3')}
+        volume={(fr) => {
+          const t = fr / fps;
+          const talking = tl.words.some((w) => t >= w.t0 - 0.15 && t <= w.t1 + 0.25);
+          return talking ? 0.07 : 0.16;
+        }}
+      />
       {sfxFor(tl.beats).map((s, i) => (
         <Sequence key={`sfx${i}`} from={f(s.at)} durationInFrames={f(3.2)} name={`sfx-${s.src}`}>
           <Audio src={staticFile(`sfx/${s.src}.wav`)} volume={s.vol * SFX_GAIN} />
