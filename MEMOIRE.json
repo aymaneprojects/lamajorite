@@ -20,7 +20,7 @@
  "episodes": [
   {
    "id": "P1",
-   "statut": "voix_ok_images_attendues",
+   "statut": "images_ok_rendu_final",
    "vote": [
     "GARDER",
     "POLICE"
@@ -79,8 +79,13 @@
    "bonus",
    "prompts"
   ],
-  "recues": "≈180 (d'après le propriétaire)",
-  "acces": "à partager en lecture par lien pour les sessions automatiques"
+  "recues": 180,
+  "acces": "à partager en lecture par lien pour les sessions automatiques",
+  "manquantes": [
+   "X_profil_lamajorite",
+   "X_profil_rayan_vote",
+   "X_banniere_saison1"
+  ]
  },
  "credits": {
   "elevenlabs": "inconnu",

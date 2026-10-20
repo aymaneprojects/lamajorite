@@ -112,9 +112,10 @@ def main(ep_id, audio, words_path, img_dir=None):
 
     have = set()
     if img_dir and os.path.isdir(img_dir):
+        needed = {b["id"] for b in beats if b["kind"] == "img"} | {b["image"].split("/")[-1][:-4] for b in beats if b["image"]}
         for f in os.listdir(img_dir):
             stem, ext = os.path.splitext(f)
-            if ext.lower() in (".png", ".jpg", ".jpeg", ".webp"):
+            if ext.lower() in (".png", ".jpg", ".jpeg", ".webp") and stem in needed:
                 subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", os.path.join(img_dir, f),
                                 "-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920",
                                 os.path.join(out_dir, "img", stem + ".png")], check=True)
@@ -125,7 +126,7 @@ def main(ep_id, audio, words_path, img_dir=None):
                 "voice": f"{ep_id}/voice.mp3", "music": "sfx/bed.mp3", "words": caps, "beats": beats,
                 "available": sorted(have)}
     json.dump(timeline, open(os.path.join(out_dir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
-    missing = [b["id"] for b in beats if b["kind"] == "img" and b["id"] not in have]
+    missing = [b["image"].split("/")[-1][:-4] for b in beats if b["image"] and b["image"].split("/")[-1][:-4] not in have]
     print(f"{ep_id}: {len(beats)} beats, {dur:.1f}s voix (+{len(cuts)} pause), images manquantes: {len(missing)}")
     for b in beats:
         print(f"  {b['start']:6.2f}-{b['end']:6.2f} {b['id']:8s} {beat_text(ep['beats'][b['i']])[:60]}")

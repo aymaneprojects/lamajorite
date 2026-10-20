@@ -7,7 +7,7 @@ pip install -q -r requirements.txt 2>/dev/null
 # Images : dossier Drive « La Majorité » (sous-dossiers 0-references, P1…P5, bonus…), à plat dans images/
 DRIVE_FOLDER=${DRIVE_FOLDER:-1yL0YrWBo4h2scNWURoW5bmxDIULyeXin}
 rm -rf drive_dl && mkdir -p drive_dl images
-python3 -m gdown "https://drive.google.com/drive/folders/$DRIVE_FOLDER" -O drive_dl --remaining-ok -q || \
+python3 -m gdown "https://drive.google.com/drive/folders/$DRIVE_FOLDER" -O drive_dl -q || \
   echo "!! Drive inaccessible (dossier pas partagé « tous les utilisateurs disposant du lien » ?)"
 find drive_dl -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.webp' \) -exec cp {} images/ \;
 echo "images: $(ls images | grep -vc gitkeep)"
