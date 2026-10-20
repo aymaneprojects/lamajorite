@@ -1,4 +1,4 @@
-"""Voix off d'un épisode : ElevenLabs (voix de la série), secours edge-tts si crédits épuisés / clé absente.
+"""Voix off d'un épisode : ElevenLabs (voix de la série). Sans clé : texte voix pour le propriétaire (--secours = edge-tts, test).
 Puis horodatage mot à mot (faster-whisper).
 
   python3 voice.py P6            → audio/P6.mp3 + audio/P6_words.json
@@ -55,9 +55,18 @@ def main(ep_id):
         err = elevenlabs(script(ep_id), mp3)
         provider = "elevenlabs"
         if err:
-            print(f"ElevenLabs indisponible ({err}) → voix de secours {FALLBACK_VOICE}")
+            txt = os.path.join(ROOT, "out", f"{ep_id}_voix.txt")
+            os.makedirs(os.path.dirname(txt), exist_ok=True)
+            open(txt, "w").write(script(ep_id) + "\n")
+            if "--secours" not in sys.argv:
+                # pas de voix robot en public : le propriétaire génère la voix (Nicolas Petit) à partir de ce texte
+                sys.exit(f"ElevenLabs indisponible ({err}) → texte voix prêt pour le propriétaire : out/{ep_id}_voix.txt")
+            print(f"ElevenLabs indisponible ({err}) → voix de secours {FALLBACK_VOICE} (test uniquement)")
             edge(script(ep_id), mp3)
             provider = "edge-tts"
+    vfile = os.path.join(AUDIO, f"{ep_id}_voice.json")
+    if provider != "existant" or not os.path.exists(vfile):
+        json.dump({"provider": provider}, open(vfile, "w"))
     words_json = os.path.join(AUDIO, f"{ep_id}_words.json")
     # transcription déjà validée (voix fournie) : on la garde telle quelle
     if provider == "existant" and os.path.exists(words_json):

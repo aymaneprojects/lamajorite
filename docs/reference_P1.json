@@ -1,0 +1,14 @@
+{
+ "duree": 81.7,
+ "lufs_final": -15.8,
+ "crete": -1.4,
+ "ecart_musique": 10.8,
+ "ecart_effets": 16.9,
+ "traine_voix": 16.4,
+ "hud_des": 22.7,
+ "cartes": "stat, rule, fact, rule, fact, rule, sms, stat, vote",
+ "motion": "plus",
+ "musique": "music/sb_signal_to_noise.mp3",
+ "concordance": 0.887,
+ "_note": "P1 validée par le propriétaire le 20/10 (« c'est bon, on est bon »). Étalon du contrôle qualité."
+}

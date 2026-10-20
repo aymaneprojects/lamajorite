@@ -1,5 +1,9 @@
 # Routine de La Majorité — 2 passages automatiques par jour
 
+Équipe : **producteur** (la session qui suit ce RUNBOOK, de A à Z) · **scénariste** (agent) · **directeur qualité** (agent
+indépendant, droit de veto). Objectif : chaque épisode au niveau de la P1 validée — même voix, même son, même motion,
+textes calés sur la voix.
+
 Publication : **21h00 heure de Paris**, 7j/7, TikTok + Instagram + YouTube. Lire d'abord `IDENTITE.md`, `MEMOIRE.json`,
 `KANBAN.md`, `docs/STRATEGIE.md`, `docs/REALISATION.md` et la fin de `JOURNAL.md`. Toujours `git pull --rebase origin main` avant de travailler.
 
@@ -8,21 +12,27 @@ Publication : **21h00 heure de Paris**, 7j/7, TikTok + Instagram + YouTube. Lire
    Clé absente ou refusée → ne pas publier, préparer quand même la vidéo, l'envoyer au propriétaire, carte « Bloqué » dans KANBAN.
 1. **Vote d'hier** (dernier épisode publié `PX`) : `python3 pipeline/votes.py PX` → nombre de commentaires, votes par option,
    gagnant, pseudos (« Personnes d'intérêt »), extraits. Puis `python3 pipeline/engage.py PX` (réponses aux nouveaux commentaires).
-2. **Écrire `episodes/PY.json`** (Y = X+1) selon le vote, en suivant `docs/REALISATION.md` (style Saveo : phrase d'ouverture fixe,
-   rappel, « NN % d'entre vous ont dit MOT », top commentaire, problèmes numérotés, 1 fait réel vérifié, soupçon dit à voix haute,
-   vote à 2 mots calé sur la voix, phrase-mystère finale). Champs de synchro : `mots`, `stamp_mot`, `at_word`, `left/right.mot`.
-3. **Images** : utiliser `images/`. S'il manque des images pour PY ou pour les 3 épisodes suivants :
-   écrire leurs prompts (même style que `docs/pack_saison1/PROMPTS_IMAGES_9M8.md`), faire un zip
-   `out/pack_images_PY-PZ.zip` (prompts .md + .csv + liste des noms de fichiers), l'envoyer au propriétaire et ajouter une carte
-   KANBAN « Images à générer ». En attendant, prendre l'image existante la plus proche (même personnage, même lieu).
-4. **Voix** : `python3 pipeline/voice.py PY` (ElevenLabs, voix de la série ; secours edge-tts si crédits épuisés — le signaler).
-5. **Fabriquer** : `./make_episode.sh PY images` (calage, recalage des mots, montage, mixage studio, miniature, contrôle qualité).
-   Lire `out/PY_qa.md` et regarder `out/PY_planche.jpg`. Écart musique 8–11 dB, effets ≥ 15 dB, aucun placeholder, durée 80–110 s.
-   Sinon corriger avant de publier.
-6. **Légende** : `python3 pipeline/pubkit.py PY "NN % d'entre vous ont dit MOT"`.
-7. **Publier** : `python3 pipeline/upload_post.py publish out/PY.mp4 out/PY_meta.json` (programmé à 21h00) → noter le `job_id`
+2. **Scénario** — déléguer à l'agent **`scenariste`** (`.claude/agents/scenariste.md`, outil Agent) : lui donner Y, le gagnant,
+   le %, le nombre de commentaires, le top commentaire, les pseudos. Il écrit `episodes/PY.json` au format de la P1.
+3. **Images** : si `out/PY_images_manquantes.md` existe, ou s'il manque des images pour les 3 épisodes suivants :
+   zip `out/pack_images_PY-PZ.zip` (prompts .md + .csv + noms de fichiers, style `docs/pack_saison1/PROMPTS_IMAGES_9M8.md`),
+   l'envoyer au propriétaire et ajouter une carte KANBAN « Images à générer ». En attendant : l'image existante la plus proche.
+4. **Voix** : la voix de la série est Nicolas Petit (ElevenLabs). Ordre de préférence :
+   a. `audio/PY.mp3` déposé par le propriétaire (dossier Drive `voix/`, copié par `setup.sh`) ;
+   b. `python3 pipeline/voice.py PY` avec `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` ;
+   c. sinon : NE PAS publier une voix de secours. Envoyer le texte voix au propriétaire (`out/PY_voix.txt`), carte KANBAN
+      « Voix à générer », et reprendre dès que le fichier arrive (le directeur qualité refuse toute voix edge-tts).
+5. **Fabriquer** : `./make_episode.sh PY images` (calage, recalage des mots, montage, mixage studio, miniature, `qa.py`).
+6. **Contrôle qualité indépendant** — déléguer à l'agent **`directeur-qa`** (`.claude/agents/directeur-qa.md`). Il compare à la P1
+   (`docs/reference_P1.json`) et écrit `out/PY_verdict.json`.
+   - `publier: false` → appliquer SES corrections (script, synchro, images, mixage), refabriquer, redemander son avis.
+     **2 boucles maximum.** Toujours refusé → ne pas publier : envoyer la vidéo + le verdict au propriétaire, carte « Bloqué ».
+   - `upload_post.py publish` refuse de lui-même de publier sans `out/PY_qa.json` OK ET `out/PY_verdict.json` « publier: true ».
+7. **Légende** : `python3 pipeline/pubkit.py PY "NN % d'entre vous ont dit MOT"`.
+8. **Publier** : `python3 pipeline/upload_post.py publish out/PY.mp4 out/PY_meta.json` (programmé à 21h00) → noter le `job_id`
    dans MEMOIRE (`episodes[PY].job_id`), statut « programmé ».
-8. **Mémoire** : MEMOIRE (statut, HUD, fil de l'histoire), KANBAN, JOURNAL ; commit + push. Message court au propriétaire.
+9. **Mémoire** : MEMOIRE (statut, HUD, fil de l'histoire, verdict qualité), KANBAN, JOURNAL ; commit + push
+   (jamais de MP4, d'image ni de clé). Message court au propriétaire : épisode, vote gagnant, verdict, heure de publication.
 
 ## Passage 2 — 23h35 : après la publication
 1. `python3 pipeline/upload_post.py record PY <job_id>` → id et URL des posts dans MEMOIRE (indispensable pour les votes).

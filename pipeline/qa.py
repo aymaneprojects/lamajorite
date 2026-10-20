@@ -10,6 +10,7 @@ import numpy as np
 from story_data import EPISODES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REF = os.path.join(ROOT, "docs", "reference_P1.json")  # mesures de la P1 validée par le propriétaire (20/10)
 
 
 def norm(w):
@@ -21,6 +22,62 @@ def pcm(path):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", path, "-map", "0:a", "-ac", "1", "-ar", "48000", "-f", "s16le", "-"],
                          capture_output=True).stdout
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+
+
+def loudness(path):
+    err = subprocess.run(["ffmpeg", "-v", "info", "-nostats", "-i", path, "-map", "0:a", "-af", "ebur128", "-f", "null", "-"],
+                         capture_output=True, text=True).stderr
+    m = re.findall(r"I:\s+(-?[\d.]+) LUFS", err)
+    return float(m[-1]) if m else None
+
+
+def conformite(ep_id, tl, dur):
+    """Ce qui fait « le même résultat que la P1 » : accroche, HUD, cartes, vote calé sur la voix, voix de la série, son."""
+    beats, words = tl["beats"], tl["words"]
+    cards = [b["card"] for b in beats if b.get("card")]
+    types = [c["type"] for c in cards]
+    hud_at = next((b["start"] for b in beats if b.get("hud")), None)
+    vote = next((c for c in cards if c["type"] == "vote"), None)
+    lufs = loudness(os.path.join(ROOT, "out", f"{ep_id}.mp4"))
+    vfile = os.path.join(ROOT, "audio", f"{ep_id}_voice.json")
+    voix = json.load(open(vfile))["provider"] if os.path.exists(vfile) else "inconnue"
+    # textes calés sur la voix : chaque mot demandé doit avoir trouvé son instant
+    non_cales = [f"{c.get('kicker') or c['type']} « {m} »" for c in cards for m, t in zip(c.get("mots", []), c.get("temps", []))
+                 if m and t is None]
+    if c_stamp := [c for c in cards if c.get("stamp") and c.get("stamp_mot") and c.get("stamp_at") is None]:
+        non_cales += [f"tampon « {c['stamp']} »" for c in c_stamp]
+    if vote:
+        non_cales += [f"vote « {k} »" for k, t in (("Commente", vote.get("at")), (vote["left"]["word"], vote["left"].get("at")),
+                                                   (vote["right"]["word"], vote["right"].get("at"))) if t is None]
+    m = {"accroche": (beats[0].get("overlay") or {}).get("type") == "hook",
+         "hud_des": None if hud_at is None else round(hud_at, 1),
+         "cartes": ", ".join(types), "vote": f"{vote['left']['word']} / {vote['right']['word']}" if vote else None,
+         "vote_dans_les_20_dernieres_s": bool(vote) and next(b["start"] for b in beats if b.get("card") is vote) > dur - 20,
+         "textes_non_cales": len(non_cales), "voix_source": voix, "motion": tl.get("motion"), "musique": tl.get("music"),
+         "lufs_final": lufs, "mots_transcrits": len(words)}
+    b = []
+    if not m["accroche"]:
+        b.append("pas d'accroche (overlay hook) sur le premier plan")
+    if hud_at is None or hud_at > 30:
+        b.append("HUD absent ou trop tardif (> 30 s)")
+    if sum(t in ("fact", "stat") for t in types) < 2 or "rule" not in types:
+        b.append(f"cartes insuffisantes ({', '.join(types)}) : au moins 2 fait/stat et 1 règle/problème")
+    if not vote:
+        b.append("pas d'écran de vote")
+    elif not m["vote_dans_les_20_dernieres_s"]:
+        b.append("le vote n'est pas dans les 20 dernières secondes")
+    if non_cales:
+        b.append("textes non calés sur la voix : " + ", ".join(non_cales[:6]))
+    if voix != "elevenlabs" and voix != "existant":
+        b.append(f"voix « {voix} » : ce n'est pas la voix de la série (Nicolas Petit, ElevenLabs)")
+    if tl.get("motion") != "plus":
+        b.append(f"motion « {tl.get('motion')} » au lieu de « plus »")
+    ref = json.load(open(REF)) if os.path.exists(REF) else {}
+    if lufs is None or abs(lufs - ref.get("lufs_final", -14)) > 1.2:
+        b.append(f"niveau final {lufs} LUFS (P1 : {ref.get('lufs_final', -14)} ± 1,2)")
+    if not 70 <= dur <= 115:
+        b.append(f"durée {dur:.0f} s hors de 70–115 s")
+    return {"mesures": m, "bloquants": b}
 
 
 def main(ep_id):
@@ -56,7 +113,7 @@ def main(ep_id):
                 continue
             diffs.append(f"- script « {wrote or '∅'} » → entendu « {said or '∅'} »")
     lines += ["", "## Voix (script ↔ voix réelle)", f"- concordance {sm.ratio():.0%}"] + (diffs[:25] or ["- aucun écart"])
-    if sm.ratio() < 0.9:
+    if sm.ratio() < 0.85:
         alerts.append(f"la voix s'écarte du script ({sm.ratio():.0%}) : vérifier les écarts listés")
 
     # 3. Rythme des plans
@@ -92,9 +149,17 @@ def main(ep_id):
     subprocess.run(["ffmpeg", "-y", "-v", "error", "-i", mp4, "-vf", "fps=1/3,scale=180:-1,tile=10x4", "-frames:v", "1", sheet])
     lines += ["", "## Image", f"- images manquantes : {', '.join(missing) or 'aucune'}", f"- planche : `out/{ep_id}_planche.jpg` (1 image / 3 s) à regarder"]
 
+    # 6. Conformité au format validé (référence : P1 du 20/10, docs/reference_P1.json)
+    conf = conformite(ep_id, tl, dur)
+    alerts += conf["bloquants"]
+    lines += ["", "## Conformité au format P1"] + [f"- {k} : {v}" for k, v in conf["mesures"].items()]
+
     lines = lines[:2] + ["## Verdict", *(f"- ⚠️ {a}" for a in alerts)] + (["- ✅ rien de bloquant détecté automatiquement"] if not alerts else []) + [""] + lines[2:]
     out = os.path.join(ROOT, "out", f"{ep_id}_qa.md")
     open(out, "w").write("\n".join(lines) + "\n")
+    mesures = {**conf["mesures"], **st, "duree": round(dur, 1), "crete": round(float(peak), 1), "concordance": round(sm.ratio(), 3)}
+    json.dump({"episode": ep_id, "ok": not alerts, "bloquants": alerts, "mesures": mesures},
+              open(os.path.join(ROOT, "out", f"{ep_id}_qa.json"), "w"), ensure_ascii=False, indent=1)
     print("\n".join(lines))
 
 

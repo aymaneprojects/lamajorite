@@ -16,3 +16,7 @@ render/public/music/*.mp3
 out/*_stems/
 out/*_qa.md
 out/*_planche.jpg
+out/*_qa.json
+out/*_verdict.json
+out/qa_*/
+out/*_voix.txt

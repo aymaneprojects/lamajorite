@@ -129,12 +129,28 @@ def comments(platform, post, limit=100):
         params["after"] = pg["next_cursor"]
 
 
+def feu_vert(video, test=False):
+    """Pas de publication publique sans : contrôle automatique OK (out/PX_qa.json) + feu vert du directeur qualité
+    (out/PX_verdict.json, écrit par l'agent directeur-qa). --force : uniquement sur ordre explicite du propriétaire."""
+    ep = os.path.basename(video).split(".")[0].split("_")[0]
+    out = os.path.dirname(os.path.abspath(video))
+    qa = json.load(open(os.path.join(out, f"{ep}_qa.json"))) if os.path.exists(os.path.join(out, f"{ep}_qa.json")) else None
+    vd = json.load(open(os.path.join(out, f"{ep}_verdict.json"))) if os.path.exists(os.path.join(out, f"{ep}_verdict.json")) else None
+    if test:
+        return
+    if not qa or not qa.get("ok"):
+        sys.exit(f"Publication refusée : contrôle automatique non OK ({(qa or {}).get('bloquants', 'out/' + ep + '_qa.json absent')})")
+    if not vd or not vd.get("publier"):
+        sys.exit(f"Publication refusée : pas de feu vert du directeur qualité ({(vd or {}).get('raisons', 'out/' + ep + '_verdict.json absent')})")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "me":
         print(json.dumps(me(), indent=1, ensure_ascii=False))
         print(json.dumps(profiles(), indent=1, ensure_ascii=False))
     elif cmd == "publish":
+        feu_vert(sys.argv[2], "--private" in sys.argv or "--force" in sys.argv)
         print(json.dumps(publish(sys.argv[2], json.load(open(sys.argv[3])), "--private" in sys.argv), indent=1, ensure_ascii=False))
     elif cmd == "status":
         print(json.dumps(status(sys.argv[2]), indent=1, ensure_ascii=False))

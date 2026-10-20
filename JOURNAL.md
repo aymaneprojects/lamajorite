@@ -13,3 +13,10 @@
 - Système mis en place : KANBAN.md, RUNBOOK v2, bilan hebdo (`pipeline/report.py`).
 - 17h05 : 1re routine (nouvelle session) → pas de publication : clés absentes de l'environnement, pas d'accès en écriture au dépôt, pip ≠ python3. Corrigé : setup.sh (python3 -m pip), routine déplacée dans la session principale (trig_01V2Yo1vLcdPripEHsqgmcKr). Reste : clés à ajouter par le propriétaire.
 - 19h45 : publication de la P1 (session principale). Clés toujours absentes (`env` : 0 variable UPLOAD/ELEVEN/OPENROUTER) → pas de publication automatique. setup.sh bloqué au téléchargement des musiques (site Scott Buckley → HTTP 406 sans en-têtes navigateur) : musiques et 180 images récupérées à la main. P1 refabriquée avec la voix validée : 81,7 s, musique 10,8 dB sous la voix, effets 16,9 dB, 0 image manquante, planche OK (alerte voix 89 % = seulement « Trak-fine »/« tracfin » et « 4h12 » dans la transcription). Vidéo, miniature et légende envoyées au propriétaire pour publication manuelle à 21h00.
+
+## 20/10 — 20h25 · Équipe automatique
+- Producteur (routine RUNBOOK) + agent **scénariste** + agent **directeur qualité** (`.claude/agents/`), droit de veto.
+- `qa.py` compare chaque épisode à la P1 validée (`docs/reference_P1.json`) : accroche, HUD, cartes, vote, textes calés,
+  voix de la série, motion, niveaux → `out/PX_qa.json`. `upload_post.py publish` refuse sans contrôle OK + feu vert du directeur.
+- Test : le directeur qualité a validé la P1 (synchro vérifiée image par image). Test négatif : 4 défauts plantés, 4 détectés.
+- Voix : plus de voix robot en public ; sans ElevenLabs, le texte voix part au propriétaire (dossier Drive `voix/`).

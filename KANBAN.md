@@ -29,3 +29,5 @@ Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des
 - [x] Publication Upload-Post (TikTok/Instagram/YouTube, label IA, miniature, programmation 19h) + comptage des votes
 - [x] Mémoire de la chaîne : IDENTITE, MEMOIRE, JOURNAL, RUNBOOK, KANBAN
 - [x] Kit profil : photo, miniatures P1–P5, highlights, bios
+
+- [ ] Étiquettes de plan (overlay tag) calées sur le mot dit, comme les cartes (`align.py`, champ `mot`) — remarque du directeur qualité sur la P1, à appliquer dès la P2 (P1 inchangée).
