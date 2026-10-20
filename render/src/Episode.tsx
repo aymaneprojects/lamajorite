@@ -12,6 +12,9 @@ type Sfx = {at: number; src: string; vol: number};
 
 // la voix doit toujours dominer : bruitages nettement en dessous (retour du propriétaire, 20/10)
 const SFX_GAIN = 0.35;
+// musique bien audible mais toujours sous la voix (≈ 8 dB d'écart pendant la narration)
+const MUSIC_UNDER_VOICE = 0.17;
+const MUSIC_ALONE = 0.42;
 
 // Bruitages placés automatiquement d'après le contenu des beats
 const sfxFor = (beats: Beat[]): Sfx[] => {
@@ -63,7 +66,7 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
         volume={(fr) => {
           const t = fr / fps;
           const talking = tl.words.some((w) => t >= w.t0 - 0.15 && t <= w.t1 + 0.25);
-          return talking ? 0.07 : 0.16;
+          return talking ? MUSIC_UNDER_VOICE : MUSIC_ALONE;
         }}
       />
       {sfxFor(tl.beats).map((s, i) => (
