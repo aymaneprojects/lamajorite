@@ -1,0 +1,13 @@
+{
+ "_licence": "Kevin MacLeod (incompetech.com) — Creative Commons BY 4.0 : crédit obligatoire dans la description",
+ "par_defaut": "suspense_synth",
+ "pistes": {
+  "suspense_synth": {"fichier": "sfx/suspense.mp3", "credit": null},
+  "investigations": {"titre": "Investigations", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Investigations.mp3"},
+  "hitman": {"titre": "Hitman", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Hitman.mp3"},
+  "spy_glass": {"titre": "Spy Glass", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Spy%20Glass.mp3"},
+  "crypto": {"titre": "Crypto", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crypto.mp3"},
+  "night_vigil": {"titre": "Night Vigil", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20Vigil.mp3"},
+  "darkest_child": {"titre": "Darkest Child", "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Darkest%20Child.mp3"}
+ }
+}

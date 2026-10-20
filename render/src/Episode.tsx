@@ -58,7 +58,8 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
       <Audio src={staticFile(tl.voice)} />
       {/* musique de suspense qui baisse automatiquement quand la voix parle */}
       <Audio
-        src={staticFile('sfx/suspense.mp3')}
+        src={staticFile(tl.music)}
+        loop
         volume={(fr) => {
           const t = fr / fps;
           const talking = tl.words.some((w) => t >= w.t0 - 0.15 && t <= w.t1 + 0.25);
