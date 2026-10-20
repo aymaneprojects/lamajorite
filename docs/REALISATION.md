@@ -10,10 +10,10 @@ Principe des studios : **la voix est l'ancre**, musique et effets se mixent auto
 | Rang | Piste | Règle |
 |---|---|---|
 | 1 | Narrateur | Toujours intelligible, jamais couvert. Référence du mix. |
-| 2 | Musique | **8 à 10 dB sous la voix** pendant qu'elle parle (une étude AES sur les documentaires TV recommande ≥ 10 LU ; le grand public préfère un peu moins d'écart). Remonte doucement dans les silences. Jamais d'à-coups : effacement lent (attaque 250 ms, relâche ~1,2 s). |
+| 2 | Musique | **7 à 11 dB sous la voix** pendant qu'elle parle (P1 validée : 10,8 dB, musique constante) (une étude AES sur les documentaires TV recommande ≥ 10 LU ; le grand public préfère un peu moins d'écart). Niveau constant, sans effacement sur la voix (l'effacement créait un effet d'écho, corrigé le 20/10). |
 | 3 | Effets | **≥ 15 dB sous la voix** et sous la musique. Ils soulignent, ils ne frappent pas. |
 
-- Livraison réseaux : -14 LUFS intégré, crête ≤ -1,5 dBTP.
+- Livraison réseaux : niveau de la P1 validée (-15,8 LUFS intégré, crête -1,4 dBFS), tolérance ± 1,2 LU (`docs/reference_P1.json`).
 - Un seul « coup » fort autorisé par épisode : la révélation finale (avant le vote).
 - Les bruitages tombent **pile sur l'image** qu'ils accompagnent (un « sting » qui arrive en retard casse la révélation).
 - Musique : un seul morceau par épisode, démarré à un passage où la tension est déjà là ; fondu d'entrée 2 s, sortie 3 s.

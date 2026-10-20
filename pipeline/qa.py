@@ -130,8 +130,9 @@ def main(ep_id):
     st = report(ep_id)
     peak = 20 * np.log10(np.abs(pcm(mp4)).max() + 1e-9)
     lines += ["", "## Son (pistes séparées)", f"- voix {st['voix']} dB · musique sous la voix {st['musique_sous_voix']} dB "
-              f"(écart {st['ecart_musique']} dB, cible 7–10) · musique dans les silences {st['musique_silences']} dB",
-              f"- effets {st['effets']} dB (écart {st['ecart_effets']} dB, cible ≥ 15) · crête {peak:.1f} dBFS"]
+              f"(écart {st['ecart_musique']} dB, cible 7–11, P1 10,8) · musique dans les silences {st['musique_silences']} dB",
+              f"- effets {st['effets']} dB (écart {st['ecart_effets']} dB, cible ≥ 15) · crête {peak:.1f} dBFS",
+              f"- traîne de la voix (écho après les phrases) {st['traine_voix']} dB (P1 : 16,4 ; plus bas = plus d'écho)"]
     if st["ecart_musique"] < 6:
         alerts.append(f"musique trop forte : seulement {st['ecart_musique']} dB sous la voix")
     if st["ecart_musique"] > 11:
