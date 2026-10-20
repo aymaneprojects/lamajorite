@@ -29,7 +29,8 @@ export const Scene: React.FC<{beat: Beat; available: string[]; layers: string[];
   const k = Math.min(1, f / len);
   const id = beat.image!.split('/').pop()!.replace('.png', '');
   const has = available.includes(id);
-  const layered = has && layers.includes(id);
+  // détourage 2.5D désactivé : rendu jugé mal coupé par le propriétaire (20/10)
+  const layered = false && has && layers.includes(id);
   const hh = handheld(f + beat.i * 50);
   const en = entry(beat.i % 3, f);
   const mv = move(beat.i % 4, k);
@@ -54,7 +55,7 @@ export const Scene: React.FC<{beat: Beat; available: string[]; layers: string[];
             </AbsoluteFill>
           </>
         ) : has ? (
-          <AbsoluteFill style={{transform: `translate(${mv.fgX * 0.4}px, ${mv.fgY * 0.4}px) scale(${mv.bgS})`}}>
+          <AbsoluteFill style={{transform: `scale(${interpolate(k, [0, 1], beat.i % 3 !== 2 ? [1.08, 1.2] : [1.2, 1.08])}) translateX(${interpolate(k, [0, 1], [0, beat.i % 2 ? -24 : 24])}px)`}}>
             <Img src={staticFile(beat.image!)} style={{width: '100%', height: '100%', objectFit: 'cover'}} />
           </AbsoluteFill>
         ) : (
