@@ -6,6 +6,8 @@ import {Cards} from './Cards';
 import {HudBar} from './HudBar';
 import {Captions} from './Captions';
 import {Overlay} from './Overlay';
+import {Texture} from './Texture';
+import {setMotion} from './motion';
 
 type Sfx = {at: number; src: string; vol: number};
 
@@ -19,7 +21,7 @@ const sfxFor = (beats: Beat[]): Sfx[] => {
     const s = b.start;
     const c = b.card;
     if (c && ['stat', 'fact', 'rule'].includes(c.type)) out.push({at: s, src: 'whoosh', vol: 0.6});
-    if (c?.type === 'fact' && c.stamp) out.push({at: s + (FADE + c.lines.length * 5 + 18) / 30, src: 'stamp', vol: 0.8});
+    if (c?.type === 'fact' && c.stamp) out.push({at: s + (c.stamp_at ?? (FADE + c.lines.length * 5 + 18) / 30), src: 'stamp', vol: 0.8});
     if (c?.type === 'sms') c.msgs.forEach((_: string, k: number) => out.push({at: s + (FADE + k * 20) / 30, src: 'pop', vol: 0.7}));
   });
   return out;
@@ -28,6 +30,7 @@ const sfxFor = (beats: Beat[]): Sfx[] => {
 export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeline: tl}) => {
   const {fps} = useVideoConfig();
   const f = (s: number) => Math.round(s * fps);
+  setMotion(tl.motion);
   return (
     <AbsoluteFill style={{backgroundColor: '#0b0a0a'}}>
       <style>{fontsCss}</style>
@@ -43,6 +46,7 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
           {b.card && ['stat', 'fact', 'rule'].includes(b.card.type) && <Cards card={b.card} beat={b} available={tl.available} />}
         </Sequence>
       ))}
+      <Texture />
       <HudBar beats={tl.beats} episode={tl.episode} />
       <Captions words={tl.words} beats={tl.beats} />
       {/* Seule la piste d'effets sort du rendu. Voix + musique + effets sont mixés ensuite par pipeline/mix.py

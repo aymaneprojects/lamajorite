@@ -207,6 +207,11 @@
       "Le plus qu'il ait gagné",
       "2 000 € / mois",
       "pendant 30 ans"
+     ],
+     "mots": [
+      "Jamais",
+      "2000",
+      ""
      ]
     }
    },
@@ -221,7 +226,11 @@
     "card": {
      "type": "rule",
      "kicker": "PROBLÈME 1",
-     "text": "Tu ne peux pas le dépenser."
+     "text": "Tu ne peux pas le dépenser.",
+     "mots": [
+      "Problème",
+      "Tu"
+     ]
     }
    },
    "11": {
@@ -233,7 +242,13 @@
       "1 000 €",
       "maximum chez un commerçant"
      ],
-     "stamp": "PAS PLUS"
+     "stamp": "PAS PLUS",
+     "mots": [
+      "France",
+      "1000",
+      "commerçant"
+     ],
+     "stamp_mot": "commerçant"
     }
    },
    "12": {
@@ -246,7 +261,11 @@
     "card": {
      "type": "rule",
      "kicker": "PROBLÈME 2",
-     "text": "Tu ne peux pas le déposer."
+     "text": "Tu ne peux pas le déposer.",
+     "mots": [
+      "Problème",
+      "Tu"
+     ]
     }
    },
    "14": {
@@ -258,7 +277,13 @@
       "↓",
       "ta banque prévient Tracfin"
      ],
-     "stamp": "AUTOMATIQUE"
+     "stamp": "AUTOMATIQUE",
+     "mots": [
+      "Plus",
+      "banque",
+      "banque"
+     ],
+     "stamp_mot": "Automatiquement"
     }
    },
    "15": {
@@ -274,7 +299,11 @@
     "card": {
      "type": "rule",
      "kicker": "PROBLÈME 3",
-     "text": "Quelqu'un sait."
+     "text": "Quelqu'un sait.",
+     "mots": [
+      "Problème",
+      "Quelqu"
+     ]
     }
    },
    "18": {
@@ -300,6 +329,11 @@
       "Ces sacs, c'est",
       "500 ANS",
       "de ton salaire"
+     ],
+     "mots": [
+      "Ces",
+      "500",
+      "salaire"
      ]
     }
    },
@@ -307,14 +341,18 @@
     "card": {
      "type": "vote",
      "left": {
-      "word": "GARDER"
+      "word": "GARDER",
+      "mot": "garder"
      },
      "right": {
-      "word": "POLICE"
+      "word": "POLICE",
+      "mot": "police"
      },
-     "at": 3.8
+     "at": 3.8,
+     "at_word": "Commente"
     }
    }
-  }
+  },
+  "motion": "plus"
  }
 }

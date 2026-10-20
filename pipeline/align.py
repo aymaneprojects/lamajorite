@@ -24,6 +24,35 @@ def music_track(key=None):
     return piste.get("fichier") or f"music/{key}.mp3", piste.get("gain", 1.0)
 
 
+def refine_onsets(words, audio_path):
+    """Whisper place le début des mots ~0,3 s trop tard. On recale chaque mot qui suit un silence sur le vrai début du son
+    (montée d'énergie), et les autres du décalage médian mesuré. Résultat : le texte s'affiche pile quand la voix le dit."""
+    import numpy as np
+    sr, hop = 16000, 80
+    pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", audio_path, "-ac", "1", "-ar", str(sr), "-f", "s16le", "-"],
+                         capture_output=True).stdout
+    x = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
+    env = np.array([np.sqrt(np.mean(x[i:i + 160] ** 2)) for i in range(0, len(x) - 160, hop)])
+    edb = 20 * np.log10(env + 1e-6)
+    th = np.percentile(edb, 10) + 20
+    shifts = {}
+    for i, w in enumerate(words):
+        prev_end = words[i - 1]["t1"] if i else -1
+        if w["t0"] - prev_end < 0.25:
+            continue
+        lo = max(int(max(prev_end, w["t0"] - 0.6) * sr / hop), 0)
+        hi = int((w["t0"] + 0.1) * sr / hop)
+        seg = edb[lo:hi]
+        if len(seg) and (seg > th).any():
+            shifts[i] = (lo + int(np.argmax(seg > th))) * hop / sr - w["t0"]
+    med = float(np.median(list(shifts.values()))) if shifts else 0.0
+    for i, w in enumerate(words):
+        d = shifts.get(i, med)
+        w["t0"] = round(max(0.0, w["t0"] + d), 3)
+        w["t1"] = round(max(w["t0"] + 0.05, w["t1"] + med), 3)
+    return med
+
+
 def beat_text(b):
     return b[2] if b[0] == "img" else b[1]
 
@@ -32,6 +61,7 @@ def main(ep_id, audio, words_path, img_dir=None):
     ep = next(e for e in EPISODES if e["id"] == ep_id)
     spec = SPECS.get(ep_id, {"beats": {}})
     words = json.load(open(words_path))
+    recal = refine_onsets(words, audio)
     out_dir = os.path.join(ROOT, "render", "public", ep_id)
     os.makedirs(os.path.join(out_dir, "img"), exist_ok=True)
 
@@ -109,6 +139,39 @@ def main(ep_id, audio, words_path, img_dir=None):
         card = s.get("card")
         if card and card["type"] == "sms":
             img = last_img
+        # éléments affichés au moment où le narrateur prononce le mot correspondant (ne rien dévoiler avant)
+        def word_time(target, after):
+            t = norm(target)
+            hit = next((w for w in words if w["t0"] >= after - 0.05 and (norm(w["w"]) == t or norm(w["w"]).startswith(t))), None)
+            return round(hit["t0"] - starts[i], 2) if hit else None
+        if card and card.get("stamp_mot"):
+            card["stamp_at"] = word_time(card["stamp_mot"], starts[i])
+        if card and card.get("mots"):
+            card["temps"], cursor = [], starts[i]
+            for m in card["mots"]:
+                tt = word_time(m, cursor) if m else None
+                card["temps"].append(tt)
+                if tt is not None:
+                    cursor = starts[i] + tt
+        if card and card["type"] == "vote":
+            for k in ("at_word", "left", "right"):
+                pass
+            cursor = starts[i]
+            for key, side in (("at", None), ("left", "left"), ("right", "right")):
+                target = card.get("at_word") if side is None else card[side].get("mot")
+                if target:
+                    tt = word_time(target, cursor)
+                    if tt is not None:
+                        if side is None:
+                            card["at"] = tt
+                        else:
+                            card[side]["at"] = tt
+                        cursor = starts[i] + tt
+        if card and card["type"] == "vote" and False:
+            target = norm(card["at_word"])
+            hit = next((w for w in words if norm(w["w"]) == target and w["t0"] >= starts[i]), None)
+            if hit:
+                card["at"] = round(hit["t0"] - starts[i] - 0.1, 2)
         if card and card["type"] == "vote":
             for side in ("left", "right"):
                 if card[side].get("img"):
@@ -140,11 +203,11 @@ def main(ep_id, audio, words_path, img_dir=None):
         else:
             caps.append({"w": CAPTION_FIXES.get(w["w"].lower(), w["w"]), "t0": w["t0"], "t1": w["t1"]})
     timeline = {"episode": ep_id, "title": ep["title"], "fps": 30, "duration": round(dur + TAIL, 3),
-                "voice": f"{ep_id}/voice.mp3", "music": music_track(spec.get("musique"))[0], "musicGain": music_track(spec.get("musique"))[1], "words": caps, "beats": beats,
+                "voice": f"{ep_id}/voice.mp3", "motion": spec.get("motion", "plus"), "music": music_track(spec.get("musique"))[0], "musicGain": music_track(spec.get("musique"))[1], "words": caps, "beats": beats,
                 "available": sorted(have)}
     json.dump(timeline, open(os.path.join(out_dir, "timeline.json"), "w"), ensure_ascii=False, indent=1)
     missing = [b["image"].split("/")[-1][:-4] for b in beats if b["image"] and b["image"].split("/")[-1][:-4] not in have]
-    print(f"{ep_id}: {len(beats)} beats, {dur:.1f}s voix (+{len(cuts)} pause), images manquantes: {len(missing)}")
+    print(f"{ep_id}: {len(beats)} beats, {dur:.1f}s voix (+{len(cuts)} pause), recalage des mots {recal * 1000:.0f} ms, images manquantes: {len(missing)}")
     for b in beats:
         print(f"  {b['start']:6.2f}-{b['end']:6.2f} {b['id']:8s} {beat_text(ep['beats'][b['i']])[:60]}")
 
