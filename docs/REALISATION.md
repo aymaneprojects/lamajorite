@@ -45,3 +45,18 @@ Principe des studios : **la voix est l'ancre**, musique et effets se mixent auto
 ## 5. Validation (règle du propriétaire, 20/10)
 Tout essai se fait sur la branche `studio/essais`. Je contrôle moi-même (son, voix, image, rythme) et j'envoie la vidéo
 avec mon rapport. **Rien ne passe sur `main` (ce que publie la routine) sans le « c'est bon » du propriétaire.**
+
+## 6. Comment Saveo raconte (transcription des épisodes 2 à 6, `docs/saveo_transcriptions.txt`)
+| Procédé | Exemples Saveo | À faire chez nous |
+|---|---|---|
+| **Même phrase d'ouverture à chaque épisode** | « You stole 10 million dollars. » (5/5 épisodes) | « Tu as 9,8 millions d'euros qui ne sont pas à toi. » puis le rappel en une phrase |
+| **Rappel + preuve sociale + résultat du vote dans les 10 premières secondes** | « Almost 2 million people watched you do it. And 61% of them said, hide it. » | « Un million de vous ont regardé. 61 % ont dit GARDER. » |
+| **Le public est cité comme un personnage** | « One of you said it best… », « Spend voters, the car would have been worse. » | lire le top commentaire, s'adresser au camp perdant |
+| **Tutoiement, phrases très courtes, fragments** | « You swung, hard. He came back harder. » « Three cars back, the whole drive. » | max ~8 mots par phrase, beaucoup de phrases sans verbe |
+| **La voix lit le HUD** | « Suspicion, 35%. » « Suspicion just jumped to 52%. » « Every mistake moves the needle. » | « Soupçon : douze pour cent. » à chaque hausse |
+| **Problèmes / options / règles numérotés** | « Option one, bury it. » « Rule two, never keep it all in one place. » | « Problème numéro un… », « Règle numéro un… » |
+| **Formules fixes pour les faits réels** | « Here's the thing about cash. » « Here's what you don't know. » « And this is a real job. » | « Voilà le truc avec le liquide. » « Ce que tu ne sais pas… » |
+| **Répliques des personnages, courtes, en situation** | « I saw what's in the bag, I need 50K. » « Morning, Dre. Nice eyebrow. Where's your chain? » | SMS et dialogues lus comme des répliques, pas racontés |
+| **Formule de rappel de la mécanique** | « Every night, the comments decide what you do. » | « Chaque soir, les commentaires décident de ce que tu fais. » |
+| **Fin = enjeu + vote + boucle ouverte APRÈS le vote** | « Every choice you make can get you caught or set you free. Comment, pay or move. » puis « There's a third way out. It's cold, it's cruel… » | ajouter une dernière phrase-mystère après « La majorité écrit la partie X. » |
+| **Durée** | 92–108 s (147 s pour le 6) ; ~2,6 mots/s | 85–100 s |
