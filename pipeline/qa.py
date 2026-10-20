@@ -23,10 +23,6 @@ def pcm(path):
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
 
 
-def db(x):
-    return 20 * np.log10(np.sqrt(np.mean(x ** 2)) + 1e-9)
-
-
 def main(ep_id):
     ep = next(e for e in EPISODES if e["id"] == ep_id)
     tl = json.load(open(os.path.join(ROOT, "render", "public", ep_id, "timeline.json")))
@@ -46,8 +42,10 @@ def main(ep_id):
         alerts.append(f"durée {dur:.0f} s : au-delà de 120 s (cible 80–100 s pour accrocher)")
 
     # 2. Voix : script ↔ ce qui est réellement dit
-    script = [norm(t) for b in ep["beats"] for t in (b[2] if b[0] == "img" else b[1]).split() if norm(t)]
-    heard = [norm(x["w"]) for x in tl["words"] if norm(x["w"])]
+    def toks(text):
+        return [norm(t) for t in re.split(r"[\s'’\-]+", text) if norm(t)]
+    script = [t for b in ep["beats"] for t in toks(b[2] if b[0] == "img" else b[1])]
+    heard = [t for x in tl["words"] for t in toks(x["w"])]
     sm = difflib.SequenceMatcher(None, script, heard, autojunk=False)
     diffs = []
     for op, a0, a1, b0, b1 in sm.get_opcodes():
@@ -70,19 +68,19 @@ def main(ep_id):
     if short:
         alerts.append(f"{len(short)} plan(s) de moins d'1 s : image à peine visible")
 
-    # 4. Son : écart voix / musique+effets, saturation, niveau final
-    mix, voice = pcm(mp4), pcm(os.path.join(ROOT, "render", "public", ep_id, "voice.mp3"))
-    n = min(len(mix), len(voice))
-    m, v = mix[:n], voice[:n]
-    g = (m @ v) / (v @ v)
-    gap = db(g * v) - db(m - g * v)
-    peak = 20 * np.log10(np.abs(mix).max() + 1e-9)
-    lines += ["", "## Son", f"- voix {db(g * v):.1f} dB, musique + effets {db(m - g * v):.1f} dB → écart {gap:.1f} dB (cible 7–10)",
-              f"- crête {peak:.1f} dBFS"]
-    if gap < 6:
-        alerts.append(f"musique trop forte : seulement {gap:.1f} dB sous la voix")
-    if gap > 11:
-        alerts.append(f"musique trop faible : {gap:.1f} dB sous la voix, on ne l'entend presque pas")
+    # 4. Son : niveaux mesurés piste par piste (out/PX_stems, produit par mix.py)
+    from stems_report import report
+    st = report(ep_id)
+    peak = 20 * np.log10(np.abs(pcm(mp4)).max() + 1e-9)
+    lines += ["", "## Son (pistes séparées)", f"- voix {st['voix']} dB · musique sous la voix {st['musique_sous_voix']} dB "
+              f"(écart {st['ecart_musique']} dB, cible 7–10) · musique dans les silences {st['musique_silences']} dB",
+              f"- effets {st['effets']} dB (écart {st['ecart_effets']} dB, cible ≥ 15) · crête {peak:.1f} dBFS"]
+    if st["ecart_musique"] < 6:
+        alerts.append(f"musique trop forte : seulement {st['ecart_musique']} dB sous la voix")
+    if st["ecart_musique"] > 11:
+        alerts.append(f"musique trop faible : {st['ecart_musique']} dB sous la voix")
+    if st["ecart_effets"] < 13:
+        alerts.append(f"effets trop forts : {st['ecart_effets']} dB sous la voix")
     if peak > -0.5:
         alerts.append("saturation possible (crête au-dessus de -0,5 dBFS)")
 

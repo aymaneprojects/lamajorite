@@ -35,8 +35,12 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
         // chaque plan déborde de FADE images sur le suivant : le suivant apparaît en fondu par-dessus
         <Sequence key={b.i} from={f(b.start)} durationInFrames={Math.max(1, f(b.end) - f(b.start)) + FADE} name={b.id}>
           {b.image && <Scene beat={b} available={tl.available} first={b.i === 0} />}
-          {b.overlay && <Overlay o={b.overlay} />}
-          {b.card && <Cards card={b.card} beat={b} available={tl.available} />}
+          {/* textes et cartes posés sur l'image s'arrêtent net à la fin du plan (pas pendant le fondu suivant) */}
+          <Sequence durationInFrames={Math.max(1, f(b.end) - f(b.start))} layout="none">
+            {b.overlay && <Overlay o={b.overlay} />}
+            {b.card && !['stat', 'fact', 'rule'].includes(b.card.type) && <Cards card={b.card} beat={b} available={tl.available} />}
+          </Sequence>
+          {b.card && ['stat', 'fact', 'rule'].includes(b.card.type) && <Cards card={b.card} beat={b} available={tl.available} />}
         </Sequence>
       ))}
       <HudBar beats={tl.beats} episode={tl.episode} />
