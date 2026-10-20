@@ -4,7 +4,7 @@ But : un épisode publié à **19h00 heure de Paris** sur TikTok, Instagram et Y
 
 ## 0. Démarrer
 1. Lire `IDENTITE.md`, `MEMOIRE.json`, `KANBAN.md`, `docs/STRATEGIE.md` et la fin de `JOURNAL.md`.
-2. `./setup.sh` (dépendances + images Drive dans `images/`). 0 image → stop, prévenir le propriétaire.
+2. `./setup.sh` (dépendances + images Drive dans `images/`, 10–15 min la première fois ; inutile si `images/` et `render/node_modules` existent déjà). 0 image → stop, prévenir le propriétaire.
 3. `python3 pipeline/upload_post.py me` → clé et profil OK ? Sinon : ne pas publier, carte « Bloqué » dans KANBAN, prévenir.
 
 ## 1. Le vote d'hier

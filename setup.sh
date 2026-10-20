@@ -2,7 +2,7 @@
 # Prépare une session neuve : dépendances + images depuis Google Drive.
 set -euo pipefail
 cd "$(dirname "$0")"
-pip install -q -r requirements.txt 2>/dev/null
+python3 -m pip install -q -r requirements.txt 2>/dev/null || pip install -q -r requirements.txt
 (cd render && npm ci --no-audit --no-fund --silent)
 # Musiques libres (CC BY 4.0) listées dans render/public/music/catalog.json
 python3 - <<'PY'
