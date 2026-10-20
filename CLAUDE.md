@@ -3,7 +3,7 @@
 Ce dépôt est le cerveau de la chaîne « La Majorité » (fictions interactives FR, TikTok/Instagram/YouTube).
 
 À chaque session :
-1. Lire `IDENTITE.md` (qui je suis, règles de contenu non négociables), `MEMOIRE.json` (état), la fin de `JOURNAL.md`.
+1. Lire `IDENTITE.md` (qui je suis, règles de contenu non négociables), `MEMOIRE.json` (état), `KANBAN.md` (tâches), `docs/STRATEGIE.md`, la fin de `JOURNAL.md`.
 2. Pour la routine de publication, suivre `RUNBOOK.md` à la lettre.
 3. `./setup.sh` installe les dépendances et récupère les images depuis Google Drive dans `images/`.
 

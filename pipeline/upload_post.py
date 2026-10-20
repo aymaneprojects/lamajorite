@@ -53,6 +53,17 @@ def publish(video, meta, private=False):
             ("external_id", meta["external_id"]), ("request_id", meta["external_id"] + "-" + uuid.uuid4().hex[:6]),
             ("async_upload", "true")]
     data += [("platform[]", p) for p in meta.get("platforms", PLATFORMS)]
+    # publication programmée à l'heure de Paris si elle est encore à venir (sinon : tout de suite)
+    when = meta.get("schedule_paris")
+    if when and not private:
+        from datetime import datetime
+        from zoneinfo import ZoneInfo
+        now = datetime.now(ZoneInfo("Europe/Paris"))
+        hh, mm = map(int, when.split(":"))
+        target = now.replace(hour=hh, minute=mm, second=0, microsecond=0)
+        if (target - now).total_seconds() > 120:
+            data += [("scheduled_date", target.strftime("%Y-%m-%dT%H:%M:%S")), ("timezone", "Europe/Paris")]
+            data = [d for d in data if d[0] != "async_upload"]
     data += [("tags[]", t) for t in meta.get("tags", [])]
     files = {"video": (os.path.basename(video), open(video, "rb"), "video/mp4")}
     cover = meta.get("cover")

@@ -24,6 +24,11 @@ Cliffhanger obligatoire avant le vote.
 6. Pas de personne réelle, de marque ou de logo identifiable.
 
 ## Publication
-- 1 épisode par jour, **19h00 heure de Paris**, sur TikTok + Instagram Reels + YouTube Shorts.
-- Premier commentaire = rappel du vote. Légende : partie, titre, vote, hashtags.
+- 1 épisode par jour, **19h00 heure de Paris**, 7j/7, sur TikTok + Instagram Reels + YouTube Shorts. Jamais de jour manqué.
+- Légende modèle et stratégie : `docs/STRATEGIE.md` (tirée du rapport sur @saveo.house). Hashtag de série : #ChaqueBilletLaisseUneTrace.
+- Premier commentaire = rappel du vote. Miniature « PARTIE X » sur chaque épisode.
 - En cas de doute (image manquante, erreur d'API, contenu limite) : je ne publie pas, je préviens le propriétaire.
+
+## Mon système
+- Mémoire : `MEMOIRE.json` (état), `JOURNAL.md` (historique), `KANBAN.md` (tâches), `docs/` (bible, stratégie, rapport).
+- Automatisations : routine quotidienne à ~17h40 Paris (`RUNBOOK.md`), bilan le dimanche.

@@ -3,25 +3,35 @@ import json, os, sys
 from story_data import EPISODES
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TAGS = ["histoire", "serie", "tudecides", "storytime", "thriller", "marseille", "argent", "lamajorite"]
+TAGS = ["ChaqueBilletLaisseUneTrace", "lamajorite", "serie", "histoire", "tudecides"]
 
 
-def main(ep_id):
+def main(ep_id, result=None):
+    """result : « 61 % d'entre vous ont dit GARDER » (résultat du vote précédent), facultatif."""
     ep = next(e for e in EPISODES if e["id"] == ep_id)
     n = int(ep_id[1:])
     a, b = ep["vote"]
     title = ep["title"].split("—")[-1].strip()
-    caption = (f"Partie {n} · 9,8 MILLIONS — {title}. Commente {a} ou {b}, un seul mot. "
-               f"La majorité écrit la partie {n + 1}. " + " ".join("#" + t for t in TAGS))
+    # modèle de légende tiré du rapport Saveo : accueil, résultat du vote, vote, abonnement, 1 hashtag de série
+    lines = [f"Partie {n} · {title}."]
+    if n > 1:
+        lines.append("Nouveau ? Commence par la Partie 1 (épinglée).")
+    if result:
+        lines.append(result + ".")
+    lines.append(f"Tu choisis quoi ? Commente {a} ou {b}. La majorité écrit la partie {n + 1}.")
+    lines.append(f"Abonne-toi pour ne pas rater la partie {n + 1}, demain 19h.")
+    lines.append("#ChaqueBilletLaisseUneTrace #lamajorite #serie #histoire")
+    caption = " ".join(lines)  # TikTok ignore les retours à la ligne
     meta = {
         "external_id": f"9m8-{ep_id}",
         "caption": caption,
         "first_comment": f"🗳️ VOTE : {a} ou {b} ? Un seul mot. La majorité écrit la Partie {n + 1} demain 19h.",
-        "youtube_title": f"9,8 MILLIONS · Partie {n} — {title} (tu décides) #shorts",
+        "youtube_title": f"9,8 MILLIONS · Partie {n} — {title} (c'est toi qui décides) #shorts",
         "youtube_description": f"Une histoire. Tu votes en commentaire. La majorité écrit la suite.\nVote : {a} ou {b}.\n"
-                               f"Fiction. Images et voix générées par IA.\n#shorts #histoire #serie",
+                               f"Nouvel épisode chaque jour à 19h. Fiction. Images et voix générées par IA.\n#shorts #ChaqueBilletLaisseUneTrace",
         "tags": TAGS,
         "cover": f"out/{ep_id}_cover.png",  # relatif à la racine du dépôt
+        "schedule_paris": "19:00",
     }
     out = os.path.join(ROOT, "out", f"{ep_id}_meta.json")
     json.dump(meta, open(out, "w"), ensure_ascii=False, indent=1)
@@ -29,4 +39,4 @@ def main(ep_id):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2] if len(sys.argv) > 2 else None)

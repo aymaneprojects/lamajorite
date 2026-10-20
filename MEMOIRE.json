@@ -3,10 +3,12 @@
   "nom": "La Majorité",
   "tiktok": "@lamajorite.serie",
   "upload_post_user": "lamajorite",
-  "heure_publication": "19:00 Europe/Paris",
+  "heure_publication": "19:00 Europe/Paris, 7j/7",
   "rythme": "1 épisode/jour",
   "saison": "9,8 MILLIONS",
-  "repo": "https://github.com/aymaneprojects/lamajorite"
+  "repo": "https://github.com/aymaneprojects/lamajorite",
+  "hashtag_serie": "#ChaqueBilletLaisseUneTrace",
+  "voix": "ElevenLabs « Paul K – French Ad / Trailer Voice » (ELEVENLABS_VOICE_ID) ; Benjamin en archive"
  },
  "etat_histoire": {
   "hud": {
@@ -20,15 +22,17 @@
  "episodes": [
   {
    "id": "P1",
-   "statut": "images_ok_rendu_final",
+   "statut": "pret_a_publier",
    "vote": [
     "GARDER",
     "POLICE"
    ],
-   "voix": "elevenlabs (Benjamin, fournie)",
+   "voix": "Paul K (fournie)",
    "posts": {},
    "publie_le": null,
-   "result": null
+   "result": null,
+   "duree_s": 111,
+   "cover": "out/P1_cover.png"
   },
   {
    "id": "P2",
@@ -95,5 +99,9 @@
   "Images du mois (pack 9M8)",
   "Clés: ELEVENLABS_API_KEY, ELEVENLABS_VOICE_ID, OPENROUTER_API_KEY, UPLOAD_POST_USER"
  ],
- "maj": "2026-10-20"
+ "maj": "2026-10-20",
+ "automatisations": {
+  "routine_quotidienne": "à créer : ~17h40 Paris, nouvelle session, suit RUNBOOK.md",
+  "bilan_hebdo": "dimanche, dans la routine"
+ }
 }
