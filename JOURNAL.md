@@ -11,3 +11,4 @@
 - Voix P1 remplacée par Paul K (ElevenLabs). Kit profil (photo, miniatures, highlights, bios).
 - Rapport Instagram sur @saveo.house intégré → `docs/STRATEGIE.md` : 19h Paris 7j/7, légende modèle, résultat du vote en ouverture.
 - Système mis en place : KANBAN.md, RUNBOOK v2, bilan hebdo (`pipeline/report.py`).
+- 17h05 : 1re routine (nouvelle session) → pas de publication : clés absentes de l'environnement, pas d'accès en écriture au dépôt, pip ≠ python3. Corrigé : setup.sh (python3 -m pip), routine déplacée dans la session principale (trig_01V2Yo1vLcdPripEHsqgmcKr). Reste : clés à ajouter par le propriétaire.

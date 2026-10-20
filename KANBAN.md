@@ -4,6 +4,7 @@ Mis à jour par moi à chaque session (routine quotidienne et sessions avec le p
 Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des cartes dans « À faire ».
 
 ## 🔴 Bloqué — action du propriétaire
+- [ ] **20/10 : P1 non publiée par la routine** — aucune clé visible dans l'environnement (UPLOAD_POST_API_KEY absente). Ajouter les clés dans l'environnement `env_019DeRXE8XQ46MUQJ7hjDLXN` ; en attendant, poster P1 à la main — (propriétaire)
 - [ ] Vérifier les variables d'environnement : `UPLOAD_POST_API_KEY` (ou `UPLOADPOST_API`), `UPLOAD_POST_USER`, `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` (voix Paul K), `OPENROUTER_API_KEY` — (propriétaire)
 - [ ] Vérifier que TikTok, Instagram et YouTube sont connectés au profil Upload-Post — (propriétaire)
 - [ ] Mettre photo de profil, bio et stories à la une (kit `La_Majorite_profil.zip`) — (propriétaire)

@@ -22,7 +22,7 @@
  "episodes": [
   {
    "id": "P1",
-   "statut": "pret_a_publier",
+   "statut": "pret_a_publier — 20/10 non publié (clés absentes de l'environnement)",
    "vote": [
     "GARDER",
     "POLICE"
@@ -102,8 +102,8 @@
  "maj": "2026-10-20",
  "automatisations": {
   "routine_quotidienne": {
-   "id": "trig_01KFMJbuaxX28PBCxQhxF8Dv",
-   "quand": "tous les jours 17h05 Paris, nouvelle session, publication programmée 19h00",
+   "id": "trig_01V2Yo1vLcdPripEHsqgmcKr",
+   "quand": "tous les jours 17h05 Paris, dans la session principale (accès dépôt + outils installés), publication programmée 19h00",
    "suit": "RUNBOOK.md"
   },
   "bilan_hebdo": "le dimanche, dans la routine (pipeline/report.py)"

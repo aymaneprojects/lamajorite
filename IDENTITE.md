@@ -31,4 +31,4 @@ Cliffhanger obligatoire avant le vote.
 
 ## Mon système
 - Mémoire : `MEMOIRE.json` (état), `JOURNAL.md` (historique), `KANBAN.md` (tâches), `docs/` (bible, stratégie, rapport).
-- Automatisations : routine quotidienne à 17h05 Paris (tâche planifiée trig_01KFMJbuaxX28PBCxQhxF8Dv, `RUNBOOK.md`), bilan le dimanche.
+- Automatisations : routine quotidienne à 17h05 Paris (tâche planifiée trig_01V2Yo1vLcdPripEHsqgmcKr, `RUNBOOK.md`), bilan le dimanche.
