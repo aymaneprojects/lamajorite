@@ -1,6 +1,6 @@
 {
  "_licence": "Pistes CC BY 4.0 : crédit obligatoire dans la description (sinon réclamation YouTube possible)",
- "par_defaut": "sb_echoes",
+ "par_defaut": "sb_signal_to_noise",
  "pistes": {
   "suspense_synth": {
    "fichier": "sfx/suspense.mp3"
@@ -17,7 +17,8 @@
    "auteur": "Scott Buckley",
    "site": "scottbuckley.com.au",
    "licence": "CC BY 4.0",
-   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/04/sb_signaltonoise_nomelody.mp3"
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2020/04/sb_signaltonoise_nomelody.mp3",
+   "debut": 30
   },
   "sb_decoherence": {
    "titre": "Decoherence",
@@ -45,9 +46,8 @@
    "auteur": "Scott Buckley",
    "site": "scottbuckley.com.au",
    "licence": "CC BY 4.0",
-   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/05/Echoes.mp3",
-   "gain": 1.9
+   "url": "https://www.scottbuckley.com.au/library/wp-content/uploads/2024/05/Echoes.mp3"
   }
  },
- "_gain": "gain : multiplicateur de volume propre à la piste (pistes douces > 1), pour garder ≈ 7 dB sous la voix"
+ "_debut": "debut : seconde de la piste où commence la musique de l'épisode (là où la tension est installée)"
 }

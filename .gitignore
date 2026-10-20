@@ -13,3 +13,6 @@ out/branding/*.png
 out/*_cover.png
 out/*.mp3
 render/public/music/*.mp3
+out/*_stems/
+out/*_qa.md
+out/*_planche.jpg

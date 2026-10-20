@@ -10,19 +10,14 @@ import {Grain} from './Fx';
 
 type Sfx = {at: number; src: string; vol: number};
 
-// la voix doit toujours dominer : bruitages nettement en dessous (retour du propriétaire, 20/10)
-const SFX_GAIN = 0.35;
-// musique bien audible mais toujours sous la voix (≈ 8 dB d'écart pendant la narration)
-const MUSIC_UNDER_VOICE = 0.17;
-const MUSIC_ALONE = 0.42;
 
 // Bruitages placés automatiquement d'après le contenu des beats
 const sfxFor = (beats: Beat[]): Sfx[] => {
   const out: Sfx[] = [];
   beats.forEach((b, i) => {
     const s = b.start;
-    if (i > 0 && b.kind === 'img' && !b.card) out.push({at: s, src: 'whoosh', vol: 0.22});
-    if (b.overlay?.type === 'hook') out.push({at: s + 0.05, src: 'impact', vol: 0.55}, {at: s, src: 'glitch', vol: 0.25});
+    if (i > 0 && b.kind === 'img' && !b.card) out.push({at: s, src: 'whoosh', vol: 0.5});
+    if (b.overlay?.type === 'hook') out.push({at: s + 0.05, src: 'impact', vol: 0.6});
     const c = b.card;
     if (c && ['stat', 'fact', 'rule', 'results', 'persons'].includes(c.type)) out.push({at: s, src: 'impact', vol: 0.4});
     if (c?.type === 'fact' && c.stamp) {
@@ -36,8 +31,6 @@ const sfxFor = (beats: Beat[]): Sfx[] => {
       c.msgs.forEach((_: string, k: number) => out.push({at: s + (8 + k * 22) / 30, src: 'pop', vol: 0.4}));
     }
     if (c?.type === 'vote') out.push({at: Math.max(0, s - 3), src: 'riser', vol: 0.35}, {at: s, src: 'impact', vol: 0.5});
-    const prev = beats.slice(0, i).reverse().find((x) => x.hud)?.hud;
-    if (b.hud && prev && (b.hud.susp ?? 0) > (prev.susp ?? 0)) out.push({at: s, src: 'heartbeat', vol: 0.5});
   });
   return out;
 };
@@ -58,20 +51,11 @@ export const Episode: React.FC<{episode: string; timeline: Timeline}> = ({timeli
       <Grain />
       <HudBar beats={tl.beats} episode={tl.episode} />
       <Captions words={tl.words} beats={tl.beats} />
-      <Audio src={staticFile(tl.voice)} />
-      {/* musique de suspense qui baisse automatiquement quand la voix parle */}
-      <Audio
-        src={staticFile(tl.music)}
-        loop
-        volume={(fr) => {
-          const t = fr / fps;
-          const talking = tl.words.some((w) => t >= w.t0 - 0.15 && t <= w.t1 + 0.25);
-          return Math.min(1, (talking ? MUSIC_UNDER_VOICE : MUSIC_ALONE) * (tl.musicGain ?? 1));
-        }}
-      />
+      {/* Seule la piste d'effets sort du rendu. Voix + musique + effets sont mixés ensuite par pipeline/mix.py
+          (voix devant, musique dessous avec effacement doux, effets en arrière-plan). */}
       {sfxFor(tl.beats).map((s, i) => (
         <Sequence key={`sfx${i}`} from={f(s.at)} durationInFrames={f(3.2)} name={`sfx-${s.src}`}>
-          <Audio src={staticFile(`sfx/${s.src}.wav`)} volume={s.vol * SFX_GAIN} />
+          <Audio src={staticFile(`sfx/${s.src}.wav`)} volume={s.vol} />
         </Sequence>
       ))}
     </AbsoluteFill>

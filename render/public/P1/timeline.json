@@ -4,8 +4,8 @@
  "fps": 30,
  "duration": 110.96,
  "voice": "P1/voice.mp3",
- "music": "music/sb_echoes.mp3",
- "musicGain": 1.9,
+ "music": "music/sb_signal_to_noise.mp3",
+ "musicGain": 1.0,
  "words": [
   {
    "w": "Tu",
