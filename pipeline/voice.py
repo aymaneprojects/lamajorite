@@ -40,7 +40,8 @@ def words(mp3, out_json):
     from faster_whisper import WhisperModel
     pcm = subprocess.run(["ffmpeg", "-v", "error", "-i", mp3, "-ac", "1", "-ar", "16000", "-f", "s16le", "-"], capture_output=True).stdout
     audio = np.frombuffer(pcm, np.int16).astype(np.float32) / 32768
-    segs, _ = WhisperModel("small", device="cpu", compute_type="int8").transcribe(audio, language="fr", word_timestamps=True)
+    segs, _ = WhisperModel("medium", device="cpu", compute_type="int8").transcribe(
+        audio, language="fr", word_timestamps=True, initial_prompt="Marcel, Rayan, Tracfin, Moreau, box 117, Marseille, euros.")
     ws = [{"w": w.word.strip(), "t0": round(w.start, 3), "t1": round(w.end, 3)} for s in segs for w in s.words]
     json.dump(ws, open(out_json, "w"), ensure_ascii=False)
     return len(ws)
@@ -57,7 +58,12 @@ def main(ep_id):
             print(f"ElevenLabs indisponible ({err}) → voix de secours {FALLBACK_VOICE}")
             edge(script(ep_id), mp3)
             provider = "edge-tts"
-    n = words(mp3, os.path.join(AUDIO, f"{ep_id}_words.json"))
+    words_json = os.path.join(AUDIO, f"{ep_id}_words.json")
+    # transcription déjà validée (voix fournie) : on la garde telle quelle
+    if provider == "existant" and os.path.exists(words_json):
+        print(json.dumps({"episode": ep_id, "voice": provider, "words": len(json.load(open(words_json)))}))
+        return
+    n = words(mp3, words_json)
     print(json.dumps({"episode": ep_id, "voice": provider, "words": n}))
 
 
