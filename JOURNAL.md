@@ -37,3 +37,8 @@
   (nos réponses exclues) → l'épisode est supprimé et republié à 21h00 avec une nouvelle accroche ; pas de nouvel épisode ce jour-là.
 - YouTube supprimé par l'API ; TikTok et Instagram : pas d'API de suppression → le propriétaire supprime (liens envoyés).
 - 3 relances sans succès → alerte au propriétaire (nouvelle accroche / miniature à choisir). Testé sur des commentaires simulés.
+
+## 20/10 — 23h35 · Passage 2 (après publication P1)
+- `record P1` : 3/3 posts OK, id et URL confirmés dans MEMOIRE (TikTok 7698833455286734113, Instagram 18130217056829263, YouTube 6s3FwNUDcsY).
+- Commentaires à 23h35 (2h10 après la mise en ligne) : TikTok 0, Instagram 0, YouTube 0 → `engage.py P1` : aucune réponse à envoyer.
+- Vote P1 (GARDER/POLICE) à compter demain au passage 1 (19h05).
