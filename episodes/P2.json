@@ -1,0 +1,431 @@
+{
+ "id": "P2",
+ "title": "Partie 2 — Règle n°1",
+ "vote": [
+  "PAYER",
+  "REFUSER"
+ ],
+ "hud": "CASH 9 840 000 € · EN BANQUE 0 € · SOUPÇON 25 → 45 %",
+ "beats": [
+  [
+   "img",
+   "P2_01",
+   "Tu as trouvé neuf millions huit cent quarante mille euros.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P1_27",
+   "Et quelqu'un le sait.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_01",
+   "Vous avez dit : garder.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_02",
+   "Soupçon : vingt-cinq pour cent.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_03",
+   "Donc tu caches tout. Trois options.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_04",
+   "Option un. Les enterrer. Mais le papier pourrit.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_06",
+   "Option deux. Un autre box.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_07",
+   "Ta carte d'identité. Ton vrai nom. Sur un contrat.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_08",
+   "Option trois. Un coffre à la banque.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Voilà le truc. Pour un coffre, ta banque vérifie ton identité. C'est la loi.",
+   ""
+  ],
+  [
+   "card",
+   "Règle numéro un. Ne jamais tout garder au même endroit.",
+   ""
+  ],
+  [
+   "img",
+   "P2_10",
+   "Alors tu divises.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Trois sacs. Chacun : trois millions deux cent quatre-vingt mille.",
+   ""
+  ],
+  [
+   "img",
+   "P2_04",
+   "Sac un. Sous un pin.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_13",
+   "Sac deux. Le box cent dix-sept.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_14",
+   "Sac trois. Pas de contrat. Pas de caméra.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_15",
+   "Ton cousin Rayan.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_16",
+   "Comme un frère.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_17",
+   "Tu lui dis : des affaires de Marcel.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Rayan n'a jamais eu plus de quatre cents euros.",
+   ""
+  ],
+  [
+   "img",
+   "P2_18",
+   "Aucune question. Ça aurait dû t'inquiéter.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_21",
+   "Le lendemain, le cadenas du box a changé.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Problème. Le sac deux est enfermé. Pas par toi.",
+   ""
+  ],
+  [
+   "img",
+   "P2_23",
+   "Il n'a rien pris. Il veut que tu saches.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_24",
+   "Soupçon : trente-huit pour cent.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_25",
+   "Trois heures onze. Ton téléphone vibre.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_26",
+   "C'est Rayan.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "« J'ai ouvert le sac. » « Il me faut cinquante mille. »",
+   ""
+  ],
+  [
+   "img",
+   "P2_27",
+   "Cinquante mille. Sinon, il parle.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_28",
+   "Soupçon : quarante-cinq pour cent.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_29",
+   "Tu paies, et tu achètes son silence ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_30",
+   "Ou tu refuses, et tu prends le risque ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_28",
+   "Chaque choix peut te faire tomber. Ou te rendre libre. Commente : payer, ou refuser. La majorité écrit la partie trois.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_23",
+   "Et cette nuit-là… Rayan n'était pas seul.",
+   "",
+   ""
+  ]
+ ],
+ "specs": {
+  "beats": {
+   "0": {
+    "overlay": {
+     "type": "hook",
+     "lines": [
+      "9 840 000 €",
+      "VOUS AVEZ DIT *GARDER*."
+     ]
+    }
+   },
+   "1": {
+    "overlay": {
+     "type": "tag",
+     "text": "04:12 · *NUMÉRO INCONNU*"
+    }
+   },
+   "2": {
+    "overlay": {
+     "type": "tag",
+     "text": "VOTE · *GARDER*"
+    }
+   },
+   "3": {
+    "hud": {
+     "cash": 9840000,
+     "bank": 0,
+     "susp": 25
+    }
+   },
+   "5": {
+    "overlay": {
+     "type": "tag",
+     "text": "OPTION 1 · *ENTERRER*"
+    }
+   },
+   "6": {
+    "overlay": {
+     "type": "tag",
+     "text": "OPTION 2 · *UN BOX*"
+    }
+   },
+   "7": {
+    "overlay": {
+     "type": "tag",
+     "text": "*TON VRAI NOM*"
+    }
+   },
+   "8": {
+    "overlay": {
+     "type": "tag",
+     "text": "OPTION 3 · *UN COFFRE*"
+    }
+   },
+   "9": {
+    "card": {
+     "type": "fact",
+     "kicker": "VOILÀ LE TRUC AVEC LES COFFRES",
+     "lines": [
+      "Pour te louer un coffre",
+      "ta banque vérifie",
+      "ton identité"
+     ],
+     "stamp": "C'EST LA LOI",
+     "mots": [
+      "coffre",
+      "banque",
+      "identité"
+     ],
+     "stamp_mot": "loi"
+    }
+   },
+   "10": {
+    "card": {
+     "type": "rule",
+     "kicker": "RÈGLE 1",
+     "text": "Ne jamais tout garder au même endroit.",
+     "mots": [
+      "Règle",
+      "jamais"
+     ]
+    }
+   },
+   "12": {
+    "card": {
+     "type": "stat",
+     "kicker": "TU DIVISES",
+     "lines": [
+      "3 sacs",
+      "3 280 000 €",
+      "dans chacun"
+     ],
+     "mots": [
+      "sacs",
+      "Chacun",
+      "Chacun"
+     ]
+    }
+   },
+   "13": {
+    "overlay": {
+     "type": "tag",
+     "text": "SAC 1 · *SOUS UN PIN*"
+    }
+   },
+   "14": {
+    "overlay": {
+     "type": "tag",
+     "text": "SAC 2 · *BOX 117*"
+    }
+   },
+   "15": {
+    "overlay": {
+     "type": "tag",
+     "text": "SAC 3 · *UNE PERSONNE*"
+    }
+   },
+   "16": {
+    "overlay": {
+     "type": "tag",
+     "text": "COUSIN *RAYAN*"
+    }
+   },
+   "19": {
+    "card": {
+     "type": "stat",
+     "kicker": "RAYAN · COMPTE EN BANQUE",
+     "lines": [
+      "Le plus qu'il ait jamais eu",
+      "400 €",
+      "en banque"
+     ],
+     "mots": [
+      "Rayan",
+      "jamais",
+      "plus"
+     ]
+    }
+   },
+   "21": {
+    "overlay": {
+     "type": "tag",
+     "text": "BOX 117 · *CADENAS CHANGÉ*"
+    }
+   },
+   "22": {
+    "card": {
+     "type": "rule",
+     "kicker": "PROBLÈME",
+     "text": "Le sac 2 est enfermé. Pas par toi.",
+     "mots": [
+      "Problème",
+      "enfermé"
+     ]
+    }
+   },
+   "24": {
+    "hud": {
+     "susp": 38
+    }
+   },
+   "27": {
+    "card": {
+     "type": "sms",
+     "from": "RAYAN · 03:11",
+     "msgs": [
+      "J'ai ouvert le sac.",
+      "Il me faut 50 000."
+     ]
+    }
+   },
+   "29": {
+    "hud": {
+     "susp": 45
+    }
+   },
+   "32": {
+    "card": {
+     "type": "vote",
+     "left": {
+      "word": "PAYER",
+      "mot": "payer"
+     },
+     "right": {
+      "word": "REFUSER",
+      "mot": "refuser"
+     },
+     "at": 3.8,
+     "at_word": "Commente"
+    }
+   }
+  },
+  "motion": "plus"
+ }
+}

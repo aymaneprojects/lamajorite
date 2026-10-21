@@ -40,7 +40,11 @@
     "tiktok": "7698833455286734113"
    },
    "publie_le": "2026-10-20T21:25+02:00",
-   "result": null,
+   "result": {
+    "winner": "GARDER",
+    "comments": 2,
+    "source": "propriétaire, 21/10 18h40 (2 commentaires, GARDER)"
+   },
    "duree_s": 81.7,
    "cover": "out/P1_cover.png",
    "publication_prevue": "2026-10-20 21:00 Paris",

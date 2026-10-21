@@ -150,7 +150,8 @@ def sans_ia(meta):
     """Consigne du propriétaire : jamais de mention de l'IA dans ce qui est publié."""
     import re
     txt = " ".join(str(meta.get(k, "")) for k in ("caption", "first_comment", "youtube_title", "youtube_description"))
-    m = re.search(r"\b(IA|AI)\b|intelligence artificielle|g[ée]n[ée]r[ée]e?s? par", txt, re.I)
+    # « IA » / « AI » seulement en majuscules (sinon « j'ai » déclenche) ; le reste sans tenir compte de la casse
+    m = re.search(r"\b(IA|AI)\b", txt) or re.search(r"intelligence artificielle|artificial intelligence|g[ée]n[ée]r[ée]e?s? par", txt, re.I)
     if m:
         sys.exit(f"Publication refusée : mention interdite « {m.group(0)} » dans la légende/description")
 
