@@ -20,3 +20,5 @@ out/*_qa.json
 out/*_verdict.json
 out/qa_*/
 out/*_voix.txt
+out/email_*.txt
+out/*_a_supprimer.txt
