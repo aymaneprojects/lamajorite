@@ -47,3 +47,6 @@
 - `docs/EMPLOI_DU_TEMPS.md` : 13h05 écriture · 19h05 production/relance · 20h20 rattrapage · 23h35 après publication · dim. bilan · lun. stock d'images.
 - `pipeline/notify.py` (Resend) : voix, images, à supprimer, bloqué, alerte accroche, récap, bilan ; anti-doublon ; sans clé → out/email_*.txt.
 - Consigne propriétaire : jamais de mention « IA » → étiquettes IA retirées, description YouTube nettoyée, verrou `sans_ia` avant publication.
+
+## 21/10 — 17h55 · Seuil abaissé à 2 commentaires (propriétaire)
+- La P2 se produit dès 2 commentaires du public ; en dessous (0 ou 1) après ~22 h → suppression + republication.

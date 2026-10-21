@@ -59,8 +59,8 @@ def compose(kind, ep=None, extra=None):
                 f"Le directeur qualité a refusé la {ep} après 2 corrections. Je ne publie pas.\n\nRaisons :\n{raisons}", [])
     if kind == "alerte_accroche":
         acc = "\n".join(f"{i}. {a}" for i, a in enumerate((extra or "").split("|"), 1) if a)
-        return (f"[À choisir] {ep} : 3 relances sans 20 commentaires",
-                f"La {ep} a été republiée 3 fois sans atteindre 20 commentaires. Je propose une nouvelle accroche :\n\n{acc}\n\n"
+        return (f"[À choisir] {ep} : 3 relances sans assez de commentaires",
+                f"La {ep} a été republiée 3 fois sans atteindre le minimum de commentaires. Je propose une nouvelle accroche :\n\n{acc}\n\n"
                 f"Réponds avec le numéro choisi (ou écris la tienne). En attendant, je ne republie pas.", [])
     if kind == "recap":
         mem = json.load(open(MEM))

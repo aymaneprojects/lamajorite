@@ -1,4 +1,4 @@
-"""Règle des 20 commentaires : un épisode qui n'en a pas assez est supprimé et republié.
+"""Règle du seuil de commentaires (SEUIL) : un épisode qui n'en a pas assez est supprimé et republié.
 
   python3 relance.py PX              → décision (attendre / continuer / relancer / alerte), écrite dans MEMOIRE.json
   python3 relance.py PX --executer   → archive la tentative, supprime YouTube (API), liste TikTok/Instagram à supprimer
@@ -16,7 +16,7 @@ from votes import fetch
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEM = os.path.join(ROOT, "MEMOIRE.json")
-SEUIL = 20          # commentaires du public, toutes plateformes
+SEUIL = 2           # commentaires du public, toutes plateformes (propriétaire, 21/10 : 2 suffisent pour avancer)
 DELAI_H = 22        # âge minimal du post avant de juger
 MAX_RELANCES = 3    # au-delà : le propriétaire décide (nouvelle accroche / miniature)
 PARIS = ZoneInfo("Europe/Paris")
