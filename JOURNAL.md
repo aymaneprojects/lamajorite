@@ -65,3 +65,12 @@
   Boucle 2 : **publier = true** (87,4 s, 33 plans, musique −10,4 dB, effets −16,0 dB, 30 textes calés).
 - Fait vérifié : identité contrôlée par la banque pour louer un coffre (obligation de vigilance, art. L561-5 CMF).
 - Publication programmée 21h00 : request 9m8-P2-f98610, job 868127bebc2840a19b03c9b34e69d2a0. Légende « 100 % d'entre vous ont dit GARDER », sans mention IA.
+
+## 21/10 — 23h35 · Passage 2 (après publication P2)
+- P2 publiée à 21h00, 3/3 :
+  - TikTok : https://www.tiktok.com/@lamajorite.serie/video/7699198595630664993
+  - Instagram : https://www.instagram.com/reel/DexHQzTDI4p/
+  - YouTube : https://www.youtube.com/watch?v=LVkWFL419Ns
+- Commentaires du public à 23h35 : 2 (Instagram : @mistermarti « Tu les passes », @evil_shrimply), aucun vote PAYER/REFUSER encore.
+- `engage.py P2` : 0 réponse envoyée (commentaires sans vote : réponse tirée au sort, pas retenue).
+- Récap envoyé au propriétaire (`notify.py recap P2`).
