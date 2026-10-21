@@ -112,9 +112,13 @@ def main(ep_id):
             if re.fullmatch(r"[\d ]*(euros?)?", said.replace(" ", "")) or not (said or wrote):
                 continue
             diffs.append(f"- script « {wrote or '∅'} » → entendu « {said or '∅'} »")
-    lines += ["", "## Voix (script ↔ voix réelle)", f"- concordance {sm.ratio():.0%}"] + (diffs[:25] or ["- aucun écart"])
-    if sm.ratio() < 0.85:
-        alerts.append(f"la voix s'écarte du script ({sm.ratio():.0%}) : vérifier les écarts listés")
+    # concordance : un nombre écrit en lettres et transcrit en chiffres compte comme dit correctement
+    ok = sum(a1 - a0 for op, a0, a1, b0, b1 in sm.get_opcodes()
+             if op == "equal" or (op == "replace" and all(re.fullmatch(r"\d+h?\d*|euros?", t) for t in heard[b0:b1])))
+    ratio = ok / max(len(script), 1)
+    lines += ["", "## Voix (script ↔ voix réelle)", f"- concordance {ratio:.0%}"] + (diffs[:25] or ["- aucun écart"])
+    if ratio < 0.9:
+        alerts.append(f"la voix s'écarte du script ({ratio:.0%}) : vérifier les écarts listés")
 
     # 3. Rythme des plans
     short = [b["id"] for b in tl["beats"] if b["end"] - b["start"] < 1.0]
@@ -158,7 +162,7 @@ def main(ep_id):
     lines = lines[:2] + ["## Verdict", *(f"- ⚠️ {a}" for a in alerts)] + (["- ✅ rien de bloquant détecté automatiquement"] if not alerts else []) + [""] + lines[2:]
     out = os.path.join(ROOT, "out", f"{ep_id}_qa.md")
     open(out, "w").write("\n".join(lines) + "\n")
-    mesures = {**conf["mesures"], **st, "duree": round(dur, 1), "crete": round(float(peak), 1), "concordance": round(sm.ratio(), 3)}
+    mesures = {**conf["mesures"], **st, "duree": round(dur, 1), "crete": round(float(peak), 1), "concordance": round(ratio, 3)}
     json.dump({"episode": ep_id, "ok": not alerts, "bloquants": alerts, "mesures": mesures},
               open(os.path.join(ROOT, "out", f"{ep_id}_qa.json"), "w"), ensure_ascii=False, indent=1)
     print("\n".join(lines))
