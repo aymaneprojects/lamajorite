@@ -94,7 +94,9 @@ def executer(ep_id):
     meta.update({"caption_base": base, "caption": ACCROCHES[(k - 1) % len(ACCROCHES)] + " " + base,
                  "external_id": f"9m8-{ep_id}-r{k}", "schedule_paris": "21:00"})
     json.dump(meta, open(mp, "w"), ensure_ascii=False, indent=1)
-    return {"tentative": k + 1, "youtube": supprimes.get("youtube"), "proprietaire_doit_supprimer": a_supprimer,
+    from notify import send
+    mail = send("a_supprimer", ep_id) if a_supprimer else None
+    return {"tentative": k + 1, "youtube": supprimes.get("youtube"), "email": mail, "proprietaire_doit_supprimer": a_supprimer,
             "fichier": txt, "nouvelle_legende": meta["caption"][:120]}
 
 

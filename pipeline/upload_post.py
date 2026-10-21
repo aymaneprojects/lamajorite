@@ -47,7 +47,9 @@ def publish(video, meta, private=False):
             ("tiktok_title", meta["caption"]), ("instagram_title", meta["caption"]),
             ("youtube_title", meta["youtube_title"][:100]), ("youtube_description", meta["youtube_description"]),
             ("first_comment", meta["first_comment"]),
-            ("is_aigc", "true"), ("is_ai_generated", "true"), ("containsSyntheticMedia", "true"),
+            # aucune mention « IA » (consigne du propriétaire, 21/10) : style dessin animé non réaliste,
+            # que TikTok et YouTube n'obligent pas à étiqueter. Si un jour une image devient photoréaliste, le signaler.
+            ("is_aigc", "false"), ("is_ai_generated", "false"), ("containsSyntheticMedia", "false"),
             ("privacy_level", "SELF_ONLY" if private else "PUBLIC_TO_EVERYONE"),
             ("privacyStatus", "private" if private else "public"),
             ("defaultLanguage", "fr"), ("defaultAudioLanguage", "fr"), ("categoryId", "24"),
@@ -144,6 +146,15 @@ def feu_vert(video, test=False):
         sys.exit(f"Publication refusée : pas de feu vert du directeur qualité ({(vd or {}).get('raisons', 'out/' + ep + '_verdict.json absent')})")
 
 
+def sans_ia(meta):
+    """Consigne du propriétaire : jamais de mention de l'IA dans ce qui est publié."""
+    import re
+    txt = " ".join(str(meta.get(k, "")) for k in ("caption", "first_comment", "youtube_title", "youtube_description"))
+    m = re.search(r"\b(IA|AI)\b|intelligence artificielle|g[ée]n[ée]r[ée]e?s? par", txt, re.I)
+    if m:
+        sys.exit(f"Publication refusée : mention interdite « {m.group(0)} » dans la légende/description")
+
+
 if __name__ == "__main__":
     cmd = sys.argv[1]
     if cmd == "me":
@@ -151,6 +162,7 @@ if __name__ == "__main__":
         print(json.dumps(profiles(), indent=1, ensure_ascii=False))
     elif cmd == "publish":
         feu_vert(sys.argv[2], "--private" in sys.argv or "--force" in sys.argv)
+        sans_ia(json.load(open(sys.argv[3])))
         print(json.dumps(publish(sys.argv[2], json.load(open(sys.argv[3])), "--private" in sys.argv), indent=1, ensure_ascii=False))
     elif cmd == "status":
         print(json.dumps(status(sys.argv[2]), indent=1, ensure_ascii=False))

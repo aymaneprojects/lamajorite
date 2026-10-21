@@ -23,7 +23,7 @@ Contrôles à faire sur l'épisode PY :
    positions que la P1, image cohérente avec la phrase dite (bon personnage, bon lieu).
 5. Voix : c'est la voix de la série (Nicolas Petit, ElevenLabs), pas une voix de secours ; mots bien prononcés
    (écarts listés dans `out/PY_qa.md`).
-6. Contenu : fiction, jamais un tutoriel ; fait réel exact ; aucune arme, drogue ou violence graphique ; vote clair à 2 mots.
+6. Contenu : fiction, jamais un tutoriel ; **aucune mention de l'IA** (vidéo, légende `out/PY_meta.json`, commentaire de vote) ; fait réel exact ; aucune arme, drogue ou violence graphique ; vote clair à 2 mots.
 
 Écris `out/PY_verdict.json` :
 `{"episode": "PY", "publier": true|false, "raisons": ["…"], "corrections": [{"quoi": "…", "ou": "fichier/champ", "comment": "…"}]}`

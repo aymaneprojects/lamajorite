@@ -58,7 +58,10 @@ def main(ep_id):
             txt = os.path.join(ROOT, "out", f"{ep_id}_voix.txt")
             os.makedirs(os.path.dirname(txt), exist_ok=True)
             open(txt, "w").write(script(ep_id) + "\n")
+            # la voix déposée par le propriétaire (Drive voix/PY.mp3) est copiée par setup.sh : la demander par email
             if "--secours" not in sys.argv:
+                from notify import send
+                print(json.dumps(send("voix", ep_id), ensure_ascii=False))
                 # pas de voix robot en public : le propriétaire génère la voix (Nicolas Petit) à partir de ce texte
                 sys.exit(f"ElevenLabs indisponible ({err}) → texte voix prêt pour le propriétaire : out/{ep_id}_voix.txt")
             print(f"ElevenLabs indisponible ({err}) → voix de secours {FALLBACK_VOICE} (test uniquement)")

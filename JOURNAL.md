@@ -42,3 +42,8 @@
 - `record P1` : 3/3 posts OK, id et URL confirmés dans MEMOIRE (TikTok 7698833455286734113, Instagram 18130217056829263, YouTube 6s3FwNUDcsY).
 - Commentaires à 23h35 (2h10 après la mise en ligne) : TikTok 0, Instagram 0, YouTube 0 → `engage.py P1` : aucune réponse à envoyer.
 - Vote P1 (GARDER/POLICE) à compter demain au passage 1 (19h05).
+
+## 21/10 — 16h45 · Emploi du temps + emails + plus aucune mention IA
+- `docs/EMPLOI_DU_TEMPS.md` : 13h05 écriture · 19h05 production/relance · 20h20 rattrapage · 23h35 après publication · dim. bilan · lun. stock d'images.
+- `pipeline/notify.py` (Resend) : voix, images, à supprimer, bloqué, alerte accroche, récap, bilan ; anti-doublon ; sans clé → out/email_*.txt.
+- Consigne propriétaire : jamais de mention « IA » → étiquettes IA retirées, description YouTube nettoyée, verrou `sans_ia` avant publication.

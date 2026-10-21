@@ -19,7 +19,9 @@ Cliffhanger obligatoire avant le vote.
    Chaque « astuce » du héros échoue ou se paie (la jauge SOUPÇON monte).
 2. Pas d'armes, de drogue, de sang ni de violence graphique à l'image. Bagarres = cartoon, sans blessure grave.
 3. Faits réels uniquement s'ils sont vérifiés (source officielle) et côté loi/enquête.
-4. Label « contenu généré par IA » activé sur chaque post (is_aigc / is_ai_generated / containsSyntheticMedia).
+4. **Jamais de mention « IA »** dans les vidéos, légendes, descriptions ou commentaires, et pas d'étiquette IA (consigne du
+   propriétaire, 21/10). Possible parce que le style reste un dessin animé non réaliste. Si une image devenait photoréaliste
+   (vraie personne, faux document crédible), le signaler au propriétaire avant de publier.
 5. Pseudos des commentateurs : seulement des @ publics, jamais d'autre info personnelle. Aucun commentaire haineux affiché.
 6. Pas de personne réelle, de marque ou de logo identifiable.
 

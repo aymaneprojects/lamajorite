@@ -30,3 +30,6 @@ Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des
 - [x] Kit profil : photo, miniatures P1–P5, highlights, bios
 
 - [ ] Étiquettes de plan (overlay tag) calées sur le mot dit, comme les cartes (`align.py`, champ `mot`) — remarque du directeur qualité sur la P1, à appliquer dès la P2 (P1 inchangée).
+
+- [ ] P1 déjà en ligne : retirer « Images et voix générées par IA » de la description YouTube (Upload-Post, édition de post YouTube) ; TikTok/Instagram : étiquette IA posée au 1er post, disparaît à la republication.
+- [ ] Propriétaire : ajouter RESEND_API_KEY dans l'environnement « video-social-media » → nouvelle session opérateur + test email.
