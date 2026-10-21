@@ -22,3 +22,4 @@ out/qa_*/
 out/*_voix.txt
 out/email_*.txt
 out/*_a_supprimer.txt
+out/*_images_manquantes.md
