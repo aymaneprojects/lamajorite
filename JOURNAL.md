@@ -73,4 +73,4 @@
   - YouTube : https://www.youtube.com/watch?v=LVkWFL419Ns
 - Commentaires du public à 23h35 : 2 (Instagram : @mistermarti « Tu les passes », @evil_shrimply), aucun vote PAYER/REFUSER encore.
 - `engage.py P2` : 0 réponse envoyée (commentaires sans vote : réponse tirée au sort, pas retenue).
-- Récap envoyé au propriétaire (`notify.py recap P2`).
+- Récap au propriétaire (`notify.py recap P2`) : pas envoyé, RESEND_API_KEY absente → écrit dans out/email_recap_P2.txt.
