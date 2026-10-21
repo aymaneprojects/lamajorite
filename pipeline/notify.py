@@ -9,7 +9,7 @@
   python3 notify.py recap PX               → liens des posts du soir + commentaires
   python3 notify.py bilan                  → bilan de la semaine (out/rapport.json)
 
-Clé : RESEND_API_KEY. Expéditeur : RESEND_FROM (défaut onboarding@resend.dev : Resend n'envoie alors qu'à l'adresse
+Clé : RESEND_API_KEY (ou RESEND). Expéditeur : RESEND_FROM (défaut onboarding@resend.dev : Resend n'envoie alors qu'à l'adresse
 du compte Resend). Sans clé : l'email est écrit dans out/email_<type>_<ep>.txt (carte KANBAN à ajouter).
 Anti-doublon : un même email (type + épisode) n'est envoyé qu'une fois par jour (MEMOIRE.json → emails).
 """
@@ -84,7 +84,7 @@ def send(kind, ep=None, extra=None, force=False):
         return {"statut": "déjà envoyé aujourd'hui", "type": kind, "ep": ep}
     subject, body, files = compose(kind, ep, extra)
     body += SIGNATURE
-    key = os.environ.get("RESEND_API_KEY")
+    key = os.environ.get("RESEND_API_KEY") or os.environ.get("RESEND")
     if not key:
         path = _out(f"email_{kind}_{ep or today}.txt")
         os.makedirs(os.path.dirname(path), exist_ok=True)
