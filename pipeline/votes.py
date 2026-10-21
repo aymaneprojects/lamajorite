@@ -14,6 +14,19 @@ def norm(s):
     return "".join(c for c in s if unicodedata.category(c) != "Mn")
 
 
+def auteur(c):
+    """Pseudo de l'auteur, quel que soit le format de la plateforme (Instagram : user.username, TikTok : display_name,
+    YouTube : author)."""
+    return ((c.get("user") or {}).get("username") or c.get("username") or c.get("author") or c.get("display_name")
+            or c.get("id") or c.get("comment_id") or "").lstrip("@")
+
+
+def est_a_nous(c, mem):
+    """Nos propres commentaires (rappel du vote, réponses) ne comptent ni comme votes ni comme commentaires du public."""
+    mine = {h.lstrip("@").lower() for h in mem["chaine"].get("comptes", {}).values()}
+    return bool(c.get("owner")) or auteur(c).lower() in mine
+
+
 def count(options, all_comments):
     """1 vote par personne (son dernier commentaire qui contient une option)."""
     opts = {norm(o).replace("'", ""): o for o in options}
@@ -27,7 +40,7 @@ def count(options, all_comments):
                 if all(p in words for p in o_n.split()):
                     hits.append(o)
         if hits:
-            by_user[(c.get("platform"), (c.get("user") or {}).get("username"))] = hits[-1]
+            by_user[(c.get("platform"), auteur(c))] = hits[-1]
     return collections.Counter(by_user.values())
 
 
@@ -49,14 +62,14 @@ def fetch(ep):
 def main(ep_id):
     mem = json.load(open(MEM))
     ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
-    allc = fetch(ep)
+    allc = [c for c in fetch(ep) if not est_a_nous(c, mem)]
     res = count(ep["vote"], allc)
     total = sum(res.values())
     winner = res.most_common(1)[0][0] if res else None
     handles = sorted({"@" + c["user"]["username"] for c in allc if (c.get("user") or {}).get("username")})
     ep["result"] = {"counts": dict(res), "total_votes": total, "winner": winner, "comments": len(allc)}
     ep["persons_of_interest"] = handles[:24]
-    ep["comment_samples"] = [{"user": (c.get("user") or {}).get("username"), "text": c.get("text"), "platform": c["platform"]}
+    ep["comment_samples"] = [{"user": auteur(c), "text": c.get("text"), "platform": c["platform"]}
                              for c in allc if len(c.get("text", "")) > 12][:40]
     json.dump(mem, open(MEM, "w"), ensure_ascii=False, indent=1)
     print(json.dumps(ep["result"], ensure_ascii=False))

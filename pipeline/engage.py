@@ -8,16 +8,17 @@ pas de réponse aux commentaires insultants ou hors sujet, messages variés (pas
 import json, os, random, re, sys, unicodedata
 import requests
 from upload_post import BASE, H, comments, user
+from votes import est_a_nous
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEM = os.path.join(ROOT, "MEMOIRE.json")
 BLOCK = re.compile(r"(connard|pute|salope|encul|nique|ntm|fdp|merde|arnaque|bot\b|spam|http)", re.I)
 
 REPONSES = [
-    "Vote compté : {mot}. Résultat demain 21h 🗳️",
-    "{mot}, noté. La majorité décide demain à 21h.",
-    "Ton vote pèse : {mot}. On voit demain si tu as gagné.",
-    "{mot} ? Courageux. Réponse demain 21h.",
+    "Vote compté : {mot}. Résultat à 21h 🗳️",
+    "{mot}, noté. La majorité décide à 21h.",
+    "Ton vote pèse : {mot}. On voit à 21h si tu as gagné.",
+    "{mot} ? Courageux. Réponse à 21h.",
     "Noté pour {mot}. Le compteur tourne… 🗳️",
     "{mot}. Retiens bien ce choix, il aura des conséquences.",
 ]
@@ -62,8 +63,8 @@ def main(ep_id, max_replies=12, dry=False):
             continue
         random.shuffle(cs)
         for c in cs:
-            cid, text = c.get("id"), c.get("text", "")
-            if not cid or cid in done or sent >= max_replies or BLOCK.search(text):
+            cid, text = c.get("id") or c.get("comment_id"), c.get("text", "")
+            if not cid or cid in done or sent >= max_replies or BLOCK.search(text) or est_a_nous(c, mem):
                 continue
             words = re.findall(r"[A-Z']+", norm(text))
             mot = next((o for o in (a, b) if norm(o).replace("'", "") in [w.replace("'", "") for w in words]), None)

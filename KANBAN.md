@@ -10,6 +10,8 @@ Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des
 - [ ] Générer les 2 photos de profil et la bannière manquantes (facultatif) — (propriétaire)
 
 ## 📋 À faire
+- [ ] Mesure de « traîne de la voix » (`stems_report.py`) : fausse alerte si les fins de mots sont transcrites trop tôt (P2 : 7,5 alors que la voix est sèche) → mesurer après la vraie fin d'énergie — (moi)
+- [ ] Carte « TU DIVISES » (P2) : ligne 3 à retoucher, remarque facultative du directeur — (moi)
 - [ ] Compter le vote P1 (`votes.py P1`, posts enregistrés dans MEMOIRE), écrire/adapter la P2, publier — 21/10 21h00 (passage 19h05) — (moi)
 - [ ] Animation « bouche ouverte / fermée » des personnages via OpenRouter (variantes d'expression) — (moi)
 - [ ] Pack d'images du mois (banque réutilisable + 15 images/épisode, P6 → P30) — (moi : prompts ; propriétaire : génération)
@@ -20,6 +22,7 @@ Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des
 ## 🟡 En cours
 
 ## ✅ Fait
+- [x] **P2 programmée** 21/10 21h00 (job 868127bebc2840a19b03c9b34e69d2a0) ; vote P1 = GARDER 3/3 ; directeur qualité OK en boucle 2 — 21/10
 - [x] **P1 publiée** 20/10 21h25 sur TikTok, Instagram, YouTube (Upload-Post, profil `affaires-classees`, label IA, 1er commentaire de vote) ; verdict directeur qualité : publier — 20/10
 - [x] P1 fabriquée et contrôlée (81,7 s ; musique −10,8 dB ; effets −16,9 dB ; 0 image manquante), envoyée au propriétaire — 20/10
 - [x] Analyse des vidéos Saveo + rapport Instagram → `docs/STRATEGIE.md`

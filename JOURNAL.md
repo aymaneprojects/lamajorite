@@ -50,3 +50,18 @@
 
 ## 21/10 — 17h55 · Seuil abaissé à 2 commentaires (propriétaire)
 - La P2 se produit dès 2 commentaires du public ; en dessous (0 ou 1) après ~22 h → suppression + republication.
+
+## 21/10 — 19h05 · Passage 1 : P2 programmée à 21h00
+- Règle des 2 commentaires (`relance.py P1`) : **continuer** (4 commentaires du public).
+- Vote P1 : **GARDER 3/3 (100 %)** — roou._x (Instagram) + 2 votes TikTok ; 1 commentaire hors vote (« Bête de concept »).
+  Bugs corrigés en route (le premier comptage donnait 0 commentaire, puis POLICE gagnant à tort) :
+  `comments()` envoyait limit=100 (max 50) et l'erreur passait pour « 0 commentaire » → limit 50 + erreur levée ;
+  `votes.py` comptait nos propres rappels « GARDER ou POLICE ? » et fusionnait tous les votants TikTok (pas de user.username)
+  → `auteur()` + `est_a_nous()` partagés avec `relance.py` et `engage.py` ; `engage.py` lit aussi `comment_id` (TikTok).
+- `engage.py P1` : 3 réponses (1 Instagram, 2 TikTok). Formules « demain 21h » → « à 21h » (l'épisode suivant sort le soir même).
+- P2 (script de la session principale, voix Nicolas Petit fournie par le propriétaire) : 1er rendu refusé par qa.py (2 plans < 1 s).
+  Directeur qualité, boucle 1 : refus (plans courts + traîne de voix 7,5 dB). Plans fusionnés (16+17, 25+26) et dernier plan coupé (P2_29 puis P2_28 + vote).
+  Traîne : gate plus dur sans effet ; enveloppe mesurée = fin réelle des mots (transcription ~0,1 s trop tôt) puis silence numérique → voix sèche, mixage P1 conservé.
+  Boucle 2 : **publier = true** (87,4 s, 33 plans, musique −10,4 dB, effets −16,0 dB, 30 textes calés).
+- Fait vérifié : identité contrôlée par la banque pour louer un coffre (obligation de vigilance, art. L561-5 CMF).
+- Publication programmée 21h00 : request 9m8-P2-f98610, job 868127bebc2840a19b03c9b34e69d2a0. Légende « 100 % d'entre vous ont dit GARDER », sans mention IA.

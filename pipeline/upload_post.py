@@ -117,13 +117,15 @@ def record(ep_id, ident):
     return {"posts": posts, "urls": urls, "brut": st}
 
 
-def comments(platform, post, limit=100):
+def comments(platform, post, limit=50):
     """Tous les commentaires d'un post (pagination incluse)."""
     params = {"user": user(), "platform": platform, "limit": limit}
     params["post_url" if post.startswith("http") else "post_id"] = post
     out = []
     while True:
         r = requests.get(f"{BASE}/uploadposts/comments", headers=H(), params=params, timeout=60).json()
+        if r.get("success") is False:  # une erreur d'API ne doit pas passer pour « 0 commentaire »
+            raise RuntimeError(r.get("error") or r.get("message") or r)
         out += r.get("comments", [])
         pg = r.get("pagination") or {}
         if not pg.get("has_next"):

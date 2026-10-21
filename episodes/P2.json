@@ -116,14 +116,7 @@
   [
    "img",
    "P2_15",
-   "Ton cousin Rayan.",
-   "",
-   ""
-  ],
-  [
-   "img",
-   "P2_16",
-   "Comme un frère.",
+   "Ton cousin Rayan. Comme un frère.",
    "",
    ""
   ],
@@ -175,14 +168,7 @@
   [
    "img",
    "P2_25",
-   "Trois heures onze. Ton téléphone vibre.",
-   "",
-   ""
-  ],
-  [
-   "img",
-   "P2_26",
-   "C'est Rayan.",
+   "Trois heures onze. Ton téléphone vibre. C'est Rayan.",
    "",
    ""
   ],
@@ -221,8 +207,15 @@
   ],
   [
    "img",
+   "P2_29",
+   "Chaque choix peut te faire tomber. Ou te rendre libre.",
+   "",
+   ""
+  ],
+  [
+   "img",
    "P2_28",
-   "Chaque choix peut te faire tomber. Ou te rendre libre. Commente : payer, ou refuser. La majorité écrit la partie trois.",
+   "Commente : payer, ou refuser. La majorité écrit la partie trois.",
    "",
    ""
   ],
@@ -357,7 +350,7 @@
      "text": "COUSIN *RAYAN*"
     }
    },
-   "19": {
+   "18": {
     "card": {
      "type": "stat",
      "kicker": "RAYAN · COMPTE EN BANQUE",
@@ -373,13 +366,13 @@
      ]
     }
    },
-   "21": {
+   "20": {
     "overlay": {
      "type": "tag",
      "text": "BOX 117 · *CADENAS CHANGÉ*"
     }
    },
-   "22": {
+   "21": {
     "card": {
      "type": "rule",
      "kicker": "PROBLÈME",
@@ -390,12 +383,12 @@
      ]
     }
    },
-   "24": {
+   "23": {
     "hud": {
      "susp": 38
     }
    },
-   "27": {
+   "25": {
     "card": {
      "type": "sms",
      "from": "RAYAN · 03:11",
@@ -405,12 +398,12 @@
      ]
     }
    },
-   "29": {
+   "27": {
     "hud": {
      "susp": 45
     }
    },
-   "32": {
+   "31": {
     "card": {
      "type": "vote",
      "left": {
@@ -421,7 +414,6 @@
       "word": "REFUSER",
       "mot": "refuser"
      },
-     "at": 3.8,
      "at_word": "Commente"
     }
    }

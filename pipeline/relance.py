@@ -12,7 +12,7 @@ import datetime, json, os, sys
 from zoneinfo import ZoneInfo
 import requests
 from upload_post import BASE, H, user
-from votes import fetch
+from votes import est_a_nous, fetch
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 MEM = os.path.join(ROOT, "MEMOIRE.json")
@@ -26,13 +26,8 @@ ACCROCHES = ["Tu trouves 9 840 000 € dans un box. Personne ne sait. Tu fais qu
              "Un seul mot en commentaire décide de la suite. GARDER ou POLICE ?"]
 
 
-def own_handles(mem):
-    return {h.lstrip("@").lower() for h in mem["chaine"].get("comptes", {}).values()}
-
-
 def public_comments(ep, mem):
-    mine = own_handles(mem)
-    return [c for c in fetch(ep) if ((c.get("user") or {}).get("username") or "").lower() not in mine]
+    return [c for c in fetch(ep) if not est_a_nous(c, mem)]
 
 
 def decide(ep_id):
