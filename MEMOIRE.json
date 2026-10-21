@@ -87,7 +87,7 @@
   },
   {
    "id": "P2",
-   "statut": "programme",
+   "statut": "publie",
    "vote": [
     "PAYER",
     "REFUSER"
@@ -99,10 +99,19 @@
    "job_id": "868127bebc2840a19b03c9b34e69d2a0",
    "request_id": "9m8-P2-f98610",
    "cover": "out/P2_cover.png",
-   "posts": {},
-   "publie_le": null,
+   "posts": {
+    "youtube": "LVkWFL419Ns",
+    "tiktok": "7699198595630664993",
+    "instagram": "18196302628388159"
+   },
+   "publie_le": "2026-10-21T21:00+02:00",
    "result": null,
-   "verdict_qualite": "directeur-qa : refus boucle 1 (2 plans < 1 s, traîne voix 7,5) → plans fusionnés/coupés ; traîne = artefact de mesure (fins de mots transcrites ~0,1 s tôt, voix sèche) → publier=true boucle 2"
+   "verdict_qualite": "directeur-qa : refus boucle 1 (2 plans < 1 s, traîne voix 7,5) → plans fusionnés/coupés ; traîne = artefact de mesure (fins de mots transcrites ~0,1 s tôt, voix sèche) → publier=true boucle 2",
+   "urls": {
+    "youtube": "https://www.youtube.com/watch?v=LVkWFL419Ns",
+    "tiktok": "https://www.tiktok.com/@lamajorite.serie/video/7699198595630664993",
+    "instagram": "https://www.instagram.com/reel/DexHQzTDI4p/"
+   }
   },
   {
    "id": "P3",
