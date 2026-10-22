@@ -133,3 +133,8 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 ## 22/10 — 23h35 · Passage 2
 - Aucun épisode publié ce soir (voix P3 absente du Drive à 19h05 et à 20h20) → rien à enregistrer.
 - `engage.py P2` lancé sur le dernier épisode en ligne ; vote P2 toujours PAYER.
+
+## 22/10 — fin de session
+- Conversation complète enregistrée : docs/sessions/2026-10-20_22_conversation.md.
+- Retour du propriétaire : les vidéos ne sont pas assez narratives → à retravailler ensemble à la prochaine session.
+- Clé Resend (« RESEND ») pas encore visible dans « video-social-media » : emails toujours écrits en fichiers.
