@@ -7,6 +7,10 @@ textes calés sur la voix.
 Publication : **21h00 heure de Paris**, 7j/7, TikTok + Instagram + YouTube. Lire d'abord `IDENTITE.md`, `MEMOIRE.json`,
 `KANBAN.md`, `docs/STRATEGIE.md`, `docs/REALISATION.md` et la fin de `JOURNAL.md`. Toujours `git pull --rebase origin main` avant de travailler.
 
+## Analyse — 12h35 : mesurer, trouver le goulot, choisir l'expérience du jour
+Déléguer à l'agent **`analyste`** (`.claude/agents/analyste.md`) : relevé des chiffres (`data/metrics.jsonl`), diagnostic,
+verdict de l'expérience en cours, « Consigne du jour » dans `docs/CROISSANCE.md`. Commit + push.
+
 ## Passage 0 — 13h05 : écrire le prochain épisode et demander ce qui manque
 1. `python3 pipeline/engage.py PX` (réponses), `python3 pipeline/votes.py PX` (votes provisoires).
 2. Si `episodes/PY.json` n'existe pas encore : agent **`scenariste`** (résultat provisoire du vote, « à 13h »).

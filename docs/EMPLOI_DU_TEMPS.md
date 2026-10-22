@@ -6,6 +6,7 @@ et répond en déposant les fichiers dans le **Drive** partagé (images : racine
 
 | Heure (Paris) | Passage | Travail | Email au propriétaire si… |
 |---|---|---|---|
+| 12h35 | Analyse | chiffres, goulot, verdict de l'expérience en cours, consigne du jour (agent `analyste`) | une décision te revient (heure, outil payant, réglage YouTube) |
 | 13h05 | Écriture | réponses aux commentaires, votes provisoires, scénario du prochain épisode (agent `scenariste`), images, voix | il manque la voix (texte à générer) ou des images (zip de prompts) |
 | 19h05 | Production | règle des 2 commentaires (`relance.py`), puis : republication **ou** fabrication + contrôle (agent `directeur-qa`) + publication 21h00 | liens TikTok/Instagram à supprimer · voix toujours absente (rappel) · épisode bloqué |
 | 20h20 | Rattrapage | si rien n'est programmé ce soir et que la voix est arrivée : fabriquer, contrôler, publier dès que prêt | — |

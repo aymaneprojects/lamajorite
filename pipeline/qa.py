@@ -75,8 +75,8 @@ def conformite(ep_id, tl, dur):
     ref = json.load(open(REF)) if os.path.exists(REF) else {}
     if lufs is None or abs(lufs - ref.get("lufs_final", -14)) > 1.2:
         b.append(f"niveau final {lufs} LUFS (P1 : {ref.get('lufs_final', -14)} ± 1,2)")
-    if not 70 <= dur <= 115:
-        b.append(f"durée {dur:.0f} s hors de 70–115 s")
+    if not 55 <= dur <= 90:
+        b.append(f"durée {dur:.0f} s hors de 55–90 s (cible croissance : 62–75 s, docs/CROISSANCE.md)")
     return {"mesures": m, "bloquants": b}
 
 

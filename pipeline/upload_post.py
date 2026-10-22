@@ -52,6 +52,7 @@ def publish(video, meta, private=False):
             ("is_aigc", "false"), ("is_ai_generated", "false"), ("containsSyntheticMedia", "false"),
             ("privacy_level", "SELF_ONLY" if private else "PUBLIC_TO_EVERYONE"),
             ("privacyStatus", "private" if private else "public"),
+            ("selfDeclaredMadeForKids", "false"),  # sinon YouTube peut couper la diffusion (style dessin animé)
             ("defaultLanguage", "fr"), ("defaultAudioLanguage", "fr"), ("categoryId", "24"),
             ("external_id", meta["external_id"]), ("request_id", meta["external_id"] + "-" + uuid.uuid4().hex[:6]),
             ("async_upload", "true")]

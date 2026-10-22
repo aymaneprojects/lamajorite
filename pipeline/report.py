@@ -20,6 +20,13 @@ def main():
         rows.append({"episode": ep["id"], "publie_le": ep.get("publie_le"), "analytics": r})
         print(ep["id"], json.dumps(r, ensure_ascii=False)[:400])
     json.dump(rows, open(os.path.join(ROOT, "out", "rapport.json"), "w"), ensure_ascii=False, indent=1)
+    # historique (versionné) : un relevé par passage, pour comparer les épisodes et juger les expériences
+    import datetime
+    from zoneinfo import ZoneInfo
+    now = datetime.datetime.now(ZoneInfo("Europe/Paris")).isoformat(timespec="minutes")
+    with open(os.path.join(ROOT, "data", "metrics.jsonl"), "a") as f:
+        for r in rows:
+            f.write(json.dumps({"releve": now, **r}, ensure_ascii=False) + "\n")
 
 
 if __name__ == "__main__":

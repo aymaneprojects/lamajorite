@@ -12,15 +12,22 @@ et la liste des images : `ls images/`.
 
 Entrée donnée par le producteur : numéro Y, résultat du vote (gagnant, %, nombre de commentaires), top commentaire, pseudos.
 
+**Avant tout : lis `docs/CROISSANCE.md`** (« Règles de format » et « Consigne du jour » de l'analyste). Elles priment
+sur les règles ci-dessous quand elles diffèrent (durée, accroche, place du vote).
+
 Règles d'écriture (comme la P1 et Saveo) :
-- 2e personne (« tu »), phrases courtes, 200 à 240 mots, 80 à 100 s de voix.
-- Ouverture fixe : « Tu as trouvé neuf millions huit cent quarante mille euros. » puis le rappel, puis
+- 2e personne (« tu »), phrases courtes, 170 à 200 mots, 62 à 75 s de voix.
+- Ouverture : un problème immédiat et chiffré dès la 1re phrase, puis « Ce soir, c'est toi qui décides : MOT1 ou MOT2. »
+  (le vote annoncé avant 5 s), puis le rappel court, puis
   « NN pour cent d'entre vous ont dit MOT. » (chiffres EN LETTRES dans le texte voix), puis le top commentaire.
 - Le choix du public a des conséquences : chaque « astuce » coûte ou échoue, le SOUPÇON monte, dit à voix haute.
 - 1 fait réel français vérifiable (loi, Tracfin, douane, banque), côté enquête, JAMAIS un mode d'emploi.
   Interdit : méthode de blanchiment, faux papiers, armes, drogue, violence graphique.
 - Cartes comme la P1 : au moins 2 cartes fait/stat, au moins 1 « Problème » (rule), éventuellement 1 SMS.
-- Fin : question binaire, « Commente MOT1 ou MOT2. », « La majorité écrit la partie Y+1. », puis une phrase-mystère courte.
+- Milieu : relance vers 15 s et 30 s (« Et ce n'est pas le pire. »), rappel du dilemme à mi-parcours.
+- Fin : question binaire, « Commente MOT1 ou MOT2. », « Envoie ça à celui qui choisirait l'autre. »,
+  « La majorité écrit la partie Y+1. », puis une phrase courte qui relance la 1re image (boucle).
+- Communauté : cite 2 à 3 vrais pseudos de commentateurs (MEMOIRE `persons_of_interest`) quand il y en a.
 - Mots difficiles écrits pour la voix comme dans la P1 (« Trak-fine »), nombres en lettres.
 
 Format : exactement celui de `episodes/P1.json` (`id`, `title`, `vote`, `hud`, `beats`, `specs`). Dans `specs`, recopie la
