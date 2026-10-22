@@ -111,8 +111,7 @@
     },
     "total_votes": 2,
     "winner": "PAYER",
-    "comments": 5,
-    "note": "22/10 19h06 : PAYER 2/2 (TikTok @malvinfontaine « Payer », Instagram @lepro2cfgh « Paye ») ; 5 commentaires du public"
+    "comments": 5
    },
    "verdict_qualite": "directeur-qa : refus boucle 1 (2 plans < 1 s, traîne voix 7,5) → plans fusionnés/coupés ; traîne = artefact de mesure (fins de mots transcrites ~0,1 s tôt, voix sèche) → publier=true boucle 2",
    "urls": {

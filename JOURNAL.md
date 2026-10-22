@@ -129,3 +129,7 @@ Commente : partager, ou refuser. La majorité écrit la partie quatre.
 
 Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 ```
+
+## 22/10 — 23h35 · Passage 2
+- Aucun épisode publié ce soir (voix P3 absente du Drive à 19h05 et à 20h20) → rien à enregistrer.
+- `engage.py P2` lancé sur le dernier épisode en ligne ; vote P2 toujours PAYER.
