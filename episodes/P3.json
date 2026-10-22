@@ -1,0 +1,314 @@
+{
+ "id": "P3",
+ "title": "Partie 3 — Tout en liquide",
+ "vote": [
+  "PARTAGER",
+  "REFUSER"
+ ],
+ "hud": "CASH 9 840 000 → 9 790 000 € · EN BANQUE 0 € · SOUPÇON 45 → 62 %",
+ "beats": [
+  [
+   "img",
+   "P3_23",
+   "Tu as trouvé neuf millions huit cent quarante mille euros.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_20",
+   "Ce soir, tu décides : partager, ou refuser. Ton cousin en veut la moitié.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P2_27",
+   "Il y a trois jours, il voulait cinquante mille.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_01",
+   "Cent pour cent d'entre vous ont dit payer. Top commentaire : « Payer. »",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_02",
+   "Alors tu paies. Il jure : personne ne saura.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_03",
+   "Lui, il s'est tu. Sa nouvelle chaîne, non.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_04",
+   "Une chaîne en or. Six mille euros.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_06",
+   "Des jantes. Une nuit en boîte. Tout en liquide.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_07",
+   "Et ce n'est pas le pire.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Voilà le truc. Un bijoutier qui a un doute doit prévenir Trak-fine. C'est la loi.",
+   ""
+  ],
+  [
+   "card",
+   "Rayan. Quatre cents euros sur son compte. Six mille de bijoux, en billets.",
+   ""
+  ],
+  [
+   "img",
+   "P3_11",
+   "L'analyste tire le fil. Un numéro revient.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_12",
+   "Le tien. Soupçon : soixante-deux pour cent.",
+   "",
+   ""
+  ],
+  [
+   "card",
+   "Problème. Rayan t'a suivi. Jusqu'au sac numéro un.",
+   ""
+  ],
+  [
+   "img",
+   "P3_22",
+   "Deux heures du matin. Il creuse déjà.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_24",
+   "Il sourit. « Moitié-moitié. Ou j'appelle quelqu'un. »",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_25",
+   "Au bout du chemin, des phares s'éteignent. Rayan n'était pas seul.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_26",
+   "Tu partages, avec un cousin que Trak-fine surveille ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_27",
+   "Ou tu refuses, et Rayan fait signe à la voiture ?",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_24",
+   "Commente : partager, ou refuser. La majorité écrit la partie quatre.",
+   "",
+   ""
+  ],
+  [
+   "img",
+   "P3_23",
+   "Regarde bien son sourire. Ce n'est pas toi qu'il regarde.",
+   "",
+   ""
+  ]
+ ],
+ "specs": {
+  "beats": {
+   "0": {
+    "overlay": {
+     "type": "hook",
+     "lines": [
+      "9 840 000 €",
+      "IL EN VEUT *LA MOITIÉ*."
+     ]
+    }
+   },
+   "1": {
+    "overlay": {
+     "type": "tag",
+     "text": "CE SOIR · *PARTAGER* OU *REFUSER*"
+    }
+   },
+   "2": {
+    "hud": {
+     "cash": 9840000,
+     "bank": 0,
+     "susp": 45
+    },
+    "overlay": {
+     "type": "tag",
+     "text": "IL Y A 3 JOURS · *50 000 €*"
+    }
+   },
+   "3": {
+    "overlay": {
+     "type": "tag",
+     "text": "@malvinfontaine · @lepro2cfgh · *PAYER*"
+    }
+   },
+   "4": {
+    "hud": {
+     "cash": 9790000
+    },
+    "overlay": {
+     "type": "tag",
+     "text": "RAYAN · *50 000 € EN BILLETS*"
+    }
+   },
+   "5": {
+    "overlay": {
+     "type": "tag",
+     "text": "48 H PLUS TARD"
+    }
+   },
+   "6": {
+    "overlay": {
+     "type": "tag",
+     "text": "CHAÎNE EN OR · *6 000 €*"
+    }
+   },
+   "7": {
+    "overlay": {
+     "type": "tag",
+     "text": "*TOUT EN LIQUIDE*"
+    }
+   },
+   "8": {
+    "overlay": {
+     "type": "tag",
+     "text": "LE BIJOUTIER · *UN DOUTE*"
+    }
+   },
+   "9": {
+    "card": {
+     "type": "fact",
+     "kicker": "VOILÀ LE TRUC AVEC LES BIJOUTIERS",
+     "lines": [
+      "Un bijoutier qui a un doute",
+      "↓",
+      "doit prévenir Tracfin"
+     ],
+     "stamp": "C'EST LA LOI",
+     "mots": [
+      "bijoutier",
+      "doute",
+      "prévenir"
+     ],
+     "stamp_mot": "loi"
+    }
+   },
+   "10": {
+    "card": {
+     "type": "stat",
+     "kicker": "TRACFIN · DOSSIER RAYAN",
+     "lines": [
+      "Sur son compte : 400 €",
+      "6 000 €",
+      "de bijoux, en billets"
+     ],
+     "mots": [
+      "compte",
+      "bijoux",
+      "billets"
+     ]
+    }
+   },
+   "11": {
+    "overlay": {
+     "type": "tag",
+     "text": "PERSONNES D'INTÉRÊT · *@mistermarti* · *@evil_shrimply*"
+    }
+   },
+   "12": {
+    "hud": {
+     "susp": 62
+    },
+    "overlay": {
+     "type": "tag",
+     "text": "UN NUMÉRO · *LE TIEN*"
+    }
+   },
+   "13": {
+    "card": {
+     "type": "rule",
+     "kicker": "PROBLÈME",
+     "text": "Rayan t'a suivi jusqu'au *sac 1*.",
+     "mots": [
+      "Problème",
+      "suivi"
+     ]
+    }
+   },
+   "14": {
+    "overlay": {
+     "type": "tag",
+     "text": "02:00 · *LA PINÈDE*"
+    }
+   },
+   "15": {
+    "overlay": {
+     "type": "tag",
+     "text": "*MOITIÉ-MOITIÉ*"
+    }
+   },
+   "16": {
+    "overlay": {
+     "type": "tag",
+     "text": "RAYAN · *PAS SEUL*"
+    }
+   },
+   "19": {
+    "card": {
+     "type": "vote",
+     "left": {
+      "word": "PARTAGER",
+      "mot": "partager"
+     },
+     "right": {
+      "word": "REFUSER",
+      "mot": "refuser"
+     },
+     "at_word": "Commente"
+    }
+   }
+  },
+  "motion": "plus"
+ }
+}

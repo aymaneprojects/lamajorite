@@ -33,7 +33,9 @@ def count(options, all_comments):
     by_user = {}
     for c in all_comments:
         words = re.findall(r"[A-Z0-9']+", norm(c.get("text", "")).replace("'", ""))
-        hits = [opts[w] for w in words if w in opts]
+        # « Paye » pour PAYER, « Refuse » pour REFUSER : début du mot, au plus 2 lettres en moins
+        hits = [o for w in words for o_n, o in opts.items()
+                if w == o_n or (len(w) >= 4 and o_n.startswith(w) and len(o_n) - len(w) <= 2)]
         # « L'EMMENER » → EMMENER : accepte aussi le dernier mot d'une option composée
         for o_n, o in opts.items():
             if " " in o_n or len(o_n.split()) > 1:

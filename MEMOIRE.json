@@ -106,10 +106,13 @@
    },
    "publie_le": "2026-10-21T21:00+02:00",
    "result": {
-    "counts": {},
-    "total_votes": 0,
-    "winner": null,
-    "comments": 2
+    "counts": {
+     "PAYER": 2
+    },
+    "total_votes": 2,
+    "winner": "PAYER",
+    "comments": 5,
+    "note": "22/10 19h06 : PAYER 2/2 (TikTok @malvinfontaine « Payer », Instagram @lepro2cfgh « Paye ») ; 5 commentaires du public"
    },
    "verdict_qualite": "directeur-qa : refus boucle 1 (2 plans < 1 s, traîne voix 7,5) → plans fusionnés/coupés ; traîne = artefact de mesure (fins de mots transcrites ~0,1 s tôt, voix sèche) → publier=true boucle 2",
    "urls": {
@@ -119,25 +122,45 @@
    },
    "persons_of_interest": [
     "@evil_shrimply",
-    "@mistermarti"
+    "@lepro2cfgh",
+    "@mistermarti",
+    "@yassine_9537"
    ],
    "comment_samples": [
+    {
+     "user": "yassine_9537",
+     "text": "si c pas du plagiat ça",
+     "platform": "instagram"
+    },
     {
      "user": "mistermarti",
      "text": "Tu les passes",
      "platform": "instagram"
     }
    ],
-   "repondus": []
+   "repondus": [
+    "18028245353860083",
+    "7699267911295206166"
+   ],
+   "controle_commentaires": {
+    "decision": "continuer",
+    "commentaires": 5,
+    "seuil": 2,
+    "age_h": 22.1,
+    "relances_faites": 0,
+    "le": "2026-10-22T19:06+02:00"
+   }
   },
   {
    "id": "P3",
-   "statut": "script_ok",
+   "statut": "script_ok_voix_manquante",
    "vote": [
     "PARTAGER",
     "REFUSER"
    ],
-   "suppose": "P2=PAYER"
+   "suppose": "P2=PAYER (confirmé)",
+   "titre": "Tout en liquide",
+   "note": "22/10 19h16 : script écrit (scénariste, 192 mots ≈ 71 s, 0 image manquante). Pas de voix : ni ELEVENLABS_API_KEY ni audio/P3.mp3 dans le Drive voix/ → pas de publication à 21h00. Texte : out/P3_voix.txt. Rattrapage 20h20 si la voix arrive."
   },
   {
    "id": "P4",

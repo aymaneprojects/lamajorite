@@ -74,3 +74,58 @@
 - Commentaires du public à 23h35 : 2 (Instagram : @mistermarti « Tu les passes », @evil_shrimply), aucun vote PAYER/REFUSER encore.
 - `engage.py P2` : 0 réponse envoyée (commentaires sans vote : réponse tirée au sort, pas retenue).
 - Récap au propriétaire (`notify.py recap P2`) : pas envoyé, RESEND_API_KEY absente → écrit dans out/email_recap_P2.txt.
+
+## 22/10 — 13h05 → 19h05 · P3 écrite, voix manquante
+- Vote P2 : **PAYER 2/2** (TikTok @malvinfontaine « Payer », Instagram @lepro2cfgh « Paye ») ; 5 commentaires du public ; règle des 2 commentaires : continuer.
+  `votes.py` accepte maintenant les formes courtes (« Paye » → PAYER, « Refuse » → REFUSER : début du mot, ≤ 2 lettres en moins).
+- Réponses : 2 (TikTok « Payer », Instagram @mistermarti).
+- P3 « Tout en liquide » écrite par le scénariste (règles docs/CROISSANCE.md) : 192 mots ≈ 71 s, 21 plans, vote PARTAGER/REFUSER, 0 image manquante.
+  Fait réel : bijoutiers soumis à déclaration de soupçon à Tracfin (CMF L561-2, L561-15). Box 117 / sac 2 reportés en P4.
+- Passage de 13h05 interrompu (redémarrage du conteneur) avant la demande de voix ; reprise à 19h05.
+- **Pas de voix P3** : pas de clé ElevenLabs, pas de P3.mp3 dans le Drive (vérifié par recherche Drive), pas de clé Resend → email non envoyé (out/email_voix_P3.txt). P3 non publiée à 21h00.
+- Chiffres 22/10 13h : P1 TikTok 688 vues / 60 likes, IG 167, YT 37 ; P2 TikTok 627 / 46 likes, IG 1 173 vues / 41 likes, YT 22 (data/metrics.jsonl).
+
+Texte voix P3 :
+```
+Tu as trouvé neuf millions huit cent quarante mille euros.
+
+Ce soir, tu décides : partager, ou refuser. Ton cousin en veut la moitié.
+
+Il y a trois jours, il voulait cinquante mille.
+
+Cent pour cent d'entre vous ont dit payer. Top commentaire : « Payer. »
+
+Alors tu paies. Il jure : personne ne saura.
+
+Lui, il s'est tu. Sa nouvelle chaîne, non.
+
+Une chaîne en or. Six mille euros.
+
+Des jantes. Une nuit en boîte. Tout en liquide.
+
+Et ce n'est pas le pire.
+
+Voilà le truc. Un bijoutier qui a un doute doit prévenir Trak-fine. C'est la loi.
+
+Rayan. Quatre cents euros sur son compte. Six mille de bijoux, en billets.
+
+L'analyste tire le fil. Un numéro revient.
+
+Le tien. Soupçon : soixante-deux pour cent.
+
+Problème. Rayan t'a suivi. Jusqu'au sac numéro un.
+
+Deux heures du matin. Il creuse déjà.
+
+Il sourit. « Moitié-moitié. Ou j'appelle quelqu'un. »
+
+Au bout du chemin, des phares s'éteignent. Rayan n'était pas seul.
+
+Tu partages, avec un cousin que Trak-fine surveille ?
+
+Ou tu refuses, et Rayan fait signe à la voiture ?
+
+Commente : partager, ou refuser. La majorité écrit la partie quatre.
+
+Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
+```
