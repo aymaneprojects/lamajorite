@@ -143,3 +143,8 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - Vote P2 inchangé : PAYER 2/2 (5 commentaires) ; aucune nouvelle réponse à envoyer.
 - P3 déjà écrite → pas de nouveau scénario. Script P3 non retouché : le propriétaire veut retravailler la narration avec moi à la prochaine session (retour du 22/10).
 - Voix P3 : toujours ni clé ElevenLabs ni clé Resend dans l'environnement → demande réécrite dans out/email_voix_P3.txt, non envoyée.
+
+## 23/10 — 19h05 · Passage 1 : pas d'épisode (2e soir)
+- Règle des 2 commentaires P2 : continuer (5 commentaires) ; vote PAYER 2/2 inchangé ; aucune réponse à envoyer.
+- Voix P3 : toujours absente (ni audio/P3.mp3, ni fichier audio récent dans le Drive, ni clé ElevenLabs/Resend) → pas de fabrication ni de publication.
+- Script P3 gardé tel quel en attendant la séance « narration » avec le propriétaire.
