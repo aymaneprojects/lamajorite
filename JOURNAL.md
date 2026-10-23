@@ -138,3 +138,8 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - Conversation complète enregistrée : docs/sessions/2026-10-20_22_conversation.md.
 - Retour du propriétaire : les vidéos ne sont pas assez narratives → à retravailler ensemble à la prochaine session.
 - Clé Resend (« RESEND ») pas encore visible dans « video-social-media » : emails toujours écrits en fichiers.
+
+## 23/10 — 13h05 · Passage 0
+- Vote P2 inchangé : PAYER 2/2 (5 commentaires) ; aucune nouvelle réponse à envoyer.
+- P3 déjà écrite → pas de nouveau scénario. Script P3 non retouché : le propriétaire veut retravailler la narration avec moi à la prochaine session (retour du 22/10).
+- Voix P3 : toujours ni clé ElevenLabs ni clé Resend dans l'environnement → demande réécrite dans out/email_voix_P3.txt, non envoyée.
