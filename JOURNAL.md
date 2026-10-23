@@ -148,3 +148,10 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - Règle des 2 commentaires P2 : continuer (5 commentaires) ; vote PAYER 2/2 inchangé ; aucune réponse à envoyer.
 - Voix P3 : toujours absente (ni audio/P3.mp3, ni fichier audio récent dans le Drive, ni clé ElevenLabs/Resend) → pas de fabrication ni de publication.
 - Script P3 gardé tel quel en attendant la séance « narration » avec le propriétaire.
+
+## 23/10 — soirée · Narration P3 v2 + passage 2
+- Le propriétaire veut « une belle narration » : P3 réécrite en scène (pinède à 2 h du matin, retour 3 jours en arrière, face-à-face),
+  lien affectif avec Rayan, enquête racontée, fin en boucle — `episodes/P3_voix_v2.txt` (~200 mots ≈ 74 s).
+  Proposé aussi : balises de jeu ElevenLabs v3 et une bande-son plan par plan (pelle, forêt, moteur, phares…).
+  En attente de son accord avant de recaler `episodes/P3.json` ; bruitages spécifiques à trouver (ElevenLabs Sound Effects ou banque libre).
+- 23h35 : aucun épisode publié ce soir (voix P3 absente). P2 : vote PAYER 2/2 inchangé, aucune réponse à envoyer.
