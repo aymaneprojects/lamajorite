@@ -4,7 +4,7 @@ Mis à jour par moi à chaque session (routine quotidienne et sessions avec le p
 Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des cartes dans « À faire ».
 
 ## 🔴 Bloqué — action du propriétaire
-- [ ] **22/10 (toujours bloqué le 23/10) : voix P3 à générer** (ElevenLabs, Nicolas Petit, texte `out/P3_voix.txt` / ci-dessous dans JOURNAL) → déposer `P3.mp3` dans le Drive `voix/`. Sans elle, pas de P3 ce soir (rattrapage 20h20). Ajouter aussi `RESEND_API_KEY` (emails) ou `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` (voix auto) — (propriétaire)
+- [ ] **22/10 (toujours bloqué le 24/10) : voix P3 à générer — texte narratif v2 `episodes/P3_voix_v2.txt` à valider** (ElevenLabs, Nicolas Petit, texte `out/P3_voix.txt` / ci-dessous dans JOURNAL) → déposer `P3.mp3` dans le Drive `voix/`. Sans elle, pas de P3 ce soir (rattrapage 20h20). Ajouter aussi `RESEND_API_KEY` (emails) ou `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` (voix auto) — (propriétaire)
 - [ ] Vérifier les variables d'environnement (Upload-Post et OpenRouter OK le 20/10) : `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` (voix Paul K), `OPENROUTER_API_KEY` — (propriétaire)
 - [ ] Mettre photo de profil, bio et stories à la une (kit `La_Majorite_profil.zip`) — (propriétaire)
 - [ ] Épingler la Partie 1 sur les 3 plateformes après sa publication — (propriétaire)
