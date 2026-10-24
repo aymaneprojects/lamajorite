@@ -159,3 +159,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 ## 24/10 — 19h05 · Passage 1 : pas d'épisode (3e soir)
 - P2 : vote PAYER 2/2 inchangé, aucun nouveau commentaire. Voix P3 absente (Drive vérifié), pas de clé ElevenLabs/Resend.
 - En attente du propriétaire : validation du texte P3 v2, choix des bruitages, dépôt de P3.mp3.
+- 24/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2), aucune réponse à envoyer.
