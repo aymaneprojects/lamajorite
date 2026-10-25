@@ -176,3 +176,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - Expérience E1 (accroche + vote dès 5 s + 62–75 s) : pas encore testée (P3 non sortie). Narration P3 v2 en attente de validation.
 - Pas de nouvelle recommandation dans docs/STRATEGIE.md : aucune donnée nouvelle depuis le diagnostic du 22/10.
 - Récap envoyé ? Non : clé Resend absente (out/email_bilan*.txt).
+- 25/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2).
