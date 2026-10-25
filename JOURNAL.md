@@ -161,3 +161,18 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - En attente du propriétaire : validation du texte P3 v2, choix des bruitages, dépôt de P3.mp3.
 - 24/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2), aucune réponse à envoyer.
 - 25/10 13h05 : P2 inchangée (PAYER 2/2) ; 1 réponse automatique envoyée à @yassine_9537 (« si c pas du plagiat ça ») avec l'invitation à voter — réponse générique peu adaptée à une critique, à surveiller. P3 toujours en attente (texte v2, bruitages, voix).
+
+## Bilan de la semaine (20–25/10) — dimanche 25/10, 19h05
+| Épisode | TikTok vues · likes · comm. · temps moyen · vus en entier | Instagram vues · likes · comm. · partages · enreg. | YouTube vues |
+|---|---|---|---|
+| P1 (20/10) | 693 · 60 · 5 · 17,7 s · 3,0 % | 170 · 3 · 3 · 0 · 0 | 46 |
+| P2 (21/10) | 635 · 46 · 3 · 15,4 s · 2,0 % | 1 299 · 46 · 8 · 2 · 5 | 44 |
+- Total : ~2 900 vues, 2 abonnés TikTok gagnés (P2). Votes : P1 GARDER 3/3, P2 PAYER 2/2.
+- Instagram a décollé sur la P2 (×7,6 vs P1, portée 1 051) ; TikTok stable ; YouTube marginal.
+- Goulot inchangé : on regarde 15–18 s sur ~85 s, 2–3 % vont au bout → presque personne ne voit le vote.
+- **Problème n°1 de la semaine : 4 soirs sans épisode (22→25/10)**, faute de voix P3 (ni clé ElevenLabs ni fichier déposé).
+  La régularité compte plus que tout le reste : la priorité est de rendre la voix automatique (clés ElevenLabs) ou de
+  déposer plusieurs voix d'avance.
+- Expérience E1 (accroche + vote dès 5 s + 62–75 s) : pas encore testée (P3 non sortie). Narration P3 v2 en attente de validation.
+- Pas de nouvelle recommandation dans docs/STRATEGIE.md : aucune donnée nouvelle depuis le diagnostic du 22/10.
+- Récap envoyé ? Non : clé Resend absente (out/email_bilan*.txt).
