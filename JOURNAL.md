@@ -160,3 +160,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - P2 : vote PAYER 2/2 inchangé, aucun nouveau commentaire. Voix P3 absente (Drive vérifié), pas de clé ElevenLabs/Resend.
 - En attente du propriétaire : validation du texte P3 v2, choix des bruitages, dépôt de P3.mp3.
 - 24/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2), aucune réponse à envoyer.
+- 25/10 13h05 : P2 inchangée (PAYER 2/2) ; 1 réponse automatique envoyée à @yassine_9537 (« si c pas du plagiat ça ») avec l'invitation à voter — réponse générique peu adaptée à une critique, à surveiller. P3 toujours en attente (texte v2, bruitages, voix).
