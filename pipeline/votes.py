@@ -48,23 +48,27 @@ def count(options, all_comments):
 
 def fetch(ep):
     """Commentaires de toutes les plateformes d'un épisode (une plateforme en panne ne bloque pas)."""
-    allc = []
+    allc, ok = [], False
     for platform, post in ep.get("posts", {}).items():
         try:
             cs = comments(platform, post)
         except Exception as e:
             print(f"[{platform}] commentaires indisponibles : {e}")
             continue
+        ok = True
         for c in cs:
             c["platform"] = platform
         allc += cs
-    return allc
+    return allc if ok or not ep.get("posts") else None
 
 
 def main(ep_id):
     mem = json.load(open(MEM))
     ep = next(e for e in mem["episodes"] if e["id"] == ep_id)
-    allc = [c for c in fetch(ep) if not est_a_nous(c, mem)]
+    allc = fetch(ep)
+    if allc is None:  # aucune plateforme lisible : on garde le dernier résultat connu plutôt que de l'effacer
+        sys.exit("Commentaires illisibles sur toutes les plateformes : résultat précédent conservé.")
+    allc = [c for c in allc if not est_a_nous(c, mem)]
     res = count(ep["vote"], allc)
     total = sum(res.values())
     winner = res.most_common(1)[0][0] if res else None

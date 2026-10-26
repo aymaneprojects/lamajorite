@@ -27,7 +27,10 @@ ACCROCHES = ["Tu trouves 9 840 000 € dans un box. Personne ne sait. Tu fais qu
 
 
 def public_comments(ep, mem):
-    return [c for c in fetch(ep) if not est_a_nous(c, mem)]
+    allc = fetch(ep)
+    if allc is None:  # API muette ≠ 0 commentaire : ne jamais décider une suppression là-dessus
+        sys.exit("Commentaires illisibles sur toutes les plateformes : pas de décision de relance.")
+    return [c for c in allc if not est_a_nous(c, mem)]
 
 
 def decide(ep_id):

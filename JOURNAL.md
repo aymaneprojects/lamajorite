@@ -184,3 +184,7 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
   ce lundi : le faire dès que l'arc P6+ est validé. Le stock couvre les 3 prochains épisodes (P3 toujours bloquée sur la voix).
 - 26/10 19h05 : pas de P3 (voix absente du Drive, 5e soir sans épisode) ; P2 inchangée (PAYER 2/2).
 - 26/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2).
+- 26/10 23h35 (suite) : **Upload-Post refuse désormais le profil affaires-classees** (« not available on your current plan ») →
+  commentaires illisibles. `votes.py` avait écrasé le résultat P2 par un résultat vide : restauré (PAYER 2/2).
+  Garde-fous : `votes.py` conserve le dernier résultat et `relance.py` ne décide plus rien (pas de suppression) si aucune
+  plateforme ne répond. Carte « Bloqué » ajoutée pour le propriétaire.
