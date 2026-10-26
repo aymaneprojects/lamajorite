@@ -182,3 +182,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - P3, P4, P5 : toutes les images présentes (180 dans images/, 0 manquante d'après la bible).
 - P6 → P9 : pas encore écrits (dépendent des votes et de la refonte narrative demandée par le propriétaire) → pas de pack de prompts
   ce lundi : le faire dès que l'arc P6+ est validé. Le stock couvre les 3 prochains épisodes (P3 toujours bloquée sur la voix).
+- 26/10 19h05 : pas de P3 (voix absente du Drive, 5e soir sans épisode) ; P2 inchangée (PAYER 2/2).
