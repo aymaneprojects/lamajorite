@@ -177,3 +177,8 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - Pas de nouvelle recommandation dans docs/STRATEGIE.md : aucune donnée nouvelle depuis le diagnostic du 22/10.
 - Récap envoyé ? Non : clé Resend absente (out/email_bilan*.txt).
 - 25/10 23h35 : aucun épisode publié ce soir (voix P3 absente) ; P2 inchangée (PAYER 2/2).
+
+## 26/10 — lundi 10h05 · Stock d'images
+- P3, P4, P5 : toutes les images présentes (180 dans images/, 0 manquante d'après la bible).
+- P6 → P9 : pas encore écrits (dépendent des votes et de la refonte narrative demandée par le propriétaire) → pas de pack de prompts
+  ce lundi : le faire dès que l'arc P6+ est validé. Le stock couvre les 3 prochains épisodes (P3 toujours bloquée sur la voix).
