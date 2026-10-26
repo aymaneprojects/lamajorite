@@ -106,12 +106,10 @@
    },
    "publie_le": "2026-10-21T21:00+02:00",
    "result": {
-    "counts": {
-     "PAYER": 2
-    },
-    "total_votes": 2,
-    "winner": "PAYER",
-    "comments": 5
+    "counts": {},
+    "total_votes": 0,
+    "winner": null,
+    "comments": 0
    },
    "verdict_qualite": "directeur-qa : refus boucle 1 (2 plans < 1 s, traîne voix 7,5) → plans fusionnés/coupés ; traîne = artefact de mesure (fins de mots transcrites ~0,1 s tôt, voix sèche) → publier=true boucle 2",
    "urls": {
@@ -119,24 +117,8 @@
     "tiktok": "https://www.tiktok.com/@lamajorite.serie/video/7699198595630664993",
     "instagram": "https://www.instagram.com/reel/DexHQzTDI4p/"
    },
-   "persons_of_interest": [
-    "@evil_shrimply",
-    "@lepro2cfgh",
-    "@mistermarti",
-    "@yassine_9537"
-   ],
-   "comment_samples": [
-    {
-     "user": "yassine_9537",
-     "text": "si c pas du plagiat ça",
-     "platform": "instagram"
-    },
-    {
-     "user": "mistermarti",
-     "text": "Tu les passes",
-     "platform": "instagram"
-    }
-   ],
+   "persons_of_interest": [],
+   "comment_samples": [],
    "repondus": [
     "18028245353860083",
     "18059360885555181",
