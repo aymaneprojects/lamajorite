@@ -5,7 +5,7 @@ Format : `- [ ] tâche — (qui) — détail`. Le propriétaire peut ajouter des
 
 ## 🔴 Bloqué — action du propriétaire
 - [ ] **26/10 : Upload-Post refuse le profil `affaires-classees` (« not available on your current plan »)** → plus de lecture des commentaires, et publication très probablement bloquée aussi. Vérifier l'abonnement Upload-Post (plan Basic) ou le nombre de profils autorisés — (propriétaire)
-- [ ] **22/10 (toujours bloqué le 27/10, 6 soirs sans épisode) : voix P3 à générer — texte narratif v2 `episodes/P3_voix_v2.txt` à valider** (ElevenLabs, Nicolas Petit, texte `out/P3_voix.txt` / ci-dessous dans JOURNAL) → déposer `P3.mp3` dans le Drive `voix/`. Sans elle, pas de P3 ce soir (rattrapage 20h20). Ajouter aussi `RESEND_API_KEY` (emails) ou `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` (voix auto) — (propriétaire)
+- [ ] **22/10 (toujours bloqué le 28/10, 7 soirs sans épisode) : voix P3 à générer — texte narratif v2 `episodes/P3_voix_v2.txt` à valider** (ElevenLabs, Nicolas Petit, texte `out/P3_voix.txt` / ci-dessous dans JOURNAL) → déposer `P3.mp3` dans le Drive `voix/`. Sans elle, pas de P3 ce soir (rattrapage 20h20). Ajouter aussi `RESEND_API_KEY` (emails) ou `ELEVENLABS_API_KEY` + `ELEVENLABS_VOICE_ID` (voix auto) — (propriétaire)
 - [ ] Vérifier les variables d'environnement (Upload-Post et OpenRouter OK le 20/10) : `ELEVENLABS_API_KEY`, `ELEVENLABS_VOICE_ID` (voix Paul K), `OPENROUTER_API_KEY` — (propriétaire)
 - [ ] Mettre photo de profil, bio et stories à la une (kit `La_Majorite_profil.zip`) — (propriétaire)
 - [ ] Épingler la Partie 1 sur les 3 plateformes après sa publication — (propriétaire)

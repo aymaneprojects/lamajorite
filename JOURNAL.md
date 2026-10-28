@@ -190,3 +190,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
   plateforme ne répond. Carte « Bloqué » ajoutée pour le propriétaire.
 - 27/10 19h05 : pas de P3 (6e soir) — voix absente, Upload-Post toujours sur le plan Default (profil refusé).
 - 27/10 23h35 : aucun épisode publié ; Upload-Post toujours sur le plan Default (commentaires illisibles).
+- 28/10 19h05 : pas de P3 (7e soir) — voix absente, Upload-Post toujours sur le plan Default.
