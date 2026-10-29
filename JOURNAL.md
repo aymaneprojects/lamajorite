@@ -192,3 +192,4 @@ Regarde bien son sourire. Ce n'est pas toi qu'il regarde.
 - 27/10 23h35 : aucun épisode publié ; Upload-Post toujours sur le plan Default (commentaires illisibles).
 - 28/10 19h05 : pas de P3 (7e soir) — voix absente, Upload-Post toujours sur le plan Default.
 - 28/10 23h35 : aucun épisode publié ; Upload-Post toujours sur le plan Default.
+- 29/10 19h05 : pas de P3 (8e soir) — voix absente, Upload-Post toujours sur le plan Default.
